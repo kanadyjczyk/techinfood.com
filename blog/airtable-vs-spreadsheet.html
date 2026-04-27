@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Airtable vs Spreadsheets for Food Business Inventory | TechInFood</title>
+<meta name="description" content="An honest comparison of Airtable vs Excel/Google Sheets for food business inventory management. When spreadsheets are fine, when they're costing you — and how to switch.">
+<link rel="canonical" href="https://www.techinfood.com/blog/airtable-vs-spreadsheet.html">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+  .page-layout { display: grid; grid-template-columns: 1fr 280px; gap: 1px; background: var(--border); }
+  .page-main { background: var(--bg); padding: 60px 64px; }
+  .page-sidebar { background: var(--panel); padding: 36px 26px; position: sticky; top: 72px; height: fit-content; }
+  .sidebar-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+  .sidebar-section { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+  .sidebar-section:last-child { border-bottom: none; margin-bottom: 0; }
+  .related-card { display: block; text-decoration: none; padding: 10px 0; border-bottom: 1px solid rgba(232,164,34,0.05); transition: padding-left 0.2s; }
+  .related-card:hover { padding-left: 4px; }
+  .related-card:last-child { border-bottom: none; }
+  .related-title { font-size: 11px; color: var(--text); margin-bottom: 2px; line-height: 1.4; }
+  .related-type { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+  .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin: 24px 0; }
+  .vs-col { background: var(--panel); padding: 24px; }
+  .vs-header { font-family: 'Fraunces', serif; font-size: 16px; color: var(--cream); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .vs-item { font-size: 11px; color: var(--muted); padding: 7px 0; border-bottom: 1px solid rgba(232,164,34,0.04); display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
+  .vs-item:last-child { border-bottom: none; }
+  .vs-item.good::before { content: '✓'; color: var(--green-bright); flex-shrink: 0; }
+  .vs-item.bad::before { content: '✗'; color: #e07060; flex-shrink: 0; }
+  .page-hero-inner { padding: 120px 80px 0; background: var(--surface); border-bottom: 1px solid var(--border); }
+  @media(max-width:900px){ .page-hero-inner{padding:100px 24px 0;} .page-layout{grid-template-columns:1fr;} .page-main{padding:40px 24px;} .page-sidebar{position:static;} .vs-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal" id="modal-inner">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="section-label" style="margin-bottom:10px;">Ready to make the switch?</div>
+    <h3>We can help you set up Airtable</h3>
+    <p>Whether you need a guided session or a done-for-you build, we're happy to help.</p>
+    <div class="modal-form">
+      <input type="text" placeholder="Your name" /><input type="email" placeholder="Your email" />
+      <select><option disabled selected>What would help?</option><option>Free advice call</option><option>Guided Airtable setup</option><option>Done-for-you build</option></select>
+      <textarea placeholder="How many products and what do you currently track in spreadsheets?"></textarea>
+      <button class="modal-submit" onclick="submitForm()">Send →</button>
+      <div class="modal-note">We reply within 1 business day</div>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <a href="/" class="logo">Tech<span>In</span>Food <span class="logo-badge">Knowledge Hub</span></a>
+  <ul>
+    <li><a href="/guides/">Guides</a></li>
+    <li><a href="/#ai-docs">AI Workflows</a></li>
+    <li><a href="/#tools">Tools</a></li>
+    <li><a href="/blog/" class="active">Blog</a></li>
+    <li><a href="/#ask-us">Get Help</a></li>
+    <li><a href="#" onclick="openModal()" class="nav-cta">Ask Us</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero-inner">
+  <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span> Airtable vs Spreadsheets</div>
+  <div style="padding-bottom:40px;">
+    <div class="section-label">Blog · Inventory · Getting started</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,46px);font-weight:900;color:var(--cream);letter-spacing:-1px;line-height:1.05;margin-bottom:16px;">Airtable vs Spreadsheets<br>for Food Business Inventory</h1>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px;">
+      <span class="badge badge-free">Free</span><span class="badge badge-beginner">Beginner</span>
+      <span style="font-size:10px;color:var(--muted);">⏱ 6 min read</span>
+    </div>
+  </div>
+</div>
+
+<div class="ticker"><div class="ticker-inner">◆ AIRTABLE FOR FOOD BUSINESSES &nbsp;&nbsp;&nbsp; ◆ INVENTORY MANAGEMENT &nbsp;&nbsp;&nbsp; ◆ SPREADSHEET ALTERNATIVE &nbsp;&nbsp;&nbsp; ◆ FOOD DISTRIBUTOR TOOLS &nbsp;&nbsp;&nbsp; ◆ AIRTABLE FOR FOOD BUSINESSES &nbsp;&nbsp;&nbsp; ◆ INVENTORY MANAGEMENT &nbsp;&nbsp;&nbsp; ◆ SPREADSHEET ALTERNATIVE &nbsp;&nbsp;&nbsp;</div></div>
+
+<div style="background:var(--bg);padding:60px 80px;">
+  <div class="page-layout">
+    <div class="page-main reveal">
+      <div class="article-body">
+        <p>Spreadsheets aren't bad. Excel and Google Sheets are genuinely powerful tools and plenty of small food businesses run on them just fine. The question isn't "are spreadsheets good?" — it's "is a spreadsheet the right tool for what you're trying to do?"</p>
+        <p>For inventory and product data specifically, there's a point where spreadsheets start working against you. This article helps you identify if you've reached that point.</p>
+
+        <h3>What spreadsheets are good at</h3>
+        <ul>
+          <li>Quick calculations and financial modelling</li>
+          <li>One-off analysis and reporting</li>
+          <li>Data that one person maintains and controls</li>
+          <li>Information that doesn't need to connect to other systems</li>
+          <li>Getting started fast with zero cost</li>
+        </ul>
+
+        <h3>Where spreadsheets struggle for food business inventory</h3>
+        <p>The problems usually appear gradually:</p>
+        <ul>
+          <li><strong>Multiple people editing the same file</strong> — version conflicts, accidental overwrites, "which one is the latest?"</li>
+          <li><strong>The file gets emailed around</strong> — five copies exist, none of them current</li>
+          <li><strong>You can't link it to anything</strong> — updating stock means updating the spreadsheet, the website, the price list, and the wholesale portal separately</li>
+          <li><strong>No history or audit trail</strong> — who changed what, and when?</li>
+          <li><strong>Formulas break</strong> — someone inserts a row, breaks a VLOOKUP, and no one notices until the stock count is wrong</li>
+          <li><strong>You can't automate against it</strong> — you can't set a trigger to fire when stock drops below a threshold</li>
+        </ul>
+
+        <div class="vs-grid">
+          <div class="vs-col">
+            <div class="vs-header">📊 Spreadsheet</div>
+            <div class="vs-item good">Free or very cheap</div>
+            <div class="vs-item good">Everyone knows how to use it</div>
+            <div class="vs-item good">Great for one-person data</div>
+            <div class="vs-item bad">Breaks under multi-user editing</div>
+            <div class="vs-item bad">No API — can't connect to other systems</div>
+            <div class="vs-item bad">No automation triggers</div>
+            <div class="vs-item bad">Easy to accidentally corrupt</div>
+            <div class="vs-item bad">Can't store images or attachments properly</div>
+          </div>
+          <div class="vs-col">
+            <div class="vs-header">🗄️ Airtable</div>
+            <div class="vs-item good">Free up to 1,000 records</div>
+            <div class="vs-item good">Familiar spreadsheet-like interface</div>
+            <div class="vs-item good">Multi-user, real-time, with history</div>
+            <div class="vs-item good">Full REST API — connects to anything</div>
+            <div class="vs-item good">Built-in automation rules</div>
+            <div class="vs-item good">Attachments, images, linked records</div>
+            <div class="vs-item bad">Paid plan needed for larger catalogues</div>
+            <div class="vs-item bad">Slightly more setup required</div>
+          </div>
+        </div>
+
+        <h3>The moment to switch</h3>
+        <p>Switch from spreadsheets to Airtable when any of these apply:</p>
+        <ul>
+          <li>More than one person needs to update the same data</li>
+          <li>You want stock data to automatically update your website or Shopify</li>
+          <li>You need to track allergens, nutritional data, or certifications per product</li>
+          <li>You want to set low-stock alerts or automated reorder reminders</li>
+          <li>You're planning to use AI for order processing (it needs a structured product catalogue to match against)</li>
+        </ul>
+
+        <h3>How to migrate without disruption</h3>
+        <p>The good news: migration is straightforward. Airtable imports CSV files directly — so your existing spreadsheet becomes your starting point:</p>
+        <ol>
+          <li>Export your current spreadsheet as CSV</li>
+          <li>Create a new Airtable base and import the CSV as your Products table</li>
+          <li>Clean up column types (numbers as numbers, checkboxes as checkboxes)</li>
+          <li>Add the fields spreadsheets can't handle: allergens, images, linked suppliers</li>
+          <li>Share the base with your team and archive the spreadsheet</li>
+        </ol>
+        <p>Most small food businesses can complete this migration in an afternoon. See our full <a href="/guides/airtable-pim.html">Airtable PIM guide</a> for the complete field structure.</p>
+
+        <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border);">
+          <a href="/guides/airtable-pim.html" class="btn-primary">Read the full Airtable setup guide →</a>
+          <button class="btn-outline" onclick="openModal()" style="margin-left:12px;">Get help switching →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">Next steps</div>
+        <a href="/guides/airtable-pim.html" class="related-card">
+          <div class="related-title">Full Airtable PIM setup guide</div>
+          <div class="related-type">Guide · Step-by-step</div>
+        </a>
+        <a href="/blog/posts/do-i-need-an-erp.html" class="related-card">
+          <div class="related-title">Do I actually need an ERP?</div>
+          <div class="related-type">Blog post</div>
+        </a>
+        <a href="/guides/ai-email-to-sales-order.html" class="related-card">
+          <div class="related-title">AI email to sales order conversion</div>
+          <div class="related-type">Guide · AI</div>
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Want help switching?</div>
+        <p style="font-size:11px;color:var(--muted);line-height:1.7;margin-bottom:14px;">We can walk through the migration with you or build your Airtable base for you.</p>
+        <button class="btn-primary" style="width:100%;" onclick="openModal()">Talk to us →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div><a href="/" class="logo">Tech<span>In</span>Food</a><p class="footer-desc">Free guides and advice for small food businesses.</p></div>
+  <div class="footer-col"><h4>Guides</h4><ul><li><a href="/guides/airtable-pim.html">Airtable PIM</a></li><li><a href="/guides/ai-email-to-sales-order.html">AI Email Orders</a></li></ul></div>
+  <div class="footer-col"><h4>Blog</h4><ul><li><a href="/blog/">All posts</a></li><li><a href="/blog/posts/do-i-need-an-erp.html">Do I need an ERP?</a></li></ul></div>
+  <div class="footer-col"><h4>Support</h4><ul><li><a onclick="openModal()">Ask a Question</a></li></ul></div>
+</footer>
+<div class="footer-bottom"><span>© 2025 TechInFood</span><span>hello@techinfood.com</span></div>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

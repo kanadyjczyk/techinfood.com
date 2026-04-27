@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Do I Actually Need an ERP? A Guide for Small Food Distributors | TechInFood</title>
+<meta name="description" content="Honest advice on when a food distribution business actually needs an ERP system — and when Airtable plus integrations is enough. Includes a decision framework for businesses under 20 staff.">
+<link rel="canonical" href="https://www.techinfood.com/blog/do-i-need-an-erp.html">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+  .page-layout { display: grid; grid-template-columns: 1fr 280px; gap: 1px; background: var(--border); }
+  .page-main { background: var(--bg); padding: 60px 64px; }
+  .page-sidebar { background: var(--panel); padding: 36px 26px; position: sticky; top: 72px; height: fit-content; }
+  .sidebar-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+  .sidebar-section { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+  .sidebar-section:last-child { border-bottom: none; margin-bottom: 0; }
+  .related-card { display: block; text-decoration: none; padding: 10px 0; border-bottom: 1px solid rgba(232,164,34,0.05); transition: padding-left 0.2s; }
+  .related-card:hover { padding-left: 4px; }
+  .related-card:last-child { border-bottom: none; }
+  .related-title { font-size: 11px; color: var(--text); margin-bottom: 2px; line-height: 1.4; }
+  .related-type { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+  .decision-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 12px; }
+  .decision-table th { background: var(--panel); padding: 10px 14px; text-align: left; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber-dim); border-bottom: 1px solid var(--border); font-weight: 400; }
+  .decision-table td { padding: 12px 14px; border-bottom: 1px solid rgba(232,164,34,0.05); color: var(--muted); vertical-align: top; }
+  .decision-table td:first-child { color: var(--cream); }
+  .decision-table .yes { color: var(--green-bright); }
+  .decision-table .no { color: var(--muted); }
+  .page-hero-inner { padding: 120px 80px 0; background: var(--surface); border-bottom: 1px solid var(--border); }
+  @media(max-width:900px){ .page-hero-inner{padding:100px 24px 0;} .page-layout{grid-template-columns:1fr;} .page-main{padding:40px 24px;} .page-sidebar{position:static;} }
+</style>
+</head>
+<body>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal" id="modal-inner">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="section-label" style="margin-bottom:10px;">Not sure what you need?</div>
+    <h3>Let's have a free 30-min call</h3>
+    <p>We'll look at your current setup and give you an honest recommendation — ERP, Airtable, or something in between.</p>
+    <div class="modal-form">
+      <input type="text" placeholder="Your name" /><input type="email" placeholder="Your email" /><input type="text" placeholder="Business name" />
+      <textarea placeholder="Roughly how many orders per week, staff, and what systems you currently use…"></textarea>
+      <button class="modal-submit" onclick="submitForm()">Book free call →</button>
+      <div class="modal-note">We reply within 1 business day</div>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <a href="/" class="logo">Tech<span>In</span>Food <span class="logo-badge">Knowledge Hub</span></a>
+  <ul>
+    <li><a href="/guides/">Guides</a></li>
+    <li><a href="/#ai-docs">AI Workflows</a></li>
+    <li><a href="/#tools">Tools</a></li>
+    <li><a href="/blog/" class="active">Blog</a></li>
+    <li><a href="/#ask-us">Get Help</a></li>
+    <li><a href="#" onclick="openModal()" class="nav-cta">Ask Us</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero-inner">
+  <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span> Do I need an ERP?</div>
+  <div style="padding-bottom:40px;">
+    <div class="section-label">Blog · ERP · Systems</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,50px);font-weight:900;color:var(--cream);letter-spacing:-1px;line-height:1.05;margin-bottom:16px;">Do I Actually Need an ERP?<br>A Guide for Small Food Distributors</h1>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px;">
+      <span class="badge badge-free">Free</span><span class="badge badge-beginner">Beginner</span>
+      <span style="font-size:10px;color:var(--muted);">⏱ 9 min read</span>
+    </div>
+  </div>
+</div>
+
+<div class="ticker"><div class="ticker-inner">◆ ERP FOR FOOD DISTRIBUTORS &nbsp;&nbsp;&nbsp; ◆ WINMAN ERP &nbsp;&nbsp;&nbsp; ◆ AIRTABLE ALTERNATIVE &nbsp;&nbsp;&nbsp; ◆ FOOD BUSINESS SYSTEMS &nbsp;&nbsp;&nbsp; ◆ ERP FOR FOOD DISTRIBUTORS &nbsp;&nbsp;&nbsp; ◆ WINMAN ERP &nbsp;&nbsp;&nbsp; ◆ AIRTABLE ALTERNATIVE &nbsp;&nbsp;&nbsp; ◆ FOOD BUSINESS SYSTEMS &nbsp;&nbsp;&nbsp;</div></div>
+
+<div style="background:var(--bg);padding:60px 80px;">
+  <div class="page-layout">
+    <div class="page-main reveal">
+      <div class="article-body">
+        <p>Every few months a small food distribution business asks us some version of this: "We're outgrowing our spreadsheets. Do we need an ERP?" The honest answer is usually: not yet — but here's how to know when you do.</p>
+        <p>ERP systems are powerful. They're also expensive, complex to implement, and often overkill for businesses under a certain size. Buying one too early can be just as painful as waiting too long.</p>
+
+        <div class="callout"><strong>The short version:</strong> If you're under 20 staff and processing fewer than 100 orders a week, a well-configured Airtable setup with smart integrations will almost certainly serve you better than an ERP — at a fraction of the cost. Read on for the full picture.</div>
+
+        <h3>What an ERP actually does</h3>
+        <p>ERP stands for Enterprise Resource Planning. In a food distribution context, it typically handles:</p>
+        <ul>
+          <li>Purchase orders, sales orders, and order fulfilment</li>
+          <li>Stock management and warehouse operations</li>
+          <li>Financial accounting (invoicing, payments, P&amp;L)</li>
+          <li>Production planning (for manufacturers)</li>
+          <li>Customer and supplier relationship data</li>
+          <li>Reporting and business intelligence</li>
+        </ul>
+        <p>The key word is <em>integrated</em>. An ERP does all of this in one system, with data flowing between modules automatically. That's genuinely powerful — when your business is complex enough to need it.</p>
+
+        <h3>When an ERP is the right answer</h3>
+        <table class="decision-table">
+          <thead><tr><th>Signal</th><th>Suggests</th></tr></thead>
+          <tbody>
+            <tr><td>100+ orders per week across multiple customers</td><td class="yes">ERP starting to make sense</td></tr>
+            <tr><td>Multiple warehouses or depot locations</td><td class="yes">ERP starting to make sense</td></tr>
+            <tr><td>You manufacture as well as distribute</td><td class="yes">ERP starting to make sense</td></tr>
+            <tr><td>You need full traceability (batch/lot tracking)</td><td class="yes">ERP may be required</td></tr>
+            <tr><td>20+ staff, multiple departments needing the same data</td><td class="yes">ERP starting to make sense</td></tr>
+            <tr><td>Under 10 staff, under 50 orders/week</td><td class="no">Airtable + integrations likely sufficient</td></tr>
+            <tr><td>You primarily sell via Shopify or a single channel</td><td class="no">Airtable + Shopify likely sufficient</td></tr>
+            <tr><td>Your main pain is admin and manual data entry</td><td class="no">Automation tools may solve this cheaper</td></tr>
+          </tbody>
+        </table>
+
+        <h3>What to use instead of an ERP (for now)</h3>
+        <p>For most small food distributors and wholesalers, the right stack looks something like this:</p>
+        <ul>
+          <li><strong>Airtable</strong> — as your product catalogue (PIM), inventory tracker, and order log. Structured, API-connected, and your team can use it without training.</li>
+          <li><strong>Shopify</strong> — if you sell online, handling your eCommerce orders, product listings, and customer accounts.</li>
+          <li><strong>Make.com</strong> — to connect everything. Order confirmation emails, stock updates, supplier notifications — automated without code.</li>
+          <li><strong>Xero or QuickBooks</strong> — for your accounting. Both have good APIs and integrate with Make.com.</li>
+          <li><strong>AI email-to-order workflows</strong> — if you receive orders by email, AI can handle the reading and draft order creation automatically.</li>
+        </ul>
+        <p>This stack costs a few hundred pounds a month to run, takes weeks to implement rather than months, and your team can manage it themselves. When you outgrow it — and you'll know when you do — the structured data you've built in Airtable makes migration to an ERP significantly easier.</p>
+
+        <h3>Which ERP for food businesses?</h3>
+        <p>When the time does come, the most common options for UK food distributors and manufacturers are:</p>
+        <ul>
+          <li><strong>Winman</strong> — built for UK manufacturers and distributors, strong on stock control and production. Good REST API and SFTP capabilities for integration.</li>
+          <li><strong>Sage 200</strong> — widely used in UK SMEs, strong accounting module, integrates well with many food industry add-ons.</li>
+          <li><strong>Microsoft Dynamics 365 Business Central</strong> — deeper Microsoft integration, good for businesses already running heavily on M365.</li>
+        </ul>
+
+        <div class="callout"><strong>Unsure where you sit?</strong> Tell us your current setup — team size, order volumes, and what's not working — and we'll give you an honest recommendation. Free, no obligation. <button onclick="openModal()" style="background:none;border:none;color:var(--amber);cursor:pointer;font-family:inherit;font-size:inherit;text-decoration:underline;padding:0;">Book a free call here.</button></div>
+
+        <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border);">
+          <button class="btn-primary" onclick="openModal()">Get a free honest recommendation →</button>
+          <a href="/blog/airtable-vs-spreadsheet.html" class="btn-outline" style="margin-left:12px;">Next: Airtable vs spreadsheets →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">Related guides</div>
+        <a href="/guides/airtable-pim.html" class="related-card">
+          <div class="related-title">Setting up Airtable as a PIM</div>
+          <div class="related-type">Guide · Airtable</div>
+        </a>
+        <a href="/guides/rest-api-sftp-graph.html" class="related-card">
+          <div class="related-title">REST API vs SFTP vs Graph</div>
+          <div class="related-type">Guide · Integration</div>
+        </a>
+        <a href="/blog/airtable-vs-spreadsheet.html" class="related-card">
+          <div class="related-title">Airtable vs spreadsheets</div>
+          <div class="related-type">Blog post</div>
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Not sure what you need?</div>
+        <p style="font-size:11px;color:var(--muted);line-height:1.7;margin-bottom:14px;">Free 30-minute call. We'll look at your situation and give you a straight answer.</p>
+        <button class="btn-primary" style="width:100%;" onclick="openModal()">Book free call →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div><a href="/" class="logo">Tech<span>In</span>Food</a><p class="footer-desc">Free guides and advice for small food businesses.</p></div>
+  <div class="footer-col"><h4>Guides</h4><ul><li><a href="/guides/airtable-pim.html">Airtable PIM</a></li><li><a href="/guides/ai-email-to-sales-order.html">AI Email Orders</a></li><li><a href="/guides/invoice-approval-automation.html">Invoice Automation</a></li></ul></div>
+  <div class="footer-col"><h4>Blog</h4><ul><li><a href="/blog/">All posts</a></li><li><a href="/blog/airtable-vs-spreadsheet.html">Airtable vs Spreadsheet</a></li></ul></div>
+  <div class="footer-col"><h4>Support</h4><ul><li><a onclick="openModal()">Ask a Question</a></li></ul></div>
+</footer>
+<div class="footer-bottom"><span>© 2025 TechInFood</span><span>hello@techinfood.com</span></div>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>
