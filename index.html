@@ -3,877 +3,988 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>TechInFood | Free Guides, Documentation & Tech Advice for Small Food Businesses UK</title>
-<meta name="description" content="TechInFood is the free knowledge hub for small food distributors, wholesalers, and food businesses. Plain-English guides, how-to documentation, AI workflow tutorials, and expert advice on Airtable PIM, ERP, Shopify, and systems integration. Free to read. No jargon.">
-<meta name="keywords" content="food business technology guides UK, Airtable PIM food industry guide, AI sales order automation how to, invoice approval automation food, food distributor software advice, ERP food business documentation, Shopify food ecommerce guide, SFTP food integration, Microsoft Graph food ERP, small food business tech help, food wholesale management tips, food tech knowledge base UK">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<meta name="author" content="TechInFood">
-<link rel="canonical" href="https://www.techinfood.com/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TechInFood | Free Tech Guides & Advice for Small Food Businesses">
-<meta property="og:description" content="Plain-English guides, documentation, and advice on AI workflows, PIM, ERP, Shopify, and systems integration — written specifically for small food distributors and food businesses.">
-<meta property="og:url" content="https://www.techinfood.com/">
-<meta property="og:site_name" content="TechInFood">
-<meta property="og:locale" content="en_GB">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="TechInFood | Free Tech Guides for Small Food Businesses UK">
-<meta name="twitter:description" content="Free guides, how-to docs, AI workflow tutorials, and honest advice for food distributors, wholesalers, and food-related businesses.">
-
+<title>Manuals & Documentation Shop | TechInFood</title>
+<meta name="description" content="Professional manuals and documentation for food distributors, wholesalers, and food businesses. Airtable setup manuals, AI workflow guides, ERP implementation docs — written by food tech specialists. Instant download.">
+<link rel="canonical" href="https://www.techinfood.com/manuals/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "TechInFood",
-  "url": "https://www.techinfood.com",
-  "description": "TechInFood is a knowledge hub and advisory resource providing free guides, documentation, and expert advice on technology systems for small and medium food businesses in the UK.",
-  "email": "hello@techinfood.com",
-  "areaServed": {"@type":"Country","name":"United Kingdom"},
-  "knowsAbout": ["Food distribution software","AI sales order automation","Invoice approval automation","Airtable PIM","ERP integration","Microsoft Graph","Shopify food ecommerce","SFTP data integration","Food business workflow automation"]
+  "@type": "Store",
+  "name": "TechInFood Manuals",
+  "description": "Professional manuals and documentation for small food businesses. Instant digital download.",
+  "url": "https://www.techinfood.com/manuals/",
+  "currenciesAccepted": "GBP",
+  "paymentAccepted": "Credit Card, PayPal",
+  "areaServed": "United Kingdom"
 }
 </script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"How do I set up Airtable as a PIM for my food business?","acceptedAnswer":{"@type":"Answer","text":"Airtable can be configured as a Product Information Management system by creating a base with tables for Products, Categories, Allergens, and Channels. Link your product records to allergen and supplier tables, add attachment fields for images, and use the Airtable API to sync data to Shopify or your website. TechInFood provides free step-by-step guides on this setup."}},
-    {"@type":"Question","name":"What is email to sales order automation for food distributors?","acceptedAnswer":{"@type":"Answer","text":"Email to sales order automation uses AI to read incoming customer order emails, extract product lines and quantities, match them to your product catalogue, and create a draft sales order in your system. This eliminates manual re-keying of orders and typically processes an email in under 2 seconds."}},
-    {"@type":"Question","name":"Which ERP systems work best for small food distributors in the UK?","acceptedAnswer":{"@type":"Answer","text":"For small food distributors in the UK, Winman ERP is a strong option for manufacturers and distributors. Sage is widely used for accounts integration. For very small businesses, Airtable combined with Make.com automation can serve as a lightweight operations system before committing to a full ERP. TechInFood provides comparison guides for each option."}},
-    {"@type":"Question","name":"How do I connect Shopify to my food business ERP?","acceptedAnswer":{"@type":"Answer","text":"Shopify connects to most ERP systems via REST API or through middleware platforms like Make.com. The integration typically syncs orders from Shopify into your ERP, pushes stock levels back to Shopify, and updates product information from a central source like Airtable. TechInFood has documentation covering this integration step by step."}},
-    {"@type":"Question","name":"What is Microsoft Graph API and how is it used in food businesses?","acceptedAnswer":{"@type":"Answer","text":"Microsoft Graph API provides programmatic access to Microsoft 365 services including SharePoint, Outlook, Teams, Excel, and OneDrive. Food businesses use it to automate document creation, read order emails from Outlook, manage files in SharePoint, and connect Office 365 data to their operational systems."}},
-    {"@type":"Question","name":"Is SFTP still relevant for food business integrations?","acceptedAnswer":{"@type":"Answer","text":"Yes. SFTP (Secure File Transfer Protocol) remains essential for food business integrations where real-time APIs aren't available — such as sending daily stock files to wholesale customers, receiving supplier price lists, syncing with legacy ERP systems, and EDI-based order exchange. Many food industry suppliers and retailers still use SFTP as their primary data exchange method."}}
-  ]
-}
-</script>
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
 <style>
-  :root {
-    --bg: #0d0d0b;
-    --surface: #141410;
-    --panel: #1a1a14;
-    --amber: #e8a422;
-    --amber-dim: #a8761a;
-    --cream: #f0e8d0;
-    --muted: #6b6550;
-    --text: #d4cab0;
-    --green-bright: #6db872;
-    --green-soft: #2a3d2b;
-    --blue-soft: #1a2035;
-    --border: rgba(232,164,34,0.15);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; font-size: 14px; line-height: 1.6; overflow-x: hidden; }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 48px;
-    background: rgba(13,13,11,0.94);
-    backdrop-filter: blur(12px);
+  /* PAGE HERO */
+  .page-hero {
+    padding: 120px 80px 60px;
+    background: var(--surface);
     border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
   }
-  .logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--cream); letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
-  .logo span { color: var(--amber); }
-  .logo-badge { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; background: rgba(232,164,34,0.12); color: var(--amber); padding: 3px 7px; font-family: 'DM Mono', monospace; font-weight: 400; }
-  nav ul { list-style: none; display: flex; gap: 28px; align-items: center; }
-  nav ul a { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
-  nav ul a:hover { color: var(--amber); }
-  .nav-cta { background: var(--amber) !important; color: #0d0d0b !important; padding: 7px 16px; font-weight: 500; transition: background 0.2s !important; letter-spacing: 1px !important; }
-  .nav-cta:hover { background: var(--cream) !important; }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
-    padding-top: 72px; position: relative; overflow: hidden;
+  .hero-trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
   }
-  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(232,164,34,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(232,164,34,0.03) 1px, transparent 1px); background-size: 40px 40px; }
-  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 48px 80px 80px; position: relative; z-index: 2; }
-  .hero-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
-  .eyebrow-tag { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; background: rgba(232,164,34,0.1); color: var(--amber); padding: 4px 10px; border: 1px solid rgba(232,164,34,0.2); }
-  .eyebrow-free { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; background: rgba(109,184,114,0.1); color: var(--green-bright); padding: 4px 10px; border: 1px solid rgba(109,184,114,0.2); }
-  h1 { font-family: 'Playfair Display', serif; font-size: clamp(38px, 4.5vw, 64px); font-weight: 900; line-height: 1.05; color: var(--cream); letter-spacing: -1.5px; margin-bottom: 20px; }
-  h1 em { font-style: italic; color: var(--amber); }
-  .hero-desc { font-size: 14px; color: var(--muted); line-height: 1.9; max-width: 440px; margin-bottom: 36px; }
-  .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-  .btn-primary { background: var(--amber); color: #0d0d0b; padding: 13px 28px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; font-weight: 500; transition: all 0.2s; display: inline-block; cursor: pointer; border: none; white-space: nowrap; }
-  .btn-primary:hover { background: var(--cream); transform: translateY(-2px); }
-  .btn-outline { color: var(--text); padding: 13px 22px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; border: 1px solid var(--border); transition: all 0.2s; display: inline-block; cursor: pointer; background: none; white-space: nowrap; }
-  .btn-outline:hover { border-color: var(--amber); color: var(--amber); }
-  .hero-trust { margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border); display: flex; gap: 24px; flex-wrap: wrap; }
-  .trust-item { font-size: 10px; letter-spacing: 1px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
-  .trust-item::before { content: '✓'; color: var(--green-bright); font-size: 11px; }
+  .trust-pill {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 5px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .trust-pill::before { content: '✓'; color: var(--green-bright); }
 
-  /* HERO RIGHT - resource preview */
-  .hero-right { position: relative; display: flex; align-items: center; justify-content: center; background: var(--surface); border-left: 1px solid var(--border); padding: 40px; }
-  .doc-stack { width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 10px; }
-  .doc-card { background: var(--panel); border: 1px solid var(--border); padding: 16px 18px; display: flex; align-items: center; gap: 14px; transition: border-color 0.2s, transform 0.2s; cursor: default; }
-  .doc-card:hover { border-color: var(--amber-dim); transform: translateX(4px); }
-  .doc-icon { font-size: 20px; flex-shrink: 0; }
-  .doc-type { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber-dim); margin-bottom: 3px; }
-  .doc-title { font-size: 12px; color: var(--cream); line-height: 1.4; }
-  .doc-badge { margin-left: auto; flex-shrink: 0; font-size: 8px; letter-spacing: 1px; text-transform: uppercase; padding: 2px 7px; }
-  .badge-free { background: rgba(109,184,114,0.1); color: var(--green-bright); border: 1px solid rgba(109,184,114,0.2); }
-  .badge-new { background: rgba(232,164,34,0.1); color: var(--amber); border: 1px solid rgba(232,164,34,0.2); }
-  .badge-guide { background: rgba(255,255,255,0.05); color: var(--muted); border: 1px solid var(--border); }
+  /* MANUAL PREVIEW VISUAL */
+  .manual-preview-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 32px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .manual-preview-stack::before {
+    content: '📄';
+    position: absolute;
+    right: 20px;
+    bottom: 16px;
+    font-size: 80px;
+    opacity: 0.06;
+  }
+  .preview-doc {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: border-color 0.2s;
+  }
+  .preview-doc:hover { border-color: var(--amber-dim); }
+  .preview-doc-icon { font-size: 18px; flex-shrink: 0; }
+  .preview-doc-name { font-size: 11px; color: var(--cream); line-height: 1.3; }
+  .preview-doc-pages { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+  .preview-doc-price {
+    margin-left: auto;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--amber);
+    flex-shrink: 0;
+  }
 
-  /* TICKER */
-  .ticker { background: var(--amber); color: #0d0d0b; overflow: hidden; white-space: nowrap; padding: 9px 0; }
-  .ticker-inner { display: inline-block; animation: ticker 40s linear infinite; font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; }
-  @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  /* FILTER BAR */
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    align-items: center;
+  }
+  .filter-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-right: 8px; }
+  .filter-btn {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Mono', monospace;
+  }
+  .filter-btn:hover, .filter-btn.active { border-color: var(--amber); color: var(--amber); }
 
-  /* TOPIC BAND */
-  .topics { background: var(--surface); padding: 60px 80px; border-bottom: 1px solid var(--border); }
-  .topics-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
-  .topics-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--border); }
-  .topic-tile { background: var(--surface); padding: 24px 20px; text-align: center; cursor: pointer; transition: background 0.2s; text-decoration: none; display: block; }
-  .topic-tile:hover { background: var(--panel); }
-  .topic-tile-icon { font-size: 24px; margin-bottom: 10px; }
-  .topic-tile-label { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--text); line-height: 1.4; }
+  /* MANUAL CARDS GRID */
+  .manuals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+  .manual-card {
+    background: var(--bg);
+    padding: 36px 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.25s;
+  }
+  .manual-card:hover { background: var(--panel); }
+  .manual-card-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+  }
+  .badge-new { background: rgba(232,164,34,0.12); color: var(--amber); border: 1px solid rgba(232,164,34,0.25); }
+  .badge-bestseller { background: rgba(109,184,114,0.12); color: var(--green-bright); border: 1px solid rgba(109,184,114,0.25); }
+  .badge-bundle { background: rgba(232,164,34,0.08); color: var(--amber-dim); border: 1px solid rgba(232,164,34,0.15); }
+  .manual-icon { font-size: 32px; margin-bottom: 18px; }
+  .manual-cat { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber-dim); margin-bottom: 10px; }
+  .manual-title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    color: var(--cream);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .manual-desc { font-size: 12px; color: var(--muted); line-height: 1.8; flex: 1; margin-bottom: 20px; }
+  .manual-contents { margin: 0 0 20px; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .manual-contents li {
+    font-size: 10px;
+    color: var(--muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+  }
+  .manual-contents li::before { content: '—'; color: var(--amber-dim); flex-shrink: 0; }
+  .manual-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .meta-pill {
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+  }
+  .manual-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+    margin-top: auto;
+  }
+  .manual-price {
+    display: flex;
+    flex-direction: column;
+  }
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--amber);
+    font-weight: 700;
+    line-height: 1;
+  }
+  .price-label { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
+  .btn-buy {
+    background: var(--amber);
+    color: #0d0d0b;
+    padding: 11px 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .btn-buy:hover { background: var(--cream); transform: translateY(-1px); }
+  .btn-preview {
+    background: none;
+    color: var(--muted);
+    padding: 11px 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: none;
+    border-bottom: 1px solid var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .btn-preview:hover { color: var(--amber); border-color: var(--amber); }
 
-  /* SECTIONS */
-  section { padding: 80px 80px; }
-  .section-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
-  h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 46px); font-weight: 700; color: var(--cream); line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 16px; }
+  /* BUNDLE CARD */
+  .manual-card.bundle {
+    background: var(--panel);
+    border: 1px solid rgba(232,164,34,0.2);
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .bundle-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 16px 0;
+  }
+  .bundle-item {
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .bundle-item::before { content: '✓'; color: var(--green-bright); flex-shrink: 0; font-size: 10px; margin-top: 1px; }
+  .bundle-saving {
+    font-size: 11px;
+    color: var(--green-bright);
+    margin-top: 4px;
+  }
 
-  /* GUIDES SECTION */
-  .guides { background: var(--bg); }
-  .guides-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
-  .guides-header-left {}
-  .guides-sub { color: var(--muted); font-size: 13px; line-height: 1.8; max-width: 480px; margin-top: 10px; }
-  .guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
-  .guide-card { background: var(--bg); padding: 36px 32px; position: relative; overflow: hidden; transition: background 0.25s; text-decoration: none; display: block; color: inherit; }
-  .guide-card:hover { background: var(--panel); }
-  .guide-card::after { content: '→'; position: absolute; bottom: 28px; right: 28px; font-size: 18px; color: var(--border); transition: color 0.2s, transform 0.2s; }
-  .guide-card:hover::after { color: var(--amber); transform: translate(4px, -2px); }
-  .guide-cat { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber-dim); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-  .guide-cat::before { content: ''; display: block; width: 20px; height: 1px; background: var(--amber-dim); }
-  .guide-title { font-family: 'Fraunces', serif; font-size: 18px; color: var(--cream); margin-bottom: 10px; line-height: 1.35; }
-  .guide-excerpt { font-size: 11px; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
-  .guide-meta { display: flex; gap: 12px; align-items: center; }
-  .guide-level { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; }
-  .level-beginner { background: rgba(109,184,114,0.1); color: var(--green-bright); }
-  .level-intermediate { background: rgba(232,164,34,0.1); color: var(--amber); }
-  .level-advanced { background: rgba(192,57,43,0.1); color: #e07060; }
-  .guide-time { font-size: 10px; color: var(--muted); }
+  /* HOW IT WORKS */
+  .how-it-works {
+    background: var(--surface);
+    padding: 80px;
+  }
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 48px;
+  }
+  .how-step {
+    background: var(--surface);
+    padding: 32px 26px;
+  }
+  .how-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    color: rgba(232,164,34,0.12);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .how-title { font-family: 'Fraunces', serif; font-size: 16px; color: var(--cream); margin-bottom: 8px; }
+  .how-desc { font-size: 11px; color: var(--muted); line-height: 1.8; }
 
-  /* AI WORKFLOWS DOCS */
-  .ai-docs { background: var(--surface); }
-  .ai-docs-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1px; background: var(--border); margin-top: 48px; }
-  .ai-doc-main { background: var(--surface); padding: 48px 44px; }
-  .ai-doc-sidebar { background: var(--panel); padding: 36px 32px; display: flex; flex-direction: column; gap: 0; }
-  .ai-doc-tag { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 20px; }
-  .ai-doc-title { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--cream); margin-bottom: 14px; line-height: 1.2; }
-  .ai-doc-body { font-size: 12px; color: var(--muted); line-height: 1.9; }
-  .ai-doc-body p { margin-bottom: 14px; }
-  .ai-doc-body strong { color: var(--text); font-weight: 500; }
-  .code-block { background: var(--bg); border: 1px solid var(--border); border-left: 3px solid var(--amber); padding: 16px 18px; font-size: 11px; color: var(--amber-dim); margin: 16px 0; line-height: 1.7; overflow-x: auto; }
-  .code-block .comment { color: var(--muted); }
-  .doc-steps { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
-  .doc-step { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(232,164,34,0.06); }
-  .doc-step:last-child { border-bottom: none; }
-  .doc-step-num { font-family: 'Playfair Display', serif; font-size: 20px; color: rgba(232,164,34,0.3); font-weight: 900; flex-shrink: 0; width: 28px; line-height: 1; padding-top: 2px; }
-  .doc-step-content {}
-  .doc-step-title { font-size: 12px; color: var(--cream); margin-bottom: 4px; font-weight: 500; }
-  .doc-step-desc { font-size: 11px; color: var(--muted); line-height: 1.7; }
-  .sidebar-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
-  .sidebar-link { display: flex; align-items: flex-start; gap: 10px; padding: 12px 0; border-bottom: 1px solid rgba(232,164,34,0.06); cursor: pointer; text-decoration: none; transition: padding-left 0.2s; }
-  .sidebar-link:hover { padding-left: 4px; }
-  .sidebar-link:last-child { border-bottom: none; }
-  .sidebar-link-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
-  .sidebar-link-title { font-size: 11px; color: var(--text); line-height: 1.4; margin-bottom: 2px; }
-  .sidebar-link-type { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+  /* CUSTOM MANUAL REQUEST */
+  .custom-section {
+    background: var(--bg);
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    border-top: 1px solid var(--border);
+  }
+  .custom-form-area {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 36px;
+  }
+  .custom-form { display: flex; flex-direction: column; gap: 10px; }
+  .custom-form input, .custom-form select, .custom-form textarea {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 11px 13px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .custom-form input:focus, .custom-form select:focus, .custom-form textarea:focus { border-color: var(--amber); }
+  .custom-form input::placeholder, .custom-form textarea::placeholder { color: var(--muted); }
+  .custom-form select { color: var(--muted); appearance: none; }
+  .custom-form select option { background: var(--panel); color: var(--text); }
+  .custom-form textarea { resize: none; height: 90px; }
+  .custom-submit {
+    background: var(--amber);
+    color: #0d0d0b;
+    border: none;
+    padding: 13px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 4px;
+  }
+  .custom-submit:hover { background: var(--cream); }
+  .custom-note { font-size: 10px; color: var(--muted); text-align: center; margin-top: 8px; }
 
-  /* TOOL COMPARISON */
-  .tools { background: var(--bg); }
-  .tool-matrix { margin-top: 48px; overflow-x: auto; }
-  .tool-matrix table { width: 100%; border-collapse: collapse; font-size: 12px; }
-  .tool-matrix th { background: var(--panel); padding: 14px 16px; text-align: left; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber-dim); border-bottom: 1px solid var(--border); font-weight: 400; }
-  .tool-matrix td { padding: 14px 16px; border-bottom: 1px solid rgba(232,164,34,0.05); color: var(--text); vertical-align: top; }
-  .tool-matrix tr:hover td { background: rgba(232,164,34,0.02); }
-  .tool-matrix tr:last-child td { border-bottom: none; }
-  .tool-name { font-family: 'Fraunces', serif; font-size: 15px; color: var(--cream); }
-  .tool-type { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--amber-dim); border: 1px solid rgba(168,118,26,0.25); padding: 2px 7px; display: inline-block; margin-top: 3px; }
-  .check { color: var(--green-bright); }
-  .dash { color: var(--muted); }
-  .partial { color: var(--amber-dim); }
-
-  /* TIPS / QUICK WINS */
-  .tips { background: var(--surface); }
-  .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); margin-top: 48px; }
-  .tip-card { background: var(--surface); padding: 36px 32px; position: relative; overflow: hidden; transition: background 0.2s; }
-  .tip-card:hover { background: var(--panel); }
-  .tip-num { font-family: 'Playfair Display', serif; font-size: 56px; color: rgba(232,164,34,0.07); font-weight: 900; position: absolute; top: 16px; right: 24px; line-height: 1; }
-  .tip-label { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; }
-  .tip-title { font-family: 'Fraunces', serif; font-size: 18px; color: var(--cream); margin-bottom: 10px; line-height: 1.35; }
-  .tip-body { font-size: 12px; color: var(--muted); line-height: 1.85; }
-  .tip-body strong { color: var(--text); }
-
-  /* ASK US / SERVICE LIGHT */
-  .ask-us { background: var(--panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 60px 80px; }
-  .ask-us-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .ask-us-badge { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; background: rgba(232,164,34,0.1); color: var(--amber); padding: 4px 10px; display: inline-block; margin-bottom: 16px; border: 1px solid rgba(232,164,34,0.2); }
-  .ask-us h2 { font-size: clamp(24px, 3vw, 38px); margin-bottom: 14px; }
-  .ask-us-desc { font-size: 13px; color: var(--muted); line-height: 1.9; margin-bottom: 24px; }
-  .ask-us-services { display: flex; flex-direction: column; gap: 0; }
-  .ask-service { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid rgba(232,164,34,0.06); align-items: flex-start; }
-  .ask-service:last-child { border-bottom: none; }
-  .ask-service-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
-  .ask-service-title { font-size: 13px; color: var(--cream); margin-bottom: 3px; font-family: 'Fraunces', serif; }
-  .ask-service-desc { font-size: 11px; color: var(--muted); line-height: 1.7; }
-  .ask-service-label { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--amber-dim); margin-top: 4px; }
-
-  /* NEWSLETTER / COMMUNITY */
-  .community { background: var(--bg); padding: 80px; text-align: center; }
-  .community-inner { max-width: 560px; margin: 0 auto; }
-  .community h2 { margin-bottom: 14px; }
-  .community-desc { font-size: 13px; color: var(--muted); line-height: 1.9; margin-bottom: 36px; }
-  .subscribe-form { display: flex; gap: 0; max-width: 420px; margin: 0 auto; }
-  .subscribe-form input { flex: 1; padding: 13px 16px; background: var(--panel); border: 1px solid var(--border); border-right: none; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text); outline: none; transition: border-color 0.2s; }
-  .subscribe-form input:focus { border-color: var(--amber); }
-  .subscribe-form input::placeholder { color: var(--muted); }
-  .subscribe-form button { background: var(--amber); color: #0d0d0b; border: none; padding: 13px 20px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
-  .subscribe-form button:hover { background: var(--cream); }
-  .subscribe-note { margin-top: 12px; font-size: 10px; color: var(--muted); letter-spacing: 0.5px; }
-
-  /* FAQ */
-  .faq { background: var(--surface); }
-  .faq-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); margin-top: 48px; }
-  .faq-item { background: var(--surface); }
-  .faq-q { padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; gap: 20px; font-size: 13px; color: var(--cream); transition: background 0.2s; user-select: none; }
-  .faq-q:hover { background: var(--panel); }
-  .faq-icon { font-size: 18px; color: var(--amber); flex-shrink: 0; transition: transform 0.3s; }
-  .faq-q.open .faq-icon { transform: rotate(45deg); }
-  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; font-size: 12px; color: var(--muted); line-height: 1.9; padding: 0 24px; }
-  .faq-a.open { max-height: 320px; padding: 0 24px 22px; }
-
-  /* FOOTER */
-  footer { background: var(--bg); padding: 60px 80px; border-top: 1px solid var(--border); display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
-  .footer-brand .logo { margin-bottom: 14px; }
-  .footer-desc { font-size: 12px; color: var(--muted); line-height: 1.8; max-width: 260px; }
-  .footer-col h4 { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-col ul a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; cursor: pointer; }
-  .footer-col ul a:hover { color: var(--text); }
-  .footer-bottom { background: var(--bg); padding: 18px 80px; border-top: 1px solid rgba(232,164,34,0.06); display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
-
-  /* MODAL */
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(13,13,11,0.88); z-index: 200; align-items: center; justify-content: center; backdrop-filter: blur(6px); }
-  .modal-overlay.open { display: flex; }
-  .modal { background: var(--panel); border: 1px solid var(--border); padding: 44px; max-width: 440px; width: 90%; position: relative; animation: modalIn 0.3s ease; }
+  /* PREVIEW MODAL */
+  .preview-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(13,13,11,0.92);
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+  }
+  .preview-modal-overlay.open { display: flex; }
+  .preview-modal {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 48px;
+    max-width: 560px;
+    width: 94%;
+    position: relative;
+    animation: modalIn 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
   @keyframes modalIn { from{transform:translateY(20px);opacity:0} to{transform:none;opacity:1} }
-  .modal-close { position: absolute; top: 14px; right: 18px; background: none; border: none; color: var(--muted); font-size: 16px; cursor: pointer; transition: color 0.2s; }
-  .modal-close:hover { color: var(--cream); }
-  .modal h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--cream); margin-bottom: 8px; }
-  .modal p { font-size: 12px; color: var(--muted); line-height: 1.8; margin-bottom: 22px; }
-  .modal-form { display: flex; flex-direction: column; gap: 10px; }
-  .modal-form input, .modal-form select, .modal-form textarea { background: var(--bg); border: 1px solid var(--border); padding: 11px 13px; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text); outline: none; transition: border-color 0.2s; }
-  .modal-form input:focus, .modal-form select:focus, .modal-form textarea:focus { border-color: var(--amber); }
-  .modal-form input::placeholder, .modal-form textarea::placeholder { color: var(--muted); }
-  .modal-form select { color: var(--muted); appearance: none; }
-  .modal-form select option { background: var(--panel); color: var(--text); }
-  .modal-form textarea { resize: none; height: 80px; }
-  .modal-submit { background: var(--amber); color: #0d0d0b; border: none; padding: 13px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; cursor: pointer; transition: background 0.2s; margin-top: 4px; }
-  .modal-submit:hover { background: var(--cream); }
-  .modal-note { font-size: 10px; color: var(--muted); text-align: center; margin-top: 8px; letter-spacing: 0.5px; }
+  .preview-modal-close {
+    position: absolute; top: 14px; right: 18px;
+    background: none; border: none; color: var(--muted); font-size: 16px; cursor: pointer;
+  }
+  .preview-modal-close:hover { color: var(--cream); }
+  .preview-chapter { padding: 14px 0; border-bottom: 1px solid rgba(232,164,34,0.07); }
+  .preview-chapter:last-child { border-bottom: none; }
+  .chapter-num { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber-dim); margin-bottom: 4px; }
+  .chapter-title { font-size: 13px; color: var(--cream); margin-bottom: 4px; font-family: 'Fraunces', serif; }
+  .chapter-pages { font-size: 10px; color: var(--muted); }
+  .chapter-locked { font-size: 10px; color: var(--muted); filter: blur(2px); user-select: none; }
 
-  /* STATUS DOT */
-  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-bright); display: inline-block; animation: pulse 2s ease-in-out infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-
-  /* REVEAL */
-  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .reveal.visible { opacity: 1; transform: none; }
-
-  @media (max-width: 960px) {
-    nav { padding: 14px 20px; }
-    nav ul { display: none; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-left { padding: 80px 24px 48px; }
-    .hero-right { display: none; }
-    section, .ask-us, .community { padding: 56px 24px; }
-    .topics { padding: 40px 24px; }
-    .topics-grid { grid-template-columns: repeat(3, 1fr); }
-    .guides-grid { grid-template-columns: 1fr; }
-    .ai-docs-grid { grid-template-columns: 1fr; }
-    .tips-grid { grid-template-columns: 1fr; }
-    .ask-us-inner { grid-template-columns: 1fr; gap: 36px; }
-    footer { grid-template-columns: 1fr 1fr; padding: 40px 24px; gap: 28px; }
-    .footer-bottom { padding: 14px 24px; flex-direction: column; gap: 6px; }
-    .subscribe-form { flex-direction: column; }
-    .subscribe-form input { border-right: 1px solid var(--border); border-bottom: none; }
-    .guides-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  @media(max-width:900px){
+    .page-hero { grid-template-columns:1fr; padding:100px 24px 40px; }
+    .manuals-grid { grid-template-columns:1fr; }
+    .manual-card.bundle { grid-column: span 1; grid-template-columns:1fr; }
+    .bundle-list { grid-template-columns:1fr; }
+    .how-it-works, .custom-section { padding:56px 24px; }
+    .how-grid { grid-template-columns:1fr 1fr; }
+    .custom-section { grid-template-columns:1fr; }
+    section { padding:56px 24px; }
   }
 </style>
 </head>
 <body>
 
-<!-- MODAL -->
+<!-- CONTACT MODAL -->
 <div class="modal-overlay" id="modal">
   <div class="modal" id="modal-inner">
     <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="section-label" style="margin-bottom:10px;">Ask us anything</div>
-    <h3>Send us your question</h3>
-    <p>Can't find the answer in our guides? We're happy to help — whether it's a quick question or something you need hands-on support with.</p>
+    <div class="section-label" style="margin-bottom:10px;">Custom manual enquiry</div>
+    <h3>Tell us what you need</h3>
+    <p>We produce bespoke manuals and documentation from your existing materials. Tell us what you have and what you need.</p>
     <div class="modal-form">
       <input type="text" placeholder="Your name" />
-      <input type="email" id="modal-email" placeholder="Your email" />
-      <input type="text" placeholder="Business name (optional)" />
-      <select>
-        <option value="" disabled selected>Topic area</option>
-        <option>Airtable PIM setup</option>
-        <option>AI email to sales order</option>
-        <option>Invoice approval automation</option>
-        <option>Shopify integration</option>
-        <option>ERP / Winman</option>
-        <option>SFTP or REST API connection</option>
-        <option>Microsoft Graph / M365</option>
-        <option>General tech advice</option>
-        <option>I need hands-on help</option>
-      </select>
-      <textarea placeholder="What would you like to know or discuss?"></textarea>
-      <button class="modal-submit" onclick="submitForm()">Send question →</button>
-      <div class="modal-note">We reply within 1 business day · No spam</div>
+      <input type="email" placeholder="Your email" />
+      <input type="text" placeholder="Business name" />
+      <select><option disabled selected>Manual type needed</option><option>Operational procedures manual</option><option>System setup / IT manual</option><option>Staff onboarding guide</option><option>Compliance & food safety manual</option><option>ERP / software user guide</option><option>Custom — I'll describe below</option></select>
+      <textarea placeholder="Describe what you need — we'll come back with a quote and timeline…"></textarea>
+      <button class="modal-submit" onclick="submitForm()">Send enquiry →</button>
+      <div class="modal-note">We reply within 1 business day</div>
     </div>
+  </div>
+</div>
+
+<!-- PREVIEW MODAL -->
+<div class="preview-modal-overlay" id="preview-modal">
+  <div class="preview-modal" id="preview-modal-content">
+    <button class="preview-modal-close" onclick="closePreview()">✕</button>
+    <!-- content injected by JS -->
   </div>
 </div>
 
 <!-- NAV -->
 <nav>
-  <div class="logo">Tech<span>In</span>Food <span class="logo-badge">Knowledge Hub</span></div>
+  <a href="/" class="logo">Tech<span>In</span>Food <span class="logo-badge">Knowledge Hub</span></a>
   <ul>
-    <li><a href="#guides">Guides</a></li>
-    <li><a href="#ai-docs">AI Workflows</a></li>
-    <li><a href="#tools">Tools</a></li>
-    <li><a href="#tips">Quick Tips</a></li>
-    <li><a href="#ask-us">Get Help</a></li>
+    <li><a href="/guides/">Guides</a></li>
+    <li><a href="/#ai-docs">AI Workflows</a></li>
+    <li><a href="/manuals/" class="active">Manuals</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#ask-us">Get Help</a></li>
     <li><a href="#" onclick="openModal()" class="nav-cta">Ask Us</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-grid"></div>
-  <div class="hero-left">
-    <div class="hero-eyebrow">
-      <span class="eyebrow-tag">Food Tech Knowledge</span>
-      <span class="eyebrow-free">Free to use</span>
-    </div>
-    <h1>Tech Advice for<br><em>Small Food</em><br>Businesses</h1>
-    <p class="hero-desc">Plain-English guides, how-to documentation, and honest advice on the technology that runs food distributors, wholesalers, and food-related businesses. No jargon. No sales pressure. Just useful.</p>
-    <div class="hero-actions">
-      <a href="#guides" class="btn-primary">Browse free guides</a>
-      <button class="btn-outline" onclick="openModal()">Ask a question</button>
-    </div>
-    <div class="hero-trust">
-      <span class="trust-item">Free guides &amp; docs</span>
-      <span class="trust-item">Written for food businesses</span>
-      <span class="trust-item">Plain English, no jargon</span>
-      <span class="trust-item">Expert advice on request</span>
+<div class="page-hero">
+  <div>
+    <div class="breadcrumb"><a href="/">Home</a><span>/</span> Manuals</div>
+    <div class="section-label">Professional documentation</div>
+    <h2 style="font-size:clamp(30px,4vw,52px);letter-spacing:-1px;margin-bottom:16px;">Manuals Written for<br><em style="font-style:italic;color:var(--amber)">Food Businesses</em></h2>
+    <p style="color:var(--muted);font-size:13px;max-width:480px;line-height:1.9;">Step-by-step manuals written by food tech specialists. Instant PDF download. Use them as-is, or ask us to customise them for your specific systems and processes.</p>
+    <div class="hero-trust-row">
+      <span class="trust-pill">Instant PDF download</span>
+      <span class="trust-pill">Written for food businesses</span>
+      <span class="trust-pill">Printable &amp; shareable</span>
+      <span class="trust-pill">Customisable versions available</span>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="doc-stack">
-      <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Latest resources</div>
-      <div class="doc-card">
-        <div class="doc-icon">🗄️</div>
-        <div>
-          <div class="doc-type">Guide · Airtable</div>
-          <div class="doc-title">Setting up Airtable as a PIM for food businesses</div>
-        </div>
-        <span class="doc-badge badge-free">Free</span>
+  <div class="manual-preview-stack">
+    <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Available now</div>
+    <div class="preview-doc">
+      <div class="preview-doc-icon">🗄️</div>
+      <div>
+        <div class="preview-doc-name">Airtable PIM Setup Manual</div>
+        <div class="preview-doc-pages">42 pages · PDF</div>
       </div>
-      <div class="doc-card">
-        <div class="doc-icon">📧</div>
-        <div>
-          <div class="doc-type">How-to · AI</div>
-          <div class="doc-title">Email to sales order: how it works</div>
-        </div>
-        <span class="doc-badge badge-new">New</span>
-      </div>
-      <div class="doc-card">
-        <div class="doc-icon">🧾</div>
-        <div>
-          <div class="doc-type">Documentation · AI</div>
-          <div class="doc-title">Invoice approval automation explained</div>
-        </div>
-        <span class="doc-badge badge-free">Free</span>
-      </div>
-      <div class="doc-card">
-        <div class="doc-icon">🔗</div>
-        <div>
-          <div class="doc-type">Guide · Integration</div>
-          <div class="doc-title">REST API vs SFTP vs Microsoft Graph — which do you need?</div>
-        </div>
-        <span class="doc-badge badge-guide">Guide</span>
-      </div>
-      <div class="doc-card">
-        <div class="doc-icon">🛒</div>
-        <div>
-          <div class="doc-type">How-to · Shopify</div>
-          <div class="doc-title">Connecting Shopify to your food business ERP</div>
-        </div>
-        <span class="doc-badge badge-free">Free</span>
-      </div>
-      <div class="doc-card">
-        <div class="doc-icon">📦</div>
-        <div>
-          <div class="doc-type">Checklist · Inventory</div>
-          <div class="doc-title">Inventory system checklist for food distributors</div>
-        </div>
-        <span class="doc-badge badge-new">New</span>
-      </div>
+      <div class="preview-doc-price">£29</div>
     </div>
-  </div>
-</section>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">◆ FREE GUIDES &nbsp;&nbsp;&nbsp; ◆ AIRTABLE PIM &nbsp;&nbsp;&nbsp; ◆ AI WORKFLOW DOCS &nbsp;&nbsp;&nbsp; ◆ SHOPIFY INTEGRATION &nbsp;&nbsp;&nbsp; ◆ ERP ADVICE &nbsp;&nbsp;&nbsp; ◆ INVOICE AUTOMATION &nbsp;&nbsp;&nbsp; ◆ REST API · SFTP · GRAPH &nbsp;&nbsp;&nbsp; ◆ FOOD DISTRIBUTOR TECH &nbsp;&nbsp;&nbsp; ◆ PLAIN ENGLISH TUTORIALS &nbsp;&nbsp;&nbsp; ◆ FREE GUIDES &nbsp;&nbsp;&nbsp; ◆ AIRTABLE PIM &nbsp;&nbsp;&nbsp; ◆ AI WORKFLOW DOCS &nbsp;&nbsp;&nbsp; ◆ SHOPIFY INTEGRATION &nbsp;&nbsp;&nbsp; ◆ ERP ADVICE &nbsp;&nbsp;&nbsp; ◆ INVOICE AUTOMATION &nbsp;&nbsp;&nbsp; ◆ REST API · SFTP · GRAPH &nbsp;&nbsp;&nbsp; ◆ FOOD DISTRIBUTOR TECH &nbsp;&nbsp;&nbsp; ◆ PLAIN ENGLISH TUTORIALS &nbsp;&nbsp;&nbsp;</div>
-</div>
-
-<!-- TOPICS -->
-<div class="topics">
-  <div class="topics-label">Browse by topic</div>
-  <div class="topics-grid">
-    <a href="#guides" class="topic-tile"><div class="topic-tile-icon">🗄️</div><div class="topic-tile-label">PIM &amp;<br>Product Data</div></a>
-    <a href="#ai-docs" class="topic-tile"><div class="topic-tile-icon">✦</div><div class="topic-tile-label">AI<br>Workflows</div></a>
-    <a href="#guides" class="topic-tile"><div class="topic-tile-icon">🔗</div><div class="topic-tile-label">API &amp;<br>Integration</div></a>
-    <a href="#guides" class="topic-tile"><div class="topic-tile-icon">📦</div><div class="topic-tile-label">Inventory &amp;<br>Stock</div></a>
-    <a href="#tools" class="topic-tile"><div class="topic-tile-icon">🛒</div><div class="topic-tile-label">eCommerce &amp;<br>Shopify</div></a>
-    <a href="#guides" class="topic-tile"><div class="topic-tile-icon">🏭</div><div class="topic-tile-label">ERP<br>Systems</div></a>
-  </div>
-</div>
-
-<!-- GUIDES -->
-<section class="guides" id="guides" aria-label="Free guides for small food businesses">
-  <div class="guides-header reveal">
-    <div class="guides-header-left">
-      <div class="section-label">Free resources</div>
-      <h2>Guides &amp; Documentation</h2>
-      <p class="guides-sub">Written specifically for small food distributors, wholesalers, and food-related businesses. Practical, step-by-step, and free.</p>
-    </div>
-    <button class="btn-outline" onclick="openModal()">Request a guide →</button>
-  </div>
-  <div class="guides-grid">
-    <a href="#ai-docs" class="guide-card reveal">
-      <div class="guide-cat">AI Workflows</div>
-      <div class="guide-title">How to automate email to sales order conversion</div>
-      <div class="guide-excerpt">A walkthrough of how AI reads incoming customer order emails, extracts product lines, and creates a draft sales order — with no manual re-keying. Includes what to look for in tools and how to start.</div>
-      <div class="guide-meta"><span class="guide-level level-beginner">Beginner</span><span class="guide-time">8 min read</span></div>
-    </a>
-    <a href="#ai-docs" class="guide-card reveal">
-      <div class="guide-cat">AI Workflows</div>
-      <div class="guide-title">Invoice approval automation for food businesses — a plain-English guide</div>
-      <div class="guide-excerpt">What three-way matching means, how AI checks invoices against purchase orders and delivery notes, when to auto-approve, and how to set rules that work for your business.</div>
-      <div class="guide-meta"><span class="guide-level level-beginner">Beginner</span><span class="guide-time">10 min read</span></div>
-    </a>
-    <a href="#pim-detail" class="guide-card reveal">
-      <div class="guide-cat">Airtable · PIM</div>
-      <div class="guide-title">Setting up Airtable as a PIM for food businesses</div>
-      <div class="guide-excerpt">Step-by-step: create your product database, add allergen and nutritional fields, link categories and suppliers, attach images, and connect to Shopify via the Airtable REST API.</div>
-      <div class="guide-meta"><span class="guide-level level-intermediate">Intermediate</span><span class="guide-time">15 min read</span></div>
-    </a>
-    <a href="#connectivity" class="guide-card reveal">
-      <div class="guide-cat">Integration</div>
-      <div class="guide-title">REST API, SFTP, and Microsoft Graph — which does your food business need?</div>
-      <div class="guide-excerpt">A practical comparison of the three main ways food business systems connect. Includes real examples: when to use SFTP for batch stock files, REST API for live order sync, and Graph for Microsoft 365 automation.</div>
-      <div class="guide-meta"><span class="guide-level level-beginner">Beginner</span><span class="guide-time">7 min read</span></div>
-    </a>
-    <div class="guide-card reveal">
-      <div class="guide-cat">Shopify · eCommerce</div>
-      <div class="guide-title">Connecting your Shopify store to your food business ERP or stock system</div>
-      <div class="guide-excerpt">How to sync orders, update stock levels, and push product data between Shopify and your back-end system — using Make.com or a direct API connection. Covers Winman, Airtable, and Sage.</div>
-      <div class="guide-meta"><span class="guide-level level-intermediate">Intermediate</span><span class="guide-time">12 min read</span></div>
-    </div>
-    <div class="guide-card reveal">
-      <div class="guide-cat">ERP · Systems</div>
-      <div class="guide-title">Do I actually need an ERP? A guide for small food distributors</div>
-      <div class="guide-excerpt">Honest advice on when a full ERP is the right move and when Airtable plus a few integrations is enough. Includes a simple decision framework and a cost-benefit overview for businesses under 20 staff.</div>
-      <div class="guide-meta"><span class="guide-level level-beginner">Beginner</span><span class="guide-time">9 min read</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- AI WORKFLOW DOCS -->
-<section class="ai-docs" id="ai-docs" aria-label="AI workflow documentation for food businesses">
-  <div class="section-label reveal">Documentation</div>
-  <h2 class="reveal">AI Workflow<br>Documentation</h2>
-
-  <div class="ai-docs-grid">
-    <div class="ai-doc-main reveal">
-      <div class="ai-doc-tag">✦ How it works · Email to Sales Order</div>
-      <div class="ai-doc-title">Email to Sales Order Conversion</div>
-      <div class="ai-doc-body">
-        <p>This workflow uses AI to read incoming customer order emails and automatically create a draft sales order — eliminating the need for manual re-keying. Here's exactly how it works.</p>
-
-        <div class="doc-steps">
-          <div class="doc-step">
-            <div class="doc-step-num">1</div>
-            <div class="doc-step-content">
-              <div class="doc-step-title">Email arrives in your inbox</div>
-              <div class="doc-step-desc">The AI monitors a dedicated email address or your existing inbox. It works with plain text, replies, forwarded chains, and attachments.</div>
-            </div>
-          </div>
-          <div class="doc-step">
-            <div class="doc-step-num">2</div>
-            <div class="doc-step-content">
-              <div class="doc-step-title">AI reads and extracts the order</div>
-              <div class="doc-step-desc">Natural language processing identifies product names, quantities, delivery dates, and any special instructions — even when written informally or inconsistently.</div>
-            </div>
-          </div>
-          <div class="doc-step">
-            <div class="doc-step-num">3</div>
-            <div class="doc-step-content">
-              <div class="doc-step-title">Lines matched to your product catalogue</div>
-              <div class="doc-step-desc">The AI compares extracted product names against your catalogue using fuzzy matching — handling abbreviations, alternative names, and codes your customers use.</div>
-            </div>
-          </div>
-          <div class="doc-step">
-            <div class="doc-step-num">4</div>
-            <div class="doc-step-content">
-              <div class="doc-step-title">Draft sales order created for review</div>
-              <div class="doc-step-desc">A complete draft order is generated and routed to you for confirmation. One click approves it; any line can be edited before it flows into your system.</div>
-            </div>
-          </div>
-        </div>
-
-        <p><strong>What you need to implement this:</strong> An email address to monitor, your product catalogue in a structured format (Airtable works well), and a connection to your order management system or ERP. The AI layer can be built using tools like Make.com combined with an LLM API.</p>
-
-        <div class="code-block">
-<span class="comment">// Example: what the AI extracts from an email</span>
-Input: "Hi, can we get 20x Oat Milk 1L, 12 sourdough,
-        and 6 of the smoked salmon packs for Friday delivery"
-
-Output:
-  - SKU: OOM-001 · Organic Oat Milk 1L · Qty: 20
-  - SKU: SDB-012 · Sourdough Loaf 800g · Qty: 12
-  - SKU: SSM-034 · Smoked Salmon 200g · Qty: 6
-  - Delivery: Friday</div>
+    <div class="preview-doc">
+      <div class="preview-doc-icon">📧</div>
+      <div>
+        <div class="preview-doc-name">AI Email Order Automation Manual</div>
+        <div class="preview-doc-pages">38 pages · PDF</div>
       </div>
+      <div class="preview-doc-price">£29</div>
     </div>
-
-    <div class="ai-doc-sidebar reveal">
-      <div class="sidebar-title">Related resources</div>
-      <a class="sidebar-link" onclick="openModal()">
-        <div class="sidebar-link-icon">🧾</div>
-        <div>
-          <div class="sidebar-link-title">Invoice Approval Automation — how it works</div>
-          <div class="sidebar-link-type">Documentation · AI</div>
-        </div>
-      </a>
-      <a class="sidebar-link" href="#tools">
-        <div class="sidebar-link-icon">⚙️</div>
-        <div>
-          <div class="sidebar-link-title">Make.com for food businesses — beginner guide</div>
-          <div class="sidebar-link-type">Guide · Automation</div>
-        </div>
-      </a>
-      <a class="sidebar-link" href="#guides">
-        <div class="sidebar-link-icon">🗄️</div>
-        <div>
-          <div class="sidebar-link-title">Setting up Airtable as your product catalogue</div>
-          <div class="sidebar-link-type">Guide · Airtable</div>
-        </div>
-      </a>
-      <a class="sidebar-link" href="#guides">
-        <div class="sidebar-link-icon">🔗</div>
-        <div>
-          <div class="sidebar-link-title">Connecting your order system via REST API</div>
-          <div class="sidebar-link-type">How-to · Integration</div>
-        </div>
-      </a>
-      <a class="sidebar-link" onclick="openModal()">
-        <div class="sidebar-link-icon">❓</div>
-        <div>
-          <div class="sidebar-link-title">Ask us — I want to implement this in my business</div>
-          <div class="sidebar-link-type">Get hands-on support</div>
-        </div>
-      </a>
-      <div style="margin-top:auto;padding-top:24px;border-top:1px solid var(--border);">
-        <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Need help setting this up?</div>
-        <button class="btn-primary" style="width:100%;text-align:center;" onclick="openModal()">Talk to us →</button>
+    <div class="preview-doc">
+      <div class="preview-doc-icon">🧾</div>
+      <div>
+        <div class="preview-doc-name">Invoice Approval Automation Manual</div>
+        <div class="preview-doc-pages">34 pages · PDF</div>
       </div>
+      <div class="preview-doc-price">£29</div>
     </div>
-  </div>
-</section>
-
-<!-- TOOLS COMPARISON -->
-<section class="tools" id="tools" aria-label="Tool comparison for food businesses">
-  <div class="section-label reveal">Comparison guide</div>
-  <h2 class="reveal">Which Tools Should<br>Your Food Business Use?</h2>
-  <p class="reveal" style="color:var(--muted);font-size:13px;max-width:560px;margin-top:8px;">A quick reference table comparing the main platforms food distributors and wholesalers ask us about. Full comparison guides available for each.</p>
-  <div class="tool-matrix reveal">
-    <table>
-      <thead>
-        <tr>
-          <th style="width:18%">Tool</th>
-          <th>Best for</th>
-          <th>eCommerce</th>
-          <th>Stock / PIM</th>
-          <th>Automation</th>
-          <th>API / Connect</th>
-          <th>Cost level</th>
-          <th>Complexity</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div class="tool-name">Shopify</div><div class="tool-type">eCommerce</div></td>
-          <td style="font-size:11px;color:var(--muted);">Selling online, B2C and wholesale</td>
-          <td><span class="check">✓✓</span></td>
-          <td><span class="partial">◐</span></td>
-          <td><span class="partial">◐</span></td>
-          <td><span class="check">REST API</span></td>
-          <td style="color:var(--amber-dim);">££</td>
-          <td style="color:var(--green-bright);">Low</td>
-        </tr>
-        <tr>
-          <td><div class="tool-name">Airtable</div><div class="tool-type">Database · PIM</div></td>
-          <td style="font-size:11px;color:var(--muted);">PIM, inventory tracking, reporting</td>
-          <td><span class="dash">—</span></td>
-          <td><span class="check">✓✓</span></td>
-          <td><span class="partial">◐</span></td>
-          <td><span class="check">REST API</span></td>
-          <td style="color:var(--green-bright);">£</td>
-          <td style="color:var(--green-bright);">Low</td>
-        </tr>
-        <tr>
-          <td><div class="tool-name">Winman ERP</div><div class="tool-type">ERP</div></td>
-          <td style="font-size:11px;color:var(--muted);">Manufacturers &amp; distributors, full ops</td>
-          <td><span class="partial">◐</span></td>
-          <td><span class="check">✓✓</span></td>
-          <td><span class="partial">◐</span></td>
-          <td><span class="check">REST + SFTP</span></td>
-          <td style="color:var(--amber-dim);">£££</td>
-          <td style="color:var(--amber-dim);">Medium</td>
-        </tr>
-        <tr>
-          <td><div class="tool-name">Make.com</div><div class="tool-type">Automation</div></td>
-          <td style="font-size:11px;color:var(--muted);">Connecting apps, automating workflows</td>
-          <td><span class="partial">◐</span></td>
-          <td><span class="dash">—</span></td>
-          <td><span class="check">✓✓</span></td>
-          <td><span class="check">All methods</span></td>
-          <td style="color:var(--green-bright);">£</td>
-          <td style="color:var(--green-bright);">Low–Med</td>
-        </tr>
-        <tr>
-          <td><div class="tool-name">Foodit</div><div class="tool-type">Food ordering</div></td>
-          <td style="font-size:11px;color:var(--muted);">Online ordering for food service</td>
-          <td><span class="check">✓</span></td>
-          <td><span class="partial">◐</span></td>
-          <td><span class="partial">◐</span></td>
-          <td><span class="check">REST API</span></td>
-          <td style="color:var(--amber-dim);">££</td>
-          <td style="color:var(--green-bright);">Low</td>
-        </tr>
-        <tr>
-          <td><div class="tool-name">Microsoft 365</div><div class="tool-type">Productivity</div></td>
-          <td style="font-size:11px;color:var(--muted);">Documents, email, SharePoint, Teams</td>
-          <td><span class="dash">—</span></td>
-          <td><span class="partial">◐</span></td>
-          <td><span class="check">✓</span></td>
-          <td><span class="check">Graph API</span></td>
-          <td style="color:var(--amber-dim);">££</td>
-          <td style="color:var(--amber-dim);">Medium</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div style="margin-top:12px;font-size:10px;color:var(--muted);letter-spacing:0.5px;" class="reveal">✓✓ Strong fit &nbsp; ◐ Partial / with add-ons &nbsp; — Not designed for this &nbsp; · Advice specific to your situation available on request</div>
-</section>
-
-<!-- QUICK TIPS -->
-<section class="tips" id="tips" aria-label="Quick tips for food business technology">
-  <div class="section-label reveal">Quick wins</div>
-  <h2 class="reveal">Things Most Small Food<br>Businesses Can Do Today</h2>
-  <div class="tips-grid">
-    <div class="tip-card reveal">
-      <div class="tip-num">1</div>
-      <div class="tip-label">💡 Tip · Inventory</div>
-      <div class="tip-title">Replace your stock spreadsheet with a free Airtable base</div>
-      <p class="tip-body">Airtable's free tier supports up to 1,000 records. Create one table for Products, link it to a Suppliers table, and add a formula field to flag low stock. <strong>Takes about 2 hours</strong> to set up and immediately gives you a live, multi-user inventory view. Use our PIM guide as a starting point.</p>
-    </div>
-    <div class="tip-card reveal">
-      <div class="tip-num">2</div>
-      <div class="tip-label">💡 Tip · Automation</div>
-      <div class="tip-title">Set up a Make.com scenario to auto-confirm customer orders by email</div>
-      <p class="tip-body">Make.com (free plan available) can watch a Gmail or Outlook inbox and automatically send a confirmation email when it detects a new order. <strong>Saves 5–10 minutes per order</strong> and keeps customers informed without anyone lifting a finger. Our automation guide walks through the setup.</p>
-    </div>
-    <div class="tip-card reveal">
-      <div class="tip-num">3</div>
-      <div class="tip-label">💡 Tip · eCommerce</div>
-      <div class="tip-title">Use Shopify's built-in CSV import to bulk-load your products</div>
-      <p class="tip-body">If you're moving onto Shopify, you don't need to enter products one by one. Export your existing product list to CSV (Airtable can do this), map the columns to Shopify's format, and import in bulk. <strong>A 200-product catalogue can be loaded in under an hour</strong> with the right template.</p>
-    </div>
-    <div class="tip-card reveal">
-      <div class="tip-num">4</div>
-      <div class="tip-label">💡 Tip · Integration</div>
-      <div class="tip-title">Check if your ERP or system has a REST API before paying for middleware</div>
-      <p class="tip-body">Most modern systems — including Airtable, Shopify, and Foodit — have free REST APIs. Before paying for an integration tool, check the documentation. <strong>Many simple connections can be built directly</strong> or with a small Make.com scenario at minimal cost. Ask us if you're unsure what your system supports.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ASK US / LIGHT SERVICES -->
-<div class="ask-us" id="ask-us" aria-label="Expert support and implementation services">
-  <div class="ask-us-inner">
-    <div class="reveal">
-      <div class="ask-us-badge">✦ When guides aren't enough</div>
-      <h2>We Can Also<br>Do It With You</h2>
-      <p class="ask-us-desc">Most of what we share here is free, and a lot of food businesses use our guides to set things up themselves. But sometimes you want someone to sit alongside you — or just take it off your plate entirely. That's when we can help directly.</p>
-      <button class="btn-primary" onclick="openModal()">Tell us what you need →</button>
-    </div>
-    <div class="ask-us-services reveal">
-      <div class="ask-service">
-        <div class="ask-service-icon">💬</div>
-        <div>
-          <div class="ask-service-title">Free advice call</div>
-          <div class="ask-service-desc">30-minute call to talk through your situation and point you in the right direction — no charge, no obligation.</div>
-          <div class="ask-service-label">Always free</div>
-        </div>
+    <div class="preview-doc" style="border-color:rgba(232,164,34,0.3);">
+      <div class="preview-doc-icon">📦</div>
+      <div>
+        <div class="preview-doc-name">Complete Food Tech Manuals Bundle</div>
+        <div class="preview-doc-pages">All 4 manuals · Save £36</div>
       </div>
-      <div class="ask-service">
-        <div class="ask-service-icon">🛠️</div>
-        <div>
-          <div class="ask-service-title">Guided setup sessions</div>
-          <div class="ask-service-desc">We walk through the implementation with you — screen share, step by step. Airtable PIM, Make.com workflows, API connections.</div>
-          <div class="ask-service-label">Available on request</div>
-        </div>
-      </div>
-      <div class="ask-service">
-        <div class="ask-service-icon">⚙️</div>
-        <div>
-          <div class="ask-service-title">Done-for-you implementation</div>
-          <div class="ask-service-desc">We build it, test it, and hand it over. For businesses that want the result without the setup work.</div>
-          <div class="ask-service-label">Available on request</div>
-        </div>
-      </div>
-      <div class="ask-service">
-        <div class="ask-service-icon">📞</div>
-        <div>
-          <div class="ask-service-title">Ongoing support &amp; advice</div>
-          <div class="ask-service-desc">Someone to call when things break, when you want to add something new, or when you just need a second opinion.</div>
-          <div class="ask-service-label">Available on request</div>
-        </div>
-      </div>
+      <div class="preview-doc-price" style="color:var(--green-bright);">£79</div>
     </div>
   </div>
 </div>
 
-<!-- NEWSLETTER -->
-<section class="community" id="community" aria-label="Subscribe to TechInFood updates">
-  <div class="community-inner reveal">
-    <div class="section-label" style="text-align:center;">Stay in the loop</div>
-    <h2>New Guides Every Week</h2>
-    <p class="community-desc">We publish practical how-to guides, tool comparisons, and workflow tutorials for food businesses every week. Short, useful, and free. No filler.</p>
-    <div class="subscribe-form">
-      <input type="email" id="sub-email" placeholder="your@email.com" />
-      <button onclick="subscribe()">Subscribe free →</button>
+<div class="ticker"><div class="ticker-inner">◆ PROFESSIONAL MANUALS &nbsp;&nbsp;&nbsp; ◆ INSTANT PDF DOWNLOAD &nbsp;&nbsp;&nbsp; ◆ AIRTABLE PIM &nbsp;&nbsp;&nbsp; ◆ AI WORKFLOW DOCS &nbsp;&nbsp;&nbsp; ◆ ERP GUIDES &nbsp;&nbsp;&nbsp; ◆ FOOD BUSINESS DOCUMENTATION &nbsp;&nbsp;&nbsp; ◆ PROFESSIONAL MANUALS &nbsp;&nbsp;&nbsp; ◆ INSTANT PDF DOWNLOAD &nbsp;&nbsp;&nbsp; ◆ AIRTABLE PIM &nbsp;&nbsp;&nbsp; ◆ AI WORKFLOW DOCS &nbsp;&nbsp;&nbsp; ◆ ERP GUIDES &nbsp;&nbsp;&nbsp; ◆ FOOD BUSINESS DOCUMENTATION &nbsp;&nbsp;&nbsp;</div></div>
+
+<!-- SHOP -->
+<section style="background:var(--bg);padding:60px 80px;" id="shop">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;" class="reveal">
+    <div>
+      <div class="section-label">Shop</div>
+      <h2 style="margin-bottom:8px;">All Manuals</h2>
+      <p style="color:var(--muted);font-size:13px;">Instant PDF download after purchase. All prices in GBP.</p>
     </div>
-    <div class="subscribe-note">No spam · Unsubscribe any time · Food business content only</div>
+    <button class="btn-outline" onclick="openModal()">Request a custom manual →</button>
+  </div>
+
+  <div class="filter-bar reveal">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active" onclick="filterManuals('all',this)">All</button>
+    <button class="filter-btn" onclick="filterManuals('ai',this)">AI Workflows</button>
+    <button class="filter-btn" onclick="filterManuals('airtable',this)">Airtable</button>
+    <button class="filter-btn" onclick="filterManuals('integration',this)">Integration</button>
+    <button class="filter-btn" onclick="filterManuals('bundle',this)">Bundle</button>
+  </div>
+
+  <div class="manuals-grid" id="manuals-grid">
+
+    <!-- AIRTABLE PIM MANUAL -->
+    <div class="manual-card reveal" data-category="airtable">
+      <span class="manual-card-badge badge-bestseller">Bestseller</span>
+      <div class="manual-icon">🗄️</div>
+      <div class="manual-cat">Airtable · PIM</div>
+      <div class="manual-title">Airtable PIM Setup Manual for Food Businesses</div>
+      <p class="manual-desc">The complete implementation manual for setting up Airtable as a Product Information Management system. Everything from base structure to Shopify API connection — written for food businesses.</p>
+      <ul class="manual-contents">
+        <li>Base structure &amp; table architecture</li>
+        <li>All 16 product fields with configurations</li>
+        <li>14 allergen fields setup walkthrough</li>
+        <li>Supplier &amp; category linking</li>
+        <li>Image &amp; media attachment best practices</li>
+        <li>Shopify REST API sync — step by step</li>
+        <li>Airtable automations for low stock alerts</li>
+        <li>Team permissions &amp; sharing settings</li>
+      </ul>
+      <div class="manual-meta">
+        <span class="meta-pill">📄 42 pages</span>
+        <span class="meta-pill">🖨 Printable PDF</span>
+        <span class="meta-pill">🔄 Updated 2025</span>
+      </div>
+      <div class="manual-footer">
+        <div class="manual-price">
+          <div class="price-amount">£29</div>
+          <div class="price-label">Instant download</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <button class="btn-preview" onclick="showPreview('airtable-pim')">Preview →</button>
+          <a href="https://buy.stripe.com/placeholder-airtable-pim" class="btn-buy" target="_blank">Buy now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI EMAIL TO ORDER MANUAL -->
+    <div class="manual-card reveal" data-category="ai">
+      <span class="manual-card-badge badge-new">New</span>
+      <div class="manual-icon">📧</div>
+      <div class="manual-cat">AI · Workflow Automation</div>
+      <div class="manual-title">AI Email to Sales Order: Implementation Manual</div>
+      <p class="manual-desc">The complete technical and operational manual for implementing AI-powered email to sales order conversion in a food distribution or wholesale business.</p>
+      <ul class="manual-contents">
+        <li>How the AI workflow works — full diagram</li>
+        <li>Tool selection guide: Make.com + LLM setup</li>
+        <li>Writing effective AI extraction prompts</li>
+        <li>Product catalogue preparation for AI matching</li>
+        <li>Connecting to your ERP or order system</li>
+        <li>Testing &amp; confidence threshold settings</li>
+        <li>Staff training &amp; change management notes</li>
+        <li>Troubleshooting common issues</li>
+      </ul>
+      <div class="manual-meta">
+        <span class="meta-pill">📄 38 pages</span>
+        <span class="meta-pill">🖨 Printable PDF</span>
+        <span class="meta-pill">📊 Includes diagrams</span>
+      </div>
+      <div class="manual-footer">
+        <div class="manual-price">
+          <div class="price-amount">£29</div>
+          <div class="price-label">Instant download</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <button class="btn-preview" onclick="showPreview('ai-email')">Preview →</button>
+          <a href="https://buy.stripe.com/placeholder-ai-email" class="btn-buy" target="_blank">Buy now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVOICE AUTOMATION MANUAL -->
+    <div class="manual-card reveal" data-category="ai">
+      <div class="manual-icon">🧾</div>
+      <div class="manual-cat">AI · Finance Automation</div>
+      <div class="manual-title">Invoice Approval Automation Manual</div>
+      <p class="manual-desc">A practical implementation manual for setting up AI-powered invoice approval workflows. Covers three-way matching, approval rules, exception routing, and accounting system integration.</p>
+      <ul class="manual-contents">
+        <li>Three-way match explained with examples</li>
+        <li>Setting approval thresholds &amp; rules</li>
+        <li>AI OCR setup for PDF invoices</li>
+        <li>Make.com workflow build — step by step</li>
+        <li>Connecting to Xero, Sage, or QuickBooks</li>
+        <li>Exception handling &amp; escalation paths</li>
+        <li>Audit trail &amp; compliance notes</li>
+        <li>Month 1 rollout plan</li>
+      </ul>
+      <div class="manual-meta">
+        <span class="meta-pill">📄 34 pages</span>
+        <span class="meta-pill">🖨 Printable PDF</span>
+        <span class="meta-pill">🔄 Updated 2025</span>
+      </div>
+      <div class="manual-footer">
+        <div class="manual-price">
+          <div class="price-amount">£29</div>
+          <div class="price-label">Instant download</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <button class="btn-preview" onclick="showPreview('invoice')">Preview →</button>
+          <a href="https://buy.stripe.com/placeholder-invoice" class="btn-buy" target="_blank">Buy now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTEGRATION MANUAL -->
+    <div class="manual-card reveal" data-category="integration">
+      <div class="manual-icon">🔗</div>
+      <div class="manual-cat">Integration · Systems</div>
+      <div class="manual-title">Food Business Systems Integration Manual</div>
+      <p class="manual-desc">The practical manual for connecting food business platforms — covering REST API, SFTP, and Microsoft Graph. Includes worked examples for Shopify ↔ ERP, Airtable ↔ Shopify, and Outlook ↔ workflows.</p>
+      <ul class="manual-contents">
+        <li>REST API fundamentals with food examples</li>
+        <li>SFTP setup &amp; scheduled file transfers</li>
+        <li>Microsoft Graph authentication setup</li>
+        <li>Shopify to ERP integration walkthrough</li>
+        <li>Airtable REST API — full reference</li>
+        <li>Make.com as integration middleware</li>
+        <li>Error handling &amp; monitoring</li>
+        <li>Security &amp; credential management</li>
+      </ul>
+      <div class="manual-meta">
+        <span class="meta-pill">📄 52 pages</span>
+        <span class="meta-pill">🖨 Printable PDF</span>
+        <span class="meta-pill">💻 Code examples</span>
+      </div>
+      <div class="manual-footer">
+        <div class="manual-price">
+          <div class="price-amount">£35</div>
+          <div class="price-label">Instant download</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <button class="btn-preview" onclick="showPreview('integration')">Preview →</button>
+          <a href="https://buy.stripe.com/placeholder-integration" class="btn-buy" target="_blank">Buy now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMING SOON -->
+    <div class="manual-card reveal" data-category="airtable" style="opacity:0.55;cursor:default;">
+      <div class="manual-icon">📦</div>
+      <div class="manual-cat">Coming soon · Inventory</div>
+      <div class="manual-title">Food Business Inventory Management Manual</div>
+      <p class="manual-desc">End-to-end inventory management for food distributors. Stock tracking, expiry date management, supplier ordering, and waste reduction — practical and ready to implement.</p>
+      <div class="manual-meta">
+        <span class="meta-pill">📄 ~45 pages</span>
+        <span class="meta-pill">🔔 Notify me</span>
+      </div>
+      <div class="manual-footer">
+        <div class="manual-price">
+          <div class="price-amount" style="font-size:18px;color:var(--muted);">Coming soon</div>
+          <div class="price-label">Expected Nov 2025</div>
+        </div>
+        <button class="btn-preview" onclick="openModal()">Notify me →</button>
+      </div>
+    </div>
+
+    <!-- COMING SOON 2 -->
+    <div class="manual-card reveal" data-category="ai" style="opacity:0.55;cursor:default;">
+      <div class="manual-icon">⚙️</div>
+      <div class="manual-cat">Coming soon · Automation</div>
+      <div class="manual-title">Make.com for Food Businesses Manual</div>
+      <p class="manual-desc">A complete Make.com implementation manual for food businesses — covering the 12 most useful automation scenarios, from order confirmations to supplier alerts.</p>
+      <div class="manual-meta">
+        <span class="meta-pill">📄 ~50 pages</span>
+        <span class="meta-pill">🔔 Notify me</span>
+      </div>
+      <div class="manual-footer">
+        <div class="manual-price">
+          <div class="price-amount" style="font-size:18px;color:var(--muted);">Coming soon</div>
+          <div class="price-label">Expected Dec 2025</div>
+        </div>
+        <button class="btn-preview" onclick="openModal()">Notify me →</button>
+      </div>
+    </div>
+
+    <!-- BUNDLE -->
+    <div class="manual-card bundle reveal" data-category="bundle">
+      <div>
+        <span class="manual-card-badge badge-bundle" style="position:relative;top:auto;right:auto;display:inline-block;margin-bottom:16px;">Best value</span>
+        <div class="manual-icon">📚</div>
+        <div class="manual-cat">Bundle · All 4 manuals</div>
+        <div class="manual-title" style="font-size:24px;">Complete Food Tech Manuals Bundle</div>
+        <p class="manual-desc">All four available manuals in one download. Airtable PIM, AI Email Orders, Invoice Automation, and Systems Integration — everything you need to modernise a food distribution or wholesale business.</p>
+        <div class="bundle-saving">✓ Save £36 vs buying individually</div>
+        <div class="manual-footer" style="margin-top:24px;padding-top:20px;">
+          <div class="manual-price">
+            <div class="price-amount" style="font-size:36px;">£79</div>
+            <div class="price-label">All 4 manuals · Instant download</div>
+            <div style="font-size:11px;color:var(--muted);text-decoration:line-through;margin-top:4px;">£122 if bought separately</div>
+          </div>
+          <a href="https://buy.stripe.com/placeholder-bundle" class="btn-buy" style="padding:14px 32px;font-size:12px;" target="_blank">Buy bundle →</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">What's included</div>
+        <div class="bundle-list">
+          <div class="bundle-item">Airtable PIM Setup Manual (42pp)</div>
+          <div class="bundle-item">AI Email to Sales Order Manual (38pp)</div>
+          <div class="bundle-item">Invoice Approval Automation Manual (34pp)</div>
+          <div class="bundle-item">Systems Integration Manual (52pp)</div>
+          <div class="bundle-item">Instant PDF download</div>
+          <div class="bundle-item">All future updates included</div>
+          <div class="bundle-item">Printable &amp; team-shareable</div>
+          <div class="bundle-item">Priority email support (30 days)</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<!-- HOW IT WORKS -->
+<div class="how-it-works" id="how">
+  <div class="section-label reveal">Simple process</div>
+  <h2 class="reveal">How It Works</h2>
+  <div class="how-grid">
+    <div class="how-step reveal">
+      <div class="how-num">01</div>
+      <div class="how-title">Choose your manual</div>
+      <div class="how-desc">Browse the shop, preview the table of contents, and pick the manual that matches what you're setting up or implementing.</div>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-num">02</div>
+      <div class="how-title">Complete checkout</div>
+      <div class="how-desc">Secure payment via Stripe. Takes 30 seconds. We accept all major cards and PayPal. No account required.</div>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-num">03</div>
+      <div class="how-title">Instant PDF download</div>
+      <div class="how-desc">You're emailed a download link immediately. The PDF is yours to keep, print, share with your team, and use as a reference.</div>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-num">04</div>
+      <div class="how-title">Questions? Ask us</div>
+      <div class="how-desc">Every manual purchase comes with 30 days of email support. If something in the manual isn't clear, just ask — we'll help.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CUSTOM MANUAL REQUEST -->
+<div class="custom-section" id="custom">
+  <div class="reveal">
+    <div class="section-label">Bespoke service</div>
+    <h2>Need a Manual Written<br>for <em style="font-style:italic;color:var(--amber)">Your Business?</em></h2>
+    <p style="color:var(--muted);font-size:13px;line-height:1.9;margin-top:10px;margin-bottom:24px;">We produce custom manuals from your existing documentation, notes, or processes. Upload what you have — a draft, a set of notes, a recorded walkthrough — and we'll turn it into a professional, branded, publication-quality PDF manual your team can actually use.</p>
+    <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+      <li style="font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--green-bright);">✓</span> Operational procedures &amp; SOPs</li>
+      <li style="font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--green-bright);">✓</span> System setup &amp; IT documentation</li>
+      <li style="font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--green-bright);">✓</span> Staff onboarding &amp; training guides</li>
+      <li style="font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--green-bright);">✓</span> Food safety &amp; compliance documentation</li>
+      <li style="font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--green-bright);">✓</span> Branded with your logo and colours</li>
+    </ul>
+  </div>
+  <div class="custom-form-area reveal">
+    <div class="section-label" style="margin-bottom:16px;">Request a custom manual</div>
+    <div class="custom-form">
+      <input type="text" placeholder="Your name" />
+      <input type="email" placeholder="Your email" />
+      <input type="text" placeholder="Business name" />
+      <select>
+        <option disabled selected>Type of manual needed</option>
+        <option>Operational procedures / SOPs</option>
+        <option>System / IT setup manual</option>
+        <option>Staff onboarding guide</option>
+        <option>Food safety &amp; compliance manual</option>
+        <option>Software user guide</option>
+        <option>Custom — I'll describe below</option>
+      </select>
+      <textarea placeholder="Describe what you need. Include any existing materials you can share — notes, drafts, recordings. We'll respond with a quote and timeline."></textarea>
+      <button class="custom-submit" onclick="submitCustom()">Send request →</button>
+      <div class="custom-note">We respond within 1 business day with a quote</div>
+    </div>
+  </div>
+</div>
 
 <!-- FAQ -->
-<section class="faq" id="faq" aria-label="Frequently asked questions about food business technology">
-  <div class="section-label reveal">Common questions</div>
-  <h2 class="reveal">Questions We Get Asked</h2>
-  <p class="reveal" style="color:var(--muted);font-size:13px;max-width:520px;margin-top:8px;">If yours isn't here, use the button below — we answer every question personally.</p>
-  <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
-
-    <div class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <div class="faq-q" onclick="toggleFaq(this)"><span itemprop="name">Do I need a developer to implement any of this?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">Not always. Airtable, Make.com, and Shopify are designed to be used without coding skills. Our guides are written for non-technical people. For more complex connections — like a custom REST API integration or an SFTP feed — some technical help is useful. We're happy to advise on whether you need it for your specific situation.</div></div>
+<section style="background:var(--surface);padding:80px;" id="faq">
+  <div class="section-label reveal">Questions</div>
+  <h2 class="reveal">Manual FAQs</h2>
+  <div style="display:flex;flex-direction:column;gap:1px;background:var(--border);margin-top:40px;" class="reveal">
+    <div style="background:var(--surface);">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I share the manual with my whole team?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Yes. All manuals are licensed for use within your business. You can share the PDF with your team, print it, and use it as a reference across your organisation. You just can't resell it or distribute it publicly.</div>
     </div>
-
-    <div class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <div class="faq-q" onclick="toggleFaq(this)"><span itemprop="name">Is Airtable good enough to use as a proper PIM, or do I need dedicated software?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">For most small food businesses — especially those with up to a few hundred products — Airtable is genuinely sufficient. It handles all the core PIM requirements: structured product data, allergens, nutritional fields, pricing, imagery, and a REST API to push data to Shopify or your website. Dedicated PIM software starts at tens of thousands of pounds per year and is designed for businesses with thousands of SKUs across dozens of channels. Our Airtable PIM guide covers exactly how to set it up.</div></div>
+    <div style="background:var(--surface);">
+      <div class="faq-q" onclick="toggleFaq(this)">What format are the manuals in?<span class="faq-icon">+</span></div>
+      <div class="faq-a">All manuals are delivered as professionally typeset PDFs. They're designed to be read on screen or printed — whichever works best for your team. They include a table of contents, page numbers, and are formatted for A4 printing.</div>
     </div>
-
-    <div class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <div class="faq-q" onclick="toggleFaq(this)"><span itemprop="name">How much does AI workflow automation actually cost to implement?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">It varies. A Make.com-based email to sales order workflow using an LLM API can cost as little as £50–150/month to run once built. A more custom implementation with direct ERP integration would cost more to set up but often less to run. We're happy to give you a realistic cost estimate for your specific situation on a free call — no strings attached.</div></div>
+    <div style="background:var(--surface);">
+      <div class="faq-q" onclick="toggleFaq(this)">What if the manual doesn't match my exact setup?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Our manuals are written to be broadly applicable but focused on the most common setups for food businesses. If something doesn't quite match your situation, every purchase includes 30 days of email support — just ask us and we'll clarify or adapt. For a fully custom version built around your specific systems, use the custom manual request form above.</div>
     </div>
-
-    <div class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <div class="faq-q" onclick="toggleFaq(this)"><span itemprop="name">What's the difference between REST API, SFTP, and Microsoft Graph?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">REST API is for real-time data exchange between modern cloud systems — for example, syncing a Shopify order into Airtable the moment it's placed. SFTP is for scheduled, secure file transfers — for example, sending a daily stock export to a wholesale customer. Microsoft Graph is specifically for connecting to Microsoft 365 services like Outlook, SharePoint, Excel, and Teams. Most food businesses use a mix of all three depending on which systems they use. Our integration guide explains when to use each one with real food business examples.</div></div>
+    <div style="background:var(--surface);">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I get a manual customised with my company branding?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Yes — we offer a branded/customised version of any manual. This adds your logo, colour scheme, and company name throughout, and we can adapt the content to reference your specific tools and processes. Use the custom manual request form for a quote.</div>
     </div>
-
-    <div class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <div class="faq-q" onclick="toggleFaq(this)"><span itemprop="name">Is this site just for food distributors, or is it useful for other food businesses too?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">All food-related businesses. Our guides are most heavily focused on distributors and wholesalers because that's where the operational complexity tends to be highest — but we cover eCommerce for food brands, inventory for farm shops and delis, systems for artisan producers, and more. If you run any kind of food-related business and need tech advice, this is for you.</div></div>
+    <div style="background:var(--surface);">
+      <div class="faq-q" onclick="toggleFaq(this)">Do you offer refunds?<span class="faq-icon">+</span></div>
+      <div class="faq-a">If you're not satisfied with a manual, contact us within 7 days of purchase and we'll either resolve the issue or issue a full refund — no awkward questions. We want the manuals to be genuinely useful.</div>
     </div>
-
-  </div>
-  <div style="text-align:center;margin-top:48px;" class="reveal">
-    <button class="btn-primary" onclick="openModal()">Ask us your question →</button>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-brand">
-    <div class="logo">Tech<span>In</span>Food</div>
-    <p class="footer-desc">Free guides, documentation, and honest tech advice for small and medium food businesses. No jargon, no sales pressure.</p>
+  <div>
+    <a href="/" class="logo">Tech<span>In</span>Food</a>
+    <p class="footer-desc">Free guides, professional manuals, and honest tech advice for small food businesses.</p>
   </div>
   <div class="footer-col">
-    <h4>Guides</h4>
+    <h4>Manuals</h4>
     <ul>
-      <li><a href="#guides">Airtable PIM Guide</a></li>
-      <li><a href="#ai-docs">AI Workflow Docs</a></li>
-      <li><a href="#guides">Shopify Integration</a></li>
-      <li><a href="#guides">ERP Advice</a></li>
-      <li><a href="#tips">Quick Tips</a></li>
+      <li><a href="#shop">Airtable PIM Manual</a></li>
+      <li><a href="#shop">AI Email Orders Manual</a></li>
+      <li><a href="#shop">Invoice Automation Manual</a></li>
+      <li><a href="#shop">Integration Manual</a></li>
+      <li><a href="#shop">Full Bundle — £79</a></li>
     </ul>
   </div>
   <div class="footer-col">
-    <h4>Topics</h4>
+    <h4>Free Guides</h4>
     <ul>
-      <li><a href="#tools">Tool Comparison</a></li>
-      <li><a href="#ai-docs">Email to Sales Order</a></li>
-      <li><a href="#ai-docs">Invoice Automation</a></li>
-      <li><a href="#guides">REST API · SFTP · Graph</a></li>
+      <li><a href="/guides/">All guides</a></li>
+      <li><a href="/guides/airtable-pim.html">Airtable PIM</a></li>
+      <li><a href="/guides/ai-email-to-sales-order.html">AI Email Orders</a></li>
+      <li><a href="/blog/">Blog</a></li>
     </ul>
   </div>
   <div class="footer-col">
     <h4>Support</h4>
     <ul>
+      <li><a onclick="openModal()">Custom Manual Request</a></li>
+      <li><a href="/#ask-us">Get Help</a></li>
       <li><a onclick="openModal()">Ask a Question</a></li>
-      <li><a onclick="openModal()">Free Advice Call</a></li>
-      <li><a onclick="openModal()">Done-for-You Setup</a></li>
       <li><a href="https://winman.how" target="_blank">Winman.how</a></li>
     </ul>
   </div>
 </footer>
-<div class="footer-bottom">
-  <span>© 2025 TechInFood · Free knowledge for food businesses</span>
-  <span>hello@techinfood.com</span>
-</div>
+<div class="footer-bottom"><span>© 2025 TechInFood · Professional manuals for food businesses</span><span>hello@techinfood.com</span></div>
 
+<script src="../assets/nav.js"></script>
 <script>
-  function openModal() { document.getElementById('modal').classList.add('open'); document.body.style.overflow = 'hidden'; }
-  function closeModal() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow = ''; }
-  function submitForm() {
-    document.getElementById('modal-inner').innerHTML = `<div style="text-align:center;padding:24px 0;"><div style="font-size:48px;margin-bottom:18px;">✓</div><div class="section-label" style="text-align:center;margin-bottom:10px;">Message received</div><h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--cream);margin-bottom:10px;">We'll reply within 1 business day</h3><p style="font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:24px;max-width:280px;margin-left:auto;margin-right:auto;">Thanks for reaching out. We answer every question personally.</p><button onclick="closeModal()" style="background:var(--amber);color:#0d0d0b;border:none;padding:11px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;">Close</button></div>`;
+  // Preview modal content
+  const previews = {
+    'airtable-pim': {
+      title: 'Airtable PIM Setup Manual — Table of Contents',
+      chapters: [
+        {num:'Chapter 1', title:'Introduction to PIM for food businesses', pages:'pp. 4–8', locked:false},
+        {num:'Chapter 2', title:'Setting up your Airtable base architecture', pages:'pp. 9–15', locked:false},
+        {num:'Chapter 3', title:'Building the Products table — all 16 fields', pages:'pp. 16–21', locked:true},
+        {num:'Chapter 4', title:'Allergen and nutritional fields', pages:'pp. 22–26', locked:true},
+        {num:'Chapter 5', title:'Linking Suppliers and Categories', pages:'pp. 27–30', locked:true},
+        {num:'Chapter 6', title:'Image and media management', pages:'pp. 31–34', locked:true},
+        {num:'Chapter 7', title:'Shopify REST API connection', pages:'pp. 35–39', locked:true},
+        {num:'Chapter 8', title:'Automations, alerts, and team setup', pages:'pp. 40–42', locked:true},
+      ]
+    },
+    'ai-email': {
+      title: 'AI Email to Sales Order Manual — Table of Contents',
+      chapters: [
+        {num:'Chapter 1', title:'How AI email order processing works', pages:'pp. 4–9', locked:false},
+        {num:'Chapter 2', title:'Tool selection and account setup', pages:'pp. 10–14', locked:false},
+        {num:'Chapter 3', title:'Make.com scenario build — step by step', pages:'pp. 15–22', locked:true},
+        {num:'Chapter 4', title:'Writing your AI extraction prompt', pages:'pp. 23–27', locked:true},
+        {num:'Chapter 5', title:'Product catalogue preparation', pages:'pp. 28–31', locked:true},
+        {num:'Chapter 6', title:'ERP and order system connection', pages:'pp. 32–35', locked:true},
+        {num:'Chapter 7', title:'Testing and confidence thresholds', pages:'pp. 36–37', locked:true},
+        {num:'Chapter 8', title:'Staff training and rollout guide', pages:'pp. 38', locked:true},
+      ]
+    },
+    'invoice': {
+      title: 'Invoice Approval Automation Manual — Table of Contents',
+      chapters: [
+        {num:'Chapter 1', title:'Understanding three-way matching', pages:'pp. 4–8', locked:false},
+        {num:'Chapter 2', title:'Defining your approval rules', pages:'pp. 9–13', locked:false},
+        {num:'Chapter 3', title:'AI OCR setup for PDF invoices', pages:'pp. 14–18', locked:true},
+        {num:'Chapter 4', title:'Make.com workflow — full build', pages:'pp. 19–25', locked:true},
+        {num:'Chapter 5', title:'Accounting system integration', pages:'pp. 26–29', locked:true},
+        {num:'Chapter 6', title:'Exception handling and escalation', pages:'pp. 30–32', locked:true},
+        {num:'Chapter 7', title:'Audit trail and compliance notes', pages:'pp. 33', locked:true},
+        {num:'Chapter 8', title:'Month 1 rollout plan', pages:'pp. 34', locked:true},
+      ]
+    },
+    'integration': {
+      title: 'Food Business Systems Integration Manual — Table of Contents',
+      chapters: [
+        {num:'Chapter 1', title:'REST API fundamentals for food businesses', pages:'pp. 4–10', locked:false},
+        {num:'Chapter 2', title:'SFTP: secure batch file transfer', pages:'pp. 11–16', locked:false},
+        {num:'Chapter 3', title:'Microsoft Graph API setup', pages:'pp. 17–22', locked:true},
+        {num:'Chapter 4', title:'Shopify to ERP integration', pages:'pp. 23–30', locked:true},
+        {num:'Chapter 5', title:'Airtable REST API full reference', pages:'pp. 31–38', locked:true},
+        {num:'Chapter 6', title:'Make.com as integration middleware', pages:'pp. 39–44', locked:true},
+        {num:'Chapter 7', title:'Error handling and monitoring', pages:'pp. 45–49', locked:true},
+        {num:'Chapter 8', title:'Security and credential management', pages:'pp. 50–52', locked:true},
+      ]
+    }
+  };
+
+  function showPreview(key) {
+    const data = previews[key];
+    if (!data) return;
+    const chapters = data.chapters.map(c => `
+      <div class="preview-chapter">
+        <div class="chapter-num">${c.num}</div>
+        <div class="${c.locked ? 'chapter-locked' : 'chapter-title'}">${c.title}</div>
+        <div class="chapter-pages">${c.pages}</div>
+      </div>
+    `).join('');
+    document.getElementById('preview-modal-content').innerHTML = `
+      <button class="preview-modal-close" onclick="closePreview()">✕</button>
+      <div class="section-label" style="margin-bottom:12px;">Table of contents preview</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:18px;color:var(--cream);margin-bottom:6px;line-height:1.3;">${data.title}</h3>
+      <p style="font-size:11px;color:var(--muted);margin-bottom:24px;">First 2 chapters shown in full. Remaining chapters blurred — purchase to unlock.</p>
+      ${chapters}
+      <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);display:flex;gap:10px;">
+        <a href="https://buy.stripe.com/placeholder-${key}" class="btn-buy" style="flex:1;text-align:center;" target="_blank">Buy now →</a>
+        <button onclick="closePreview()" class="btn-outline">Close</button>
+      </div>
+    `;
+    document.getElementById('preview-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
-  function subscribe() {
-    const el = document.getElementById('sub-email');
-    if (el && el.value) { el.value = ''; el.placeholder = '✓ You\'re subscribed!'; }
+  function closePreview() {
+    document.getElementById('preview-modal').classList.remove('open');
+    document.body.style.overflow = '';
   }
-  document.getElementById('modal').addEventListener('click', function(e) { if(e.target===this) closeModal(); });
-  function toggleFaq(el) { const a = el.nextElementSibling; el.classList.toggle('open'); a.classList.toggle('open'); }
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries) => { entries.forEach((e,i) => { if(e.isIntersecting) { setTimeout(()=>e.target.classList.add('visible'),i*50); obs.unobserve(e.target); } }); }, { threshold:0.07, rootMargin:'0px 0px -24px 0px' });
-  reveals.forEach(el=>obs.observe(el));
+  document.getElementById('preview-modal').addEventListener('click', function(e) { if(e.target===this) closePreview(); });
+
+  // Filter
+  function filterManuals(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.manual-card').forEach(card => {
+      if (cat === 'all' || card.dataset.category === cat) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Custom form
+  function submitCustom() {
+    document.querySelector('.custom-form-area').innerHTML = `
+      <div style="text-align:center;padding:32px 0;">
+        <div style="font-size:48px;margin-bottom:16px;">✓</div>
+        <p style="font-family:'Playfair Display',serif;font-size:20px;color:var(--cream);margin-bottom:10px;">Request received</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.8;">We'll come back to you within 1 business day with a quote and timeline.</p>
+      </div>`;
+  }
+
+  // FAQ
+  function toggleFaq(el) {
+    const a = el.nextElementSibling;
+    el.classList.toggle('open');
+    a && a.classList && a.classList.toggle('open');
+  }
+
+  // FAQ styles inline since we're not importing full shared CSS for faq
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.style.cssText = 'padding:20px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:20px;font-size:13px;color:var(--cream);transition:background 0.2s;user-select:none;';
+    q.addEventListener('mouseenter', () => q.style.background = 'var(--panel)');
+    q.addEventListener('mouseleave', () => { if(!q.classList.contains('open')) q.style.background = ''; });
+  });
+  document.querySelectorAll('.faq-icon').forEach(i => {
+    i.style.cssText = 'font-size:18px;color:var(--amber);flex-shrink:0;transition:transform 0.3s;';
+  });
+  document.querySelectorAll('.faq-a').forEach(a => {
+    a.style.cssText = 'max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s ease;font-size:12px;color:var(--muted);line-height:1.9;padding:0 24px;';
+  });
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', function() {
+      const a = this.nextElementSibling;
+      const icon = this.querySelector('.faq-icon');
+      const isOpen = a.style.maxHeight && a.style.maxHeight !== '0px';
+      if (isOpen) {
+        a.style.maxHeight = '0'; a.style.padding = '0 24px';
+        if(icon) icon.style.transform = '';
+      } else {
+        a.style.maxHeight = '400px'; a.style.padding = '0 24px 22px';
+        if(icon) icon.style.transform = 'rotate(45deg)';
+      }
+    });
+  });
 </script>
 </body>
 </html>
