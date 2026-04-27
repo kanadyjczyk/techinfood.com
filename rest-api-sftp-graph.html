@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REST API vs SFTP vs Microsoft Graph for Food Businesses | TechInFood</title>
+<meta name="description" content="Plain-English guide to REST API, SFTP, and Microsoft Graph for food distributors and wholesalers. When to use each one, with real food business examples. Free.">
+<link rel="canonical" href="https://www.techinfood.com/guides/rest-api-sftp-graph.html">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .page-layout { display: grid; grid-template-columns: 1fr 300px; gap: 1px; background: var(--border); }
+  .page-main { background: var(--bg); padding: 60px 64px; }
+  .page-sidebar { background: var(--panel); padding: 40px 28px; position: sticky; top: 72px; height: fit-content; }
+  .sidebar-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+  .sidebar-section { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+  .sidebar-section:last-child { border-bottom: none; margin-bottom: 0; }
+  .toc-link { display: block; font-size: 11px; color: var(--muted); padding: 6px 0; border-bottom: 1px solid rgba(232,164,34,0.04); text-decoration: none; transition: color 0.2s, padding-left 0.2s; }
+  .toc-link:hover { color: var(--amber); padding-left: 6px; }
+  .related-card { display: block; text-decoration: none; padding: 12px 0; border-bottom: 1px solid rgba(232,164,34,0.05); transition: padding-left 0.2s; }
+  .related-card:hover { padding-left: 4px; }
+  .related-card:last-child { border-bottom: none; }
+  .related-title { font-size: 11px; color: var(--text); margin-bottom: 2px; line-height: 1.4; }
+  .related-type { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+  .method-block { background: var(--panel); border: 1px solid var(--border); padding: 28px; margin: 28px 0; position: relative; overflow: hidden; }
+  .method-block::before { content: attr(data-method); position: absolute; right: 16px; top: 12px; font-family: 'Playfair Display', serif; font-size: 40px; color: rgba(232,164,34,0.06); font-weight: 900; }
+  .method-icon { font-size: 28px; margin-bottom: 12px; }
+  .method-name { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--cream); margin-bottom: 6px; }
+  .method-tagline { font-size: 11px; color: var(--amber-dim); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+  .method-body { font-size: 12px; color: var(--muted); line-height: 1.85; }
+  .method-body strong { color: var(--text); }
+  .method-uses { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+  .method-use { font-size: 11px; color: var(--muted); display: flex; gap: 8px; align-items: flex-start; }
+  .method-use::before { content: '→'; color: var(--amber-dim); flex-shrink: 0; margin-top: 1px; }
+  .decision-block { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--amber); padding: 24px; margin: 24px 0; }
+  .decision-q { font-size: 13px; color: var(--cream); margin-bottom: 10px; font-family: 'Fraunces', serif; }
+  .decision-a { font-size: 12px; color: var(--muted); line-height: 1.8; }
+  .page-hero-inner { padding: 120px 80px 0; background: var(--surface); border-bottom: 1px solid var(--border); }
+  @media(max-width:900px){ .page-hero-inner{padding:100px 24px 0;} .page-layout{grid-template-columns:1fr;} .page-main{padding:40px 24px;} .page-sidebar{position:static;} }
+</style>
+</head>
+<body>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal" id="modal-inner">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="section-label" style="margin-bottom:10px;">Not sure which to use?</div>
+    <h3>Ask us — we'll give you a straight answer</h3>
+    <p>Tell us which systems you're connecting and we'll advise on the right approach. Free, no obligation.</p>
+    <div class="modal-form">
+      <input type="text" placeholder="Your name" /><input type="email" placeholder="Your email" />
+      <textarea placeholder="e.g. 'We want to connect Shopify to Winman and send daily stock files to a wholesale customer'…"></textarea>
+      <button class="modal-submit" onclick="submitForm()">Send →</button>
+      <div class="modal-note">We reply within 1 business day</div>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <a href="/" class="logo">Tech<span>In</span>Food <span class="logo-badge">Knowledge Hub</span></a>
+  <ul>
+    <li><a href="/guides/" class="active">Guides</a></li>
+    <li><a href="/#ai-docs">AI Workflows</a></li>
+    <li><a href="/#tools">Tools</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#ask-us">Get Help</a></li>
+    <li><a href="#" onclick="openModal()" class="nav-cta">Ask Us</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero-inner">
+  <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/guides/">Guides</a><span>/</span> REST API vs SFTP vs Graph</div>
+  <div style="padding-bottom:40px;">
+    <div class="section-label">Guide · Integration</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,46px);font-weight:900;color:var(--cream);letter-spacing:-1px;line-height:1.05;margin-bottom:16px;">REST API, SFTP, and Microsoft Graph:<br>Which Does Your Food Business Need?</h1>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px;">
+      <span class="badge badge-free">Free guide</span><span class="badge badge-beginner">Beginner</span>
+      <span style="font-size:10px;color:var(--muted);">⏱ 7 min read</span>
+    </div>
+  </div>
+</div>
+
+<div class="ticker"><div class="ticker-inner">◆ REST API &nbsp;&nbsp;&nbsp; ◆ SFTP &nbsp;&nbsp;&nbsp; ◆ MICROSOFT GRAPH &nbsp;&nbsp;&nbsp; ◆ INTEGRATION GUIDE &nbsp;&nbsp;&nbsp; ◆ FOOD BUSINESS SYSTEMS &nbsp;&nbsp;&nbsp; ◆ REST API &nbsp;&nbsp;&nbsp; ◆ SFTP &nbsp;&nbsp;&nbsp; ◆ MICROSOFT GRAPH &nbsp;&nbsp;&nbsp; ◆ INTEGRATION GUIDE &nbsp;&nbsp;&nbsp; ◆ FOOD BUSINESS SYSTEMS &nbsp;&nbsp;&nbsp;</div></div>
+
+<div style="background:var(--bg);padding:60px 80px;">
+  <div class="page-layout">
+    <div class="page-main reveal">
+      <div class="article-body">
+        <p>When people talk about connecting food business systems — your ERP to Shopify, your stock system to a customer portal, your Outlook inbox to an order workflow — they're usually talking about one of three connection methods. This guide explains each one plainly, with real food business examples.</p>
+        <p><strong>Short answer:</strong> Most food businesses use a mix of all three, depending on the systems involved. You don't need to pick one. The method is determined by what the platform supports.</p>
+
+        <div class="method-block" data-method="API" id="rest-api">
+          <div class="method-icon">⚡</div>
+          <div class="method-name">REST API</div>
+          <div class="method-tagline">Real-time · Two-way · Modern platforms</div>
+          <div class="method-body">
+            <p>A REST API (Application Programming Interface) lets two systems talk to each other in real time over the internet. When something happens in one system, it can instantly update another.</p>
+            <p><strong>Think of it like a waiter</strong> in a restaurant. You (System A) tell the waiter what you want. The waiter goes to the kitchen (System B), gets what's needed, and brings it back. It happens on demand, in real time.</p>
+            <div class="method-uses">
+              <div class="method-use">A Shopify order syncs to your ERP the moment it's placed</div>
+              <div class="method-use">Stock levels update on your website when a product is received</div>
+              <div class="method-use">Airtable product data pushes to Shopify when a record is changed</div>
+              <div class="method-use">AI reads an order email and creates a draft in your system instantly</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block"><span class="comment">// Example: asking Airtable for a product record via REST API</span>
+GET https://api.airtable.com/v0/{baseId}/Products?filterByFormula={SKU}="OOM-001"
+Authorization: Bearer YOUR_TOKEN
+
+Response:
+  { "id": "recABC123", "fields": {
+      "Product Name": "Organic Oat Milk 1L",
+      "Price": 2.99, "Stock": 147, "Allergens": ["Oats"]
+  }}</div>
+
+        <div class="method-block" data-method="SFTP" id="sftp">
+          <div class="method-icon">📁</div>
+          <div class="method-name">SFTP</div>
+          <div class="method-tagline">Scheduled · Batch · Legacy systems</div>
+          <div class="method-body">
+            <p>SFTP (Secure File Transfer Protocol) is a way to securely move files between two systems on a schedule. Rather than real-time updates, you're typically sending a file once a day, once a week, or at another set interval.</p>
+            <p><strong>Think of it like a courier service.</strong> You prepare a package (a file) and drop it off (upload to an SFTP server). The other party picks it up and processes it. It's not instant, but it's reliable, secure, and widely supported — especially by older systems.</p>
+            <div class="method-uses">
+              <div class="method-use">Daily stock export sent to a wholesale customer's system overnight</div>
+              <div class="method-use">Supplier price list received each Monday and imported into your ERP</div>
+              <div class="method-use">EDI order files exchanged with a supermarket or large retailer</div>
+              <div class="method-use">Sales data exported to your accountant's system weekly</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout"><strong>Many food industry customers and suppliers still use SFTP</strong> — especially supermarkets, large retailers, and older ERP systems. Even if your own platform has a modern API, you may need SFTP to connect with their end. Both methods are relevant.</div>
+
+        <div class="method-block" data-method="Graph" id="graph">
+          <div class="method-icon">🔷</div>
+          <div class="method-name">Microsoft Graph</div>
+          <div class="method-tagline">Microsoft 365 · Office · SharePoint · Teams</div>
+          <div class="method-body">
+            <p>Microsoft Graph is the API gateway into the entire Microsoft 365 ecosystem. If your business uses Outlook, Teams, SharePoint, Excel, or OneDrive, Microsoft Graph is how you connect other systems to them.</p>
+            <p>It's technically a REST API — but it's specific to Microsoft's platform and worth treating separately because it's so widely relevant to food businesses that run on Office 365.</p>
+            <div class="method-uses">
+              <div class="method-use">Reading order emails from Outlook to feed into an AI order workflow</div>
+              <div class="method-use">Creating and filing documents in SharePoint automatically</div>
+              <div class="method-use">Pushing a notification to a Teams channel when a new order is approved</div>
+              <div class="method-use">Reading or updating data in an Excel file on OneDrive programmatically</div>
+              <div class="method-use">Sending emails or calendar invites from a system (not just manually)</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 id="decision">Which one do you need?</h3>
+        <div class="decision-block">
+          <div class="decision-q">Do you need data to sync in real time (the moment something changes)?</div>
+          <div class="decision-a">→ Use <strong>REST API</strong>. Most modern platforms — Shopify, Airtable, Foodit — support it.</div>
+        </div>
+        <div class="decision-block">
+          <div class="decision-q">Are you exchanging large batches of data on a schedule, or working with a legacy system?</div>
+          <div class="decision-a">→ Use <strong>SFTP</strong>. Also the right choice when a trading partner (supermarket, large retailer, older ERP) only supports file exchange.</div>
+        </div>
+        <div class="decision-block">
+          <div class="decision-q">Are you integrating with anything in Microsoft 365 — Outlook, SharePoint, Teams, Excel, OneDrive?</div>
+          <div class="decision-a">→ Use <strong>Microsoft Graph</strong>. It's the only way to properly integrate with these services.</div>
+        </div>
+        <div class="decision-block">
+          <div class="decision-q">Not sure?</div>
+          <div class="decision-a">→ Tell us which systems you're trying to connect. We'll advise on the right approach — free, no obligation. <button onclick="openModal()" style="background:none;border:none;color:var(--amber);cursor:pointer;font-family:inherit;font-size:inherit;text-decoration:underline;padding:0;">Ask us here.</button></div>
+        </div>
+
+        <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border);">
+          <button class="btn-primary" onclick="openModal()">Ask us about your specific connection →</button>
+          <a href="/guides/" class="btn-outline" style="margin-left:12px;">← All guides</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">In this guide</div>
+        <a href="#rest-api" class="toc-link">REST API — real-time connections</a>
+        <a href="#sftp" class="toc-link">SFTP — scheduled file transfer</a>
+        <a href="#graph" class="toc-link">Microsoft Graph — M365</a>
+        <a href="#decision" class="toc-link">Which one do you need?</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Related</div>
+        <a href="/guides/airtable-pim.html" class="related-card">
+          <div class="related-title">Airtable PIM — using the REST API to sync to Shopify</div>
+          <div class="related-type">Guide · Airtable</div>
+        </a>
+        <a href="/guides/ai-email-to-sales-order.html" class="related-card">
+          <div class="related-title">AI email to sales order — uses Graph + REST</div>
+          <div class="related-type">Guide · AI</div>
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Not sure which to use?</div>
+        <p style="font-size:11px;color:var(--muted);line-height:1.7;margin-bottom:14px;">Tell us your systems and we'll give you a straight answer.</p>
+        <button class="btn-primary" style="width:100%;" onclick="openModal()">Ask us →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div><a href="/" class="logo">Tech<span>In</span>Food</a><p class="footer-desc">Free guides and advice for small food businesses.</p></div>
+  <div class="footer-col"><h4>Guides</h4><ul><li><a href="/guides/airtable-pim.html">Airtable PIM</a></li><li><a href="/guides/ai-email-to-sales-order.html">AI Email Orders</a></li><li><a href="/guides/invoice-approval-automation.html">Invoice Automation</a></li><li><a href="/guides/rest-api-sftp-graph.html">API Integration</a></li></ul></div>
+  <div class="footer-col"><h4>Support</h4><ul><li><a onclick="openModal()">Ask a Question</a></li><li><a href="/#ask-us">Get Help</a></li></ul></div>
+  <div class="footer-col"><h4>Blog</h4><ul><li><a href="/blog/">All posts</a></li></ul></div>
+</footer>
+<div class="footer-bottom"><span>© 2025 TechInFood</span><span>hello@techinfood.com</span></div>
+<script src="../assets/nav.js"></script>
+</body>
+</html>
