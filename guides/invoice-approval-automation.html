@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice Approval Automation for Food Businesses | TechInFood Guide</title>
+<meta name="description" content="How AI invoice approval automation works for food distributors and wholesalers. Three-way matching, auto-approval rules, exception routing — explained plainly. Free guide.">
+<link rel="canonical" href="https://www.techinfood.com/guides/invoice-approval-automation.html">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .page-layout { display: grid; grid-template-columns: 1fr 300px; gap: 1px; background: var(--border); }
+  .page-main { background: var(--bg); padding: 60px 64px; }
+  .page-sidebar { background: var(--panel); padding: 40px 28px; position: sticky; top: 72px; height: fit-content; }
+  .sidebar-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+  .sidebar-section { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+  .sidebar-section:last-child { border-bottom: none; margin-bottom: 0; }
+  .toc-link { display: block; font-size: 11px; color: var(--muted); padding: 6px 0; border-bottom: 1px solid rgba(232,164,34,0.04); text-decoration: none; transition: color 0.2s, padding-left 0.2s; }
+  .toc-link:hover { color: var(--amber); padding-left: 6px; }
+  .related-card { display: block; text-decoration: none; padding: 12px 0; border-bottom: 1px solid rgba(232,164,34,0.05); transition: padding-left 0.2s; }
+  .related-card:hover { padding-left: 4px; }
+  .related-card:last-child { border-bottom: none; }
+  .related-title { font-size: 11px; color: var(--text); margin-bottom: 2px; line-height: 1.4; }
+  .related-type { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+  .flow-diagram { display: flex; flex-direction: column; gap: 0; margin: 28px 0; }
+  .flow-step { display: flex; gap: 16px; padding: 16px 0; position: relative; }
+  .flow-step:not(:last-child)::after { content: ''; position: absolute; left: 15px; top: 46px; bottom: 0; width: 1px; background: rgba(232,164,34,0.15); }
+  .flow-dot { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; background: var(--panel); position: relative; z-index: 1; }
+  .flow-dot.ai { background: rgba(232,164,34,0.1); border-color: var(--amber-dim); }
+  .flow-title { font-size: 13px; color: var(--cream); margin-bottom: 3px; font-family: 'Fraunces', serif; }
+  .flow-desc { font-size: 11px; color: var(--muted); line-height: 1.7; }
+  .ai-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; background: rgba(232,164,34,0.1); border: 1px solid rgba(232,164,34,0.2); color: var(--amber); padding: 2px 8px; margin-top: 5px; }
+  .match-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 12px; }
+  .match-table th { background: var(--panel); padding: 10px 14px; text-align: left; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber-dim); border-bottom: 1px solid var(--border); font-weight: 400; }
+  .match-table td { padding: 10px 14px; border-bottom: 1px solid rgba(232,164,34,0.05); color: var(--muted); }
+  .match-table td:first-child { color: var(--cream); }
+  .match-table .ok { color: var(--green-bright); }
+  .match-table .flag { color: #e07060; }
+  .page-hero-inner { padding: 120px 80px 0; background: var(--surface); border-bottom: 1px solid var(--border); }
+  @media(max-width:900px){ .page-hero-inner{padding:100px 24px 0;} .page-layout{grid-template-columns:1fr;} .page-main{padding:40px 24px;} .page-sidebar{position:static;} }
+</style>
+</head>
+<body>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal" id="modal-inner">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="section-label" style="margin-bottom:10px;">Get hands-on help</div>
+    <h3>Implement invoice automation</h3>
+    <p>We can walk you through the setup, help define your approval rules, or build the full workflow for you.</p>
+    <div class="modal-form">
+      <input type="text" placeholder="Your name" /><input type="email" placeholder="Your email" />
+      <select><option disabled selected>What would help?</option><option>Free advice call</option><option>Guided implementation</option><option>Done-for-you build</option></select>
+      <textarea placeholder="How many supplier invoices do you process per week?"></textarea>
+      <button class="modal-submit" onclick="submitForm()">Send →</button>
+      <div class="modal-note">We reply within 1 business day</div>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <a href="/" class="logo">Tech<span>In</span>Food <span class="logo-badge">Knowledge Hub</span></a>
+  <ul>
+    <li><a href="/guides/" class="active">Guides</a></li>
+    <li><a href="/#ai-docs">AI Workflows</a></li>
+    <li><a href="/#tools">Tools</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#ask-us">Get Help</a></li>
+    <li><a href="#" onclick="openModal()" class="nav-cta">Ask Us</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero-inner">
+  <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/guides/">Guides</a><span>/</span> Invoice Approval Automation</div>
+  <div style="padding-bottom:40px;">
+    <div class="section-label">Guide · AI Workflows</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,48px);font-weight:900;color:var(--cream);letter-spacing:-1px;line-height:1.05;margin-bottom:16px;">Invoice Approval Automation<br>for Food Businesses</h1>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px;">
+      <span class="badge badge-free">Free guide</span><span class="badge badge-beginner">Beginner</span>
+      <span style="font-size:10px;color:var(--muted);">⏱ 10 min read</span>
+    </div>
+  </div>
+</div>
+
+<div class="ticker"><div class="ticker-inner">◆ INVOICE APPROVAL AUTOMATION &nbsp;&nbsp;&nbsp; ◆ THREE-WAY MATCHING &nbsp;&nbsp;&nbsp; ◆ ACCOUNTS PAYABLE &nbsp;&nbsp;&nbsp; ◆ FOOD DISTRIBUTOR &nbsp;&nbsp;&nbsp; ◆ AI WORKFLOW &nbsp;&nbsp;&nbsp; ◆ INVOICE APPROVAL AUTOMATION &nbsp;&nbsp;&nbsp; ◆ THREE-WAY MATCHING &nbsp;&nbsp;&nbsp; ◆ ACCOUNTS PAYABLE &nbsp;&nbsp;&nbsp; ◆ FOOD DISTRIBUTOR &nbsp;&nbsp;&nbsp; ◆ AI WORKFLOW &nbsp;&nbsp;&nbsp;</div></div>
+
+<div style="background:var(--bg);padding:60px 80px;">
+  <div class="page-layout">
+    <div class="page-main reveal">
+      <div class="article-body">
+        <p>Supplier invoices land in your inbox every day. Someone has to open each one, check it against the purchase order, check what was actually delivered, verify the amount, and then approve or query it. For a busy food distributor processing dozens of supplier invoices a week, that's hours of bottlenecked admin.</p>
+        <p>AI invoice approval automation handles the routine checking — and flags the exceptions that actually need a human eye.</p>
+
+        <h3 id="three-way">What is three-way matching?</h3>
+        <p>Three-way matching is the standard accounts payable check that compares three documents:</p>
+        <ul>
+          <li><strong>Purchase Order (PO)</strong> — what you agreed to buy, at what price</li>
+          <li><strong>Goods Received Note (GRN)</strong> — what was actually delivered and accepted</li>
+          <li><strong>Supplier Invoice</strong> — what the supplier is asking you to pay</li>
+        </ul>
+        <p>If all three match, the invoice is clean and can be paid. If anything doesn't match — a price discrepancy, a quantity difference, a missing PO reference — it needs investigation. AI does this comparison in seconds, on every invoice, every time.</p>
+
+        <table class="match-table">
+          <thead><tr><th>Check</th><th>PO says</th><th>GRN says</th><th>Invoice says</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>Oat Milk 1L × 100</td><td>£1.20/unit</td><td>100 received</td><td>£1.20/unit · 100 units</td><td class="ok">✓ Match</td></tr>
+            <tr><td>Sourdough × 48</td><td>£1.80/unit</td><td>48 received</td><td>£1.80/unit · 48 units</td><td class="ok">✓ Match</td></tr>
+            <tr><td>Smoked Salmon × 24</td><td>£4.50/unit</td><td>20 received</td><td>£4.50/unit · 24 units</td><td class="flag">⚠ GRN mismatch</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:11px;color:var(--muted);">In the example above, 2 lines auto-approve. The third line is flagged — the invoice charges for 24 units but only 20 were received. This goes to a human for review with all context attached.</p>
+
+        <h3 id="how">How the AI workflow works</h3>
+        <div class="flow-diagram">
+          <div class="flow-step">
+            <div class="flow-dot">📨</div>
+            <div>
+              <div class="flow-title">Invoice arrives by email, portal, or upload</div>
+              <div class="flow-desc">PDF, image scan, or structured file. The AI reads all formats. Supplier portals can also push invoices directly via API.</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-dot ai">✦</div>
+            <div>
+              <div class="flow-title">AI extracts invoice data</div>
+              <div class="flow-desc">Supplier name, invoice number, date, line items, quantities, unit prices, VAT, and total — all extracted automatically.</div>
+              <div class="ai-badge">✦ AI step</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-dot ai">✦</div>
+            <div>
+              <div class="flow-title">Three-way match performed</div>
+              <div class="flow-desc">Invoice compared against the matched PO and GRN. Price tolerance checked (e.g. allow ±1%). Quantity verified. PO reference validated.</div>
+              <div class="ai-badge">✦ AI step</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-dot">⚡</div>
+            <div>
+              <div class="flow-title">Auto-approved or exception raised</div>
+              <div class="flow-desc">Clean invoices are approved and logged. Exceptions are routed to the right person with a summary of exactly what doesn't match — so they can resolve it quickly.</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-dot">💳</div>
+            <div>
+              <div class="flow-title">Payment triggered or scheduled</div>
+              <div class="flow-desc">Approved invoices can flow directly to your accounting system (Xero, Sage, QuickBooks) or ERP for payment on the due date.</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 id="rules">Setting your approval rules</h3>
+        <p>Before implementing, decide your tolerance thresholds. Common settings for food businesses:</p>
+        <div class="code-block"><span class="comment">// Example approval rules</span>
+Auto-approve if:
+  ✓ PO reference found and matched
+  ✓ Quantities match GRN (±0 units for fresh/chilled)
+  ✓ Unit prices match PO (±1% tolerance for ambient)
+  ✓ Invoice total ≤ £2,000
+
+Flag for review if:
+  ⚠ Price difference > 1%
+  ⚠ Quantity on invoice > quantity received
+  ⚠ No matching PO found
+  ⚠ Duplicate invoice number detected
+  ⚠ Invoice total > £2,000 (manual approval required)</div>
+
+        <div class="callout"><strong>Start simple.</strong> Don't try to automate everything at once. Begin with auto-approving invoices under a certain value where PO and GRN match exactly. Add more automation as you build confidence in the system.</div>
+
+        <h3 id="tools">Tools to implement this</h3>
+        <ul>
+          <li><strong>Make.com</strong> — to orchestrate the workflow (watch inbox, call AI, route results)</li>
+          <li><strong>An OCR + LLM combination</strong> — to extract data from PDF invoices. Tools like Mindee or a GPT-4 Vision call work well</li>
+          <li><strong>Your PO and GRN data</strong> — needs to be in a queryable format (Airtable, your ERP's API, or a spreadsheet connected via Make)</li>
+          <li><strong>Your accounting system</strong> — Xero, Sage, or QuickBooks all have APIs to receive approved invoices</li>
+        </ul>
+
+        <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border);">
+          <button class="btn-primary" onclick="openModal()">Talk to us about implementing this →</button>
+          <a href="/guides/" class="btn-outline" style="margin-left:12px;">← Back to guides</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">In this guide</div>
+        <a href="#three-way" class="toc-link">What is three-way matching?</a>
+        <a href="#how" class="toc-link">How the AI workflow works</a>
+        <a href="#rules" class="toc-link">Setting approval rules</a>
+        <a href="#tools" class="toc-link">Tools to implement this</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Related</div>
+        <a href="/guides/ai-email-to-sales-order.html" class="related-card">
+          <div class="related-title">AI email to sales order conversion</div>
+          <div class="related-type">Guide · AI</div>
+        </a>
+        <a href="/guides/airtable-pim.html" class="related-card">
+          <div class="related-title">Setting up Airtable as a PIM</div>
+          <div class="related-type">Guide · Airtable</div>
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Need help?</div>
+        <p style="font-size:11px;color:var(--muted);line-height:1.7;margin-bottom:14px;">We can help you define rules, build the workflow, or implement the full system.</p>
+        <button class="btn-primary" style="width:100%;" onclick="openModal()">Talk to us →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div><a href="/" class="logo">Tech<span>In</span>Food</a><p class="footer-desc">Free guides and advice for small food businesses.</p></div>
+  <div class="footer-col"><h4>Guides</h4><ul><li><a href="/guides/airtable-pim.html">Airtable PIM</a></li><li><a href="/guides/ai-email-to-sales-order.html">AI Email Orders</a></li><li><a href="/guides/invoice-approval-automation.html">Invoice Automation</a></li><li><a href="/guides/rest-api-sftp-graph.html">API Integration</a></li></ul></div>
+  <div class="footer-col"><h4>Support</h4><ul><li><a onclick="openModal()">Ask a Question</a></li><li><a href="/#ask-us">Get Help</a></li></ul></div>
+  <div class="footer-col"><h4>Blog</h4><ul><li><a href="/blog/">All posts</a></li></ul></div>
+</footer>
+<div class="footer-bottom"><span>© 2025 TechInFood</span><span>hello@techinfood.com</span></div>
+<script src="../assets/nav.js"></script>
+</body>
+</html>
