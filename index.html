@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Food Business Technology | TechInFood</title>
+<meta name="description" content="Practical articles on technology for small food businesses. ERP decisions, Airtable vs spreadsheets, AI automation, and more. Free to read.">
+<link rel="canonical" href="https://www.techinfood.com/blog/">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .page-hero { padding: 120px 80px 60px; background: var(--surface); border-bottom: 1px solid var(--border); }
+  .blog-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1px; background: var(--border); margin-top: 0; }
+  .blog-main { background: var(--bg); padding: 60px 64px; display: flex; flex-direction: column; gap: 1px; }
+  .blog-sidebar { background: var(--panel); padding: 40px 28px; }
+  .post-card { background: var(--bg); padding: 32px 0; border-bottom: 1px solid rgba(232,164,34,0.07); text-decoration: none; display: block; transition: padding-left 0.2s; color: inherit; }
+  .post-card:hover { padding-left: 8px; }
+  .post-card:last-child { border-bottom: none; }
+  .post-cat { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber-dim); margin-bottom: 10px; }
+  .post-title { font-family: 'Fraunces', serif; font-size: 22px; color: var(--cream); margin-bottom: 10px; line-height: 1.3; }
+  .post-excerpt { font-size: 12px; color: var(--muted); line-height: 1.8; margin-bottom: 14px; }
+  .post-meta { display: flex; gap: 12px; align-items: center; }
+  .sidebar-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+  .sidebar-section { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+  .sidebar-section:last-child { border-bottom: none; margin-bottom: 0; }
+  .sidebar-link { display: block; font-size: 11px; color: var(--muted); padding: 8px 0; border-bottom: 1px solid rgba(232,164,34,0.04); text-decoration: none; transition: color 0.2s, padding-left 0.2s; }
+  .sidebar-link:hover { color: var(--amber); padding-left: 4px; }
+  .topic-tag { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; border: 1px solid var(--border); color: var(--muted); padding: 4px 10px; display: inline-block; margin: 3px; transition: all 0.2s; text-decoration: none; }
+  .topic-tag:hover { border-color: var(--amber); color: var(--amber); }
+  @media(max-width:900px){ .page-hero{padding:100px 24px 40px;} .blog-grid{grid-template-columns:1fr;} .blog-main{padding:40px 24px;} .blog-sidebar{padding:32px 24px;} }
+</style>
+</head>
+<body>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal" id="modal-inner">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="section-label" style="margin-bottom:10px;">Ask us anything</div>
+    <h3>Send us your question</h3>
+    <p>We reply to every question personally — no bots, no templates.</p>
+    <div class="modal-form">
+      <input type="text" placeholder="Your name" /><input type="email" placeholder="Your email" />
+      <textarea placeholder="What would you like to know?"></textarea>
+      <button class="modal-submit" onclick="submitForm()">Send →</button>
+      <div class="modal-note">We reply within 1 business day</div>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <a href="/" class="logo">Tech<span>In</span>Food <span class="logo-badge">Knowledge Hub</span></a>
+  <ul>
+    <li><a href="/guides/">Guides</a></li>
+    <li><a href="/#ai-docs">AI Workflows</a></li>
+    <li><a href="/#tools">Tools</a></li>
+    <li><a href="/blog/" class="active">Blog</a></li>
+    <li><a href="/#ask-us">Get Help</a></li>
+    <li><a href="#" onclick="openModal()" class="nav-cta">Ask Us</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="/">Home</a><span>/</span> Blog</div>
+  <div class="section-label">Articles &amp; opinions</div>
+  <h2 style="font-size:clamp(30px,4vw,52px);letter-spacing:-1px;">Food Business Tech Blog</h2>
+  <p style="color:var(--muted);font-size:13px;max-width:520px;margin-top:10px;line-height:1.9;">Practical articles, honest opinions, and real-world advice on technology for small food businesses. Published weekly.</p>
+</div>
+
+<div class="ticker"><div class="ticker-inner">◆ FOOD BUSINESS TECH &nbsp;&nbsp;&nbsp; ◆ ERP ADVICE &nbsp;&nbsp;&nbsp; ◆ AIRTABLE TIPS &nbsp;&nbsp;&nbsp; ◆ AI AUTOMATION &nbsp;&nbsp;&nbsp; ◆ SHOPIFY &nbsp;&nbsp;&nbsp; ◆ HONEST ADVICE &nbsp;&nbsp;&nbsp; ◆ FOOD BUSINESS TECH &nbsp;&nbsp;&nbsp; ◆ ERP ADVICE &nbsp;&nbsp;&nbsp; ◆ AIRTABLE TIPS &nbsp;&nbsp;&nbsp; ◆ AI AUTOMATION &nbsp;&nbsp;&nbsp; ◆ SHOPIFY &nbsp;&nbsp;&nbsp; ◆ HONEST ADVICE &nbsp;&nbsp;&nbsp;</div></div>
+
+<div class="blog-grid">
+  <div class="blog-main">
+    <a href="/blog/do-i-need-an-erp.html" class="post-card reveal">
+      <div class="post-cat">ERP · Systems</div>
+      <div class="post-title">Do I actually need an ERP? A guide for small food distributors</div>
+      <div class="post-excerpt">The honest answer is: probably not yet. Here's a simple framework for deciding when the timing is right — and what to use in the meantime.</div>
+      <div class="post-meta"><span class="badge badge-beginner">Beginner</span><span style="font-size:10px;color:var(--muted);">9 min read</span></div>
+    </a>
+    <a href="/blog/airtable-vs-spreadsheet.html" class="post-card reveal">
+      <div class="post-cat">Inventory · Getting started</div>
+      <div class="post-title">Airtable vs spreadsheets for food business inventory — an honest comparison</div>
+      <div class="post-excerpt">Spreadsheets aren't bad — they're just not built for shared, live operational data. Here's when the switch to Airtable makes sense, and when it doesn't.</div>
+      <div class="post-meta"><span class="badge badge-beginner">Beginner</span><span style="font-size:10px;color:var(--muted);">6 min read</span></div>
+    </a>
+    <div class="post-card reveal" style="cursor:default;opacity:0.5;">
+      <div class="post-cat">Coming soon</div>
+      <div class="post-title">How to set up Make.com for your first food business automation</div>
+      <div class="post-excerpt">A step-by-step walkthrough of building your first automation scenario — order confirmation emails on autopilot.</div>
+      <div class="post-meta"><span style="font-size:10px;color:var(--muted);">Publishing soon</span></div>
+    </div>
+    <div class="post-card reveal" style="cursor:default;opacity:0.5;">
+      <div class="post-cat">Coming soon</div>
+      <div class="post-title">Shopify for food wholesale — B2B features explained</div>
+      <div class="post-excerpt">Shopify's wholesale channel, price lists, and B2B features — what they actually do and whether they're right for food distributors.</div>
+      <div class="post-meta"><span style="font-size:10px;color:var(--muted);">Publishing soon</span></div>
+    </div>
+  </div>
+
+  <div class="blog-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Topics</div>
+      <a href="/guides/airtable-pim.html" class="topic-tag">Airtable</a>
+      <a href="/guides/ai-email-to-sales-order.html" class="topic-tag">AI Workflows</a>
+      <a href="#" class="topic-tag">Shopify</a>
+      <a href="#" class="topic-tag">ERP</a>
+      <a href="/guides/rest-api-sftp-graph.html" class="topic-tag">Integration</a>
+      <a href="#" class="topic-tag">Inventory</a>
+      <a href="#" class="topic-tag">Automation</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Popular guides</div>
+      <a href="/guides/airtable-pim.html" class="sidebar-link">Setting up Airtable as a PIM</a>
+      <a href="/guides/ai-email-to-sales-order.html" class="sidebar-link">AI email to sales order</a>
+      <a href="/guides/invoice-approval-automation.html" class="sidebar-link">Invoice approval automation</a>
+      <a href="/guides/rest-api-sftp-graph.html" class="sidebar-link">REST API vs SFTP vs Graph</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Get new guides by email</div>
+      <p style="font-size:11px;color:var(--muted);line-height:1.7;margin-bottom:14px;">New practical guides every week. Free, no spam.</p>
+      <input type="email" id="blog-email" placeholder="your@email.com" style="width:100%;background:var(--bg);border:1px solid var(--border);padding:10px 12px;font-family:'DM Mono',monospace;font-size:11px;color:var(--text);outline:none;margin-bottom:8px;">
+      <button class="btn-primary" style="width:100%;" onclick="blogSubscribe()">Subscribe free →</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Have a question?</div>
+      <p style="font-size:11px;color:var(--muted);line-height:1.7;margin-bottom:14px;">Can't find what you're looking for? Ask us directly.</p>
+      <button class="btn-outline" style="width:100%;" onclick="openModal()">Ask a question →</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div><a href="/" class="logo">Tech<span>In</span>Food</a><p class="footer-desc">Free guides, articles, and advice for small food businesses.</p></div>
+  <div class="footer-col"><h4>Guides</h4><ul><li><a href="/guides/airtable-pim.html">Airtable PIM</a></li><li><a href="/guides/ai-email-to-sales-order.html">AI Email Orders</a></li><li><a href="/guides/invoice-approval-automation.html">Invoice Automation</a></li></ul></div>
+  <div class="footer-col"><h4>Blog</h4><ul><li><a href="/blog/do-i-need-an-erp.html">Do I need an ERP?</a></li><li><a href="/blog/airtable-vs-spreadsheet.html">Airtable vs Spreadsheet</a></li></ul></div>
+  <div class="footer-col"><h4>Support</h4><ul><li><a onclick="openModal()">Ask a Question</a></li><li><a href="/#ask-us">Get Help</a></li></ul></div>
+</footer>
+<div class="footer-bottom"><span>© 2025 TechInFood</span><span>hello@techinfood.com</span></div>
+<script src="../assets/nav.js"></script>
+<script>
+function blogSubscribe() {
+  const el = document.getElementById('blog-email');
+  if(el && el.value){ el.value=''; el.placeholder='✓ Subscribed!'; }
+}
+</script>
+</body>
+</html>
