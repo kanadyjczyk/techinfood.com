@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.techinfood.com/sitemap.xml
+
+# Block no paths — entire site is public content
