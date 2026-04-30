@@ -3,988 +3,252 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manuals & Documentation Shop | TechInFood</title>
-<meta name="description" content="Professional manuals and documentation for food distributors, wholesalers, and food businesses. Airtable setup manuals, AI workflow guides, ERP implementation docs — written by food tech specialists. Instant download.">
+<title>Winman ERP Manuals — Professional PDF Documentation | TechInFood</title>
+<meta name="description" content="Professional Winman ERP manuals for food businesses. Warehouse & Go, Buying & Product Setup, Sales & CRM, Finance. Instant PDF download, written by food industry specialists.">
 <link rel="canonical" href="https://www.techinfood.com/manuals/">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Store",
-  "name": "TechInFood Manuals",
-  "description": "Professional manuals and documentation for small food businesses. Instant digital download.",
-  "url": "https://www.techinfood.com/manuals/",
-  "currenciesAccepted": "GBP",
-  "paymentAccepted": "Credit Card, PayPal",
-  "areaServed": "United Kingdom"
-}
-</script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 <style>
-  /* PAGE HERO */
-  .page-hero {
-    padding: 120px 80px 60px;
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-  .hero-trust-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 28px;
-  }
-  .trust-pill {
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    padding: 5px 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .trust-pill::before { content: '✓'; color: var(--green-bright); }
-
-  /* MANUAL PREVIEW VISUAL */
-  .manual-preview-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 32px;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-  .manual-preview-stack::before {
-    content: '📄';
-    position: absolute;
-    right: 20px;
-    bottom: 16px;
-    font-size: 80px;
-    opacity: 0.06;
-  }
-  .preview-doc {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    padding: 14px 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    transition: border-color 0.2s;
-  }
-  .preview-doc:hover { border-color: var(--amber-dim); }
-  .preview-doc-icon { font-size: 18px; flex-shrink: 0; }
-  .preview-doc-name { font-size: 11px; color: var(--cream); line-height: 1.3; }
-  .preview-doc-pages { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
-  .preview-doc-price {
-    margin-left: auto;
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    color: var(--amber);
-    flex-shrink: 0;
-  }
-
-  /* FILTER BAR */
-  .filter-bar {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-    align-items: center;
-  }
-  .filter-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-right: 8px; }
-  .filter-btn {
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    background: none;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: 'DM Mono', monospace;
-  }
-  .filter-btn:hover, .filter-btn.active { border-color: var(--amber); color: var(--amber); }
-
-  /* MANUAL CARDS GRID */
-  .manuals-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-  }
-  .manual-card {
-    background: var(--bg);
-    padding: 36px 30px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.25s;
-  }
-  .manual-card:hover { background: var(--panel); }
-  .manual-card-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 9px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 3px 9px;
-  }
-  .badge-new { background: rgba(232,164,34,0.12); color: var(--amber); border: 1px solid rgba(232,164,34,0.25); }
-  .badge-bestseller { background: rgba(109,184,114,0.12); color: var(--green-bright); border: 1px solid rgba(109,184,114,0.25); }
-  .badge-bundle { background: rgba(232,164,34,0.08); color: var(--amber-dim); border: 1px solid rgba(232,164,34,0.15); }
-  .manual-icon { font-size: 32px; margin-bottom: 18px; }
-  .manual-cat { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber-dim); margin-bottom: 10px; }
-  .manual-title {
-    font-family: 'Fraunces', serif;
-    font-size: 20px;
-    color: var(--cream);
-    margin-bottom: 10px;
-    line-height: 1.3;
-  }
-  .manual-desc { font-size: 12px; color: var(--muted); line-height: 1.8; flex: 1; margin-bottom: 20px; }
-  .manual-contents { margin: 0 0 20px; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
-  .manual-contents li {
-    font-size: 10px;
-    color: var(--muted);
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    line-height: 1.5;
-  }
-  .manual-contents li::before { content: '—'; color: var(--amber-dim); flex-shrink: 0; }
-  .manual-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 18px;
-    flex-wrap: wrap;
-  }
-  .meta-pill {
-    font-size: 9px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--muted);
-    border: 1px solid var(--border);
-    padding: 2px 8px;
-  }
-  .manual-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    border-top: 1px solid var(--border);
-    padding-top: 18px;
-    margin-top: auto;
-  }
-  .manual-price {
-    display: flex;
-    flex-direction: column;
-  }
-  .price-amount {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    color: var(--amber);
-    font-weight: 700;
-    line-height: 1;
-  }
-  .price-label { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
-  .btn-buy {
-    background: var(--amber);
-    color: #0d0d0b;
-    padding: 11px 20px;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-decoration: none;
-    display: inline-block;
-    white-space: nowrap;
-  }
-  .btn-buy:hover { background: var(--cream); transform: translateY(-1px); }
-  .btn-preview {
-    background: none;
-    color: var(--muted);
-    padding: 11px 0;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border: none;
-    border-bottom: 1px solid var(--muted);
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-  .btn-preview:hover { color: var(--amber); border-color: var(--amber); }
-
-  /* BUNDLE CARD */
-  .manual-card.bundle {
-    background: var(--panel);
-    border: 1px solid rgba(232,164,34,0.2);
-    grid-column: span 3;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-  }
-  .bundle-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin: 16px 0;
-  }
-  .bundle-item {
-    font-size: 11px;
-    color: var(--muted);
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 10px 12px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-  }
-  .bundle-item::before { content: '✓'; color: var(--green-bright); flex-shrink: 0; font-size: 10px; margin-top: 1px; }
-  .bundle-saving {
-    font-size: 11px;
-    color: var(--green-bright);
-    margin-top: 4px;
-  }
-
-  /* HOW IT WORKS */
-  .how-it-works {
-    background: var(--surface);
-    padding: 80px;
-  }
-  .how-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--border);
-    margin-top: 48px;
-  }
-  .how-step {
-    background: var(--surface);
-    padding: 32px 26px;
-  }
-  .how-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 44px;
-    color: rgba(232,164,34,0.12);
-    font-weight: 900;
-    line-height: 1;
-    margin-bottom: 14px;
-  }
-  .how-title { font-family: 'Fraunces', serif; font-size: 16px; color: var(--cream); margin-bottom: 8px; }
-  .how-desc { font-size: 11px; color: var(--muted); line-height: 1.8; }
-
-  /* CUSTOM MANUAL REQUEST */
-  .custom-section {
-    background: var(--bg);
-    padding: 80px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    border-top: 1px solid var(--border);
-  }
-  .custom-form-area {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    padding: 36px;
-  }
-  .custom-form { display: flex; flex-direction: column; gap: 10px; }
-  .custom-form input, .custom-form select, .custom-form textarea {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    padding: 11px 13px;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.2s;
-    width: 100%;
-  }
-  .custom-form input:focus, .custom-form select:focus, .custom-form textarea:focus { border-color: var(--amber); }
-  .custom-form input::placeholder, .custom-form textarea::placeholder { color: var(--muted); }
-  .custom-form select { color: var(--muted); appearance: none; }
-  .custom-form select option { background: var(--panel); color: var(--text); }
-  .custom-form textarea { resize: none; height: 90px; }
-  .custom-submit {
-    background: var(--amber);
-    color: #0d0d0b;
-    border: none;
-    padding: 13px;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s;
-    margin-top: 4px;
-  }
-  .custom-submit:hover { background: var(--cream); }
-  .custom-note { font-size: 10px; color: var(--muted); text-align: center; margin-top: 8px; }
-
-  /* PREVIEW MODAL */
-  .preview-modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(13,13,11,0.92);
-    z-index: 300;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(8px);
-  }
-  .preview-modal-overlay.open { display: flex; }
-  .preview-modal {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    padding: 48px;
-    max-width: 560px;
-    width: 94%;
-    position: relative;
-    animation: modalIn 0.3s ease;
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-  @keyframes modalIn { from{transform:translateY(20px);opacity:0} to{transform:none;opacity:1} }
-  .preview-modal-close {
-    position: absolute; top: 14px; right: 18px;
-    background: none; border: none; color: var(--muted); font-size: 16px; cursor: pointer;
-  }
-  .preview-modal-close:hover { color: var(--cream); }
-  .preview-chapter { padding: 14px 0; border-bottom: 1px solid rgba(232,164,34,0.07); }
-  .preview-chapter:last-child { border-bottom: none; }
-  .chapter-num { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber-dim); margin-bottom: 4px; }
-  .chapter-title { font-size: 13px; color: var(--cream); margin-bottom: 4px; font-family: 'Fraunces', serif; }
-  .chapter-pages { font-size: 10px; color: var(--muted); }
-  .chapter-locked { font-size: 10px; color: var(--muted); filter: blur(2px); user-select: none; }
-
-  @media(max-width:900px){
-    .page-hero { grid-template-columns:1fr; padding:100px 24px 40px; }
-    .manuals-grid { grid-template-columns:1fr; }
-    .manual-card.bundle { grid-column: span 1; grid-template-columns:1fr; }
-    .bundle-list { grid-template-columns:1fr; }
-    .how-it-works, .custom-section { padding:56px 24px; }
-    .how-grid { grid-template-columns:1fr 1fr; }
-    .custom-section { grid-template-columns:1fr; }
-    section { padding:56px 24px; }
-  }
+  .manuals-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+  .manual-card { background:var(--white); border:1.5px solid var(--border); border-radius:var(--r-lg); padding:28px; display:flex; flex-direction:column; transition:all .2s; position:relative; overflow:hidden; }
+  .manual-card:hover { border-color:var(--blue); box-shadow:var(--shadow); transform:translateY(-2px); }
+  .mc-stripe { position:absolute; top:0; left:0; right:0; height:4px; }
+  .ms-blue   { background:linear-gradient(90deg,var(--blue),var(--blue-mid)); }
+  .ms-teal   { background:linear-gradient(90deg,var(--teal),#0DC09A); }
+  .ms-gold   { background:linear-gradient(90deg,var(--gold),#F59E0B); }
+  .ms-indigo { background:linear-gradient(90deg,#6366F1,#818CF8); }
+  .mc-top { display:flex; align-items:flex-start; justify-content:space-between; margin:10px 0 14px; }
+  .mc-icon-wrap { width:48px; height:48px; border-radius:var(--r); background:var(--blue-faint); display:grid; place-items:center; font-size:1.4rem; }
+  .mc-tag   { font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); margin-bottom:5px; font-family:'Plus Jakarta Sans',sans-serif; }
+  .mc-title { font-size:1rem; font-weight:800; color:var(--ink); margin-bottom:8px; line-height:1.3; font-family:'Plus Jakarta Sans',sans-serif; }
+  .mc-desc  { font-size:.85rem; color:var(--muted); line-height:1.7; flex:1; margin-bottom:14px; }
+  .mc-includes { display:flex; flex-direction:column; gap:4px; margin-bottom:16px; }
+  .mc-item { font-size:.82rem; color:var(--muted); display:flex; gap:8px; align-items:flex-start; }
+  .mc-item::before { content:'✓'; color:var(--teal); font-weight:800; flex-shrink:0; font-size:.75rem; margin-top:2px; }
+  .mc-meta-row { display:flex; gap:7px; flex-wrap:wrap; margin-bottom:18px; }
+  .mc-meta-tag { font-size:.65rem; font-weight:600; border:1px solid var(--border); color:var(--muted); padding:3px 9px; border-radius:20px; font-family:'Plus Jakarta Sans',sans-serif; }
+  .mc-footer { border-top:1px solid var(--border-soft); padding-top:16px; display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; }
+  .mc-price { font-family:'Instrument Serif',serif; font-size:2rem; color:var(--ink); line-height:1; }
+  .mc-price-note { font-size:.72rem; color:var(--light); }
+  .mc-btns { display:flex; align-items:center; gap:8px; }
+  .btn-prev { font-size:.8rem; font-weight:700; color:var(--muted); border-bottom:1.5px solid var(--border); cursor:pointer; transition:all .15s; background:none; border-top:none; border-left:none; border-right:none; font-family:'Plus Jakarta Sans',sans-serif; }
+  .btn-prev:hover { color:var(--blue); border-color:var(--blue); }
+  .bundle-wrap { margin-top:18px; background:linear-gradient(135deg,var(--blue-faint) 0%,var(--teal-faint) 100%); border:1.5px solid rgba(27,98,248,.2); border-radius:var(--r-xl); padding:36px; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+  .bundle-tag { display:inline-flex; align-items:center; gap:6px; background:var(--blue); color:white; font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:4px 12px; border-radius:20px; margin-bottom:12px; font-family:'Plus Jakarta Sans',sans-serif; }
+  .bundle-price { font-family:'Instrument Serif',serif; font-size:3rem; color:var(--blue); line-height:1; }
+  .bundle-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .bundle-item { background:white; border:1px solid var(--border); border-radius:var(--r); padding:10px 13px; font-size:.82rem; color:var(--muted); display:flex; gap:8px; align-items:flex-start; }
+  .bundle-item::before { content:'✓'; color:var(--blue); font-weight:800; flex-shrink:0; }
+  .how-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1.5px solid var(--border); border-radius:var(--r-xl); overflow:hidden; margin-top:36px; }
+  .how-step { background:var(--white); padding:28px 24px; }
+  .how-num { font-family:'Instrument Serif',serif; font-size:2.2rem; color:var(--border); line-height:1; margin-bottom:10px; }
+  .how-title { font-size:.9rem; font-weight:800; color:var(--ink); margin-bottom:6px; font-family:'Plus Jakarta Sans',sans-serif; }
+  .how-desc { font-size:.82rem; color:var(--muted); line-height:1.7; }
+  .faq-list { display:flex; flex-direction:column; gap:0; border:1.5px solid var(--border); border-radius:var(--r-xl); overflow:hidden; background:var(--white); }
+  .faq-item { border-bottom:1px solid var(--border-soft); }
+  .faq-item:last-child { border-bottom:none; }
+  @media(max-width:900px){ .manuals-grid{grid-template-columns:1fr;} .bundle-wrap{grid-template-columns:1fr;} .bundle-grid{grid-template-columns:1fr;} .how-grid{grid-template-columns:1fr 1fr;} .sec{padding:56px 0;} }
 </style>
 </head>
 <body>
 
-<!-- CONTACT MODAL -->
-<div class="modal-overlay" id="modal">
-  <div class="modal" id="modal-inner">
+<div class="modal-ov" id="modal">
+  <div class="modal-box" id="modal-inner">
     <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="section-label" style="margin-bottom:10px;">Custom manual enquiry</div>
+    <div class="modal-eye">Custom manual enquiry</div>
     <h3>Tell us what you need</h3>
-    <p>We produce bespoke manuals and documentation from your existing materials. Tell us what you have and what you need.</p>
-    <div class="modal-form">
-      <input type="text" placeholder="Your name" />
-      <input type="email" placeholder="Your email" />
-      <input type="text" placeholder="Business name" />
-      <select><option disabled selected>Manual type needed</option><option>Operational procedures manual</option><option>System setup / IT manual</option><option>Staff onboarding guide</option><option>Compliance & food safety manual</option><option>ERP / software user guide</option><option>Custom — I'll describe below</option></select>
-      <textarea placeholder="Describe what you need — we'll come back with a quote and timeline…"></textarea>
-      <button class="modal-submit" onclick="submitForm()">Send enquiry →</button>
-      <div class="modal-note">We reply within 1 business day</div>
+    <p>We produce bespoke manuals from your existing materials. Tell us what you have.</p>
+    <div class="mform">
+      <input type="text" placeholder="Your name" /><input type="email" placeholder="Your email" /><input type="text" placeholder="Business name" />
+      <select><option disabled selected>Manual type</option><option>Operational procedures</option><option>System / IT setup manual</option><option>Staff onboarding guide</option><option>Food safety &amp; compliance</option><option>Custom — I'll describe below</option></select>
+      <textarea placeholder="Describe what you need…"></textarea>
+      <button class="mform-submit" onclick="submitForm()">Send enquiry →</button>
+      <div class="mform-note">We reply within 1 business day</div>
     </div>
   </div>
 </div>
 
-<!-- PREVIEW MODAL -->
-<div class="preview-modal-overlay" id="preview-modal">
-  <div class="preview-modal" id="preview-modal-content">
-    <button class="preview-modal-close" onclick="closePreview()">✕</button>
-    <!-- content injected by JS -->
-  </div>
-</div>
-
-<!-- NAV -->
 <nav>
-  <a href="/" class="logo">Tech<span>In</span>Food <span class="logo-badge">Knowledge Hub</span></a>
-  <ul>
-    <li><a href="/guides/">Guides</a></li>
-    <li><a href="/#ai-docs">AI Workflows</a></li>
-    <li><a href="/manuals/" class="active">Manuals</a></li>
-    <li><a href="/blog/">Blog</a></li>
-    <li><a href="/#ask-us">Get Help</a></li>
-    <li><a href="#" onclick="openModal()" class="nav-cta">Ask Us</a></li>
-  </ul>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <span class="nav-logo-text">Tech<span>In</span>Food</span>
+      <span class="nav-pill">Knowledge Hub</span>
+    </a>
+    <div class="nav-links">
+      <a href="/guides/">Guides</a>
+      <a href="/#ai">AI Workflows</a>
+      <a href="/manuals/" class="active">Manuals</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#ask">Get Help</a>
+    </div>
+    <div class="nav-actions">
+      <button class="btn btn-outline btn-sm" onclick="openModal()">Custom manual</button>
+      <button class="btn btn-blue btn-sm" onclick="openModal()">Ask Us</button>
+    </div>
+  </div>
 </nav>
 
-<!-- HERO -->
 <div class="page-hero">
-  <div>
-    <div class="breadcrumb"><a href="/">Home</a><span>/</span> Manuals</div>
-    <div class="section-label">Professional documentation</div>
-    <h2 style="font-size:clamp(30px,4vw,52px);letter-spacing:-1px;margin-bottom:16px;">Manuals Written for<br><em style="font-style:italic;color:var(--amber)">Food Businesses</em></h2>
-    <p style="color:var(--muted);font-size:13px;max-width:480px;line-height:1.9;">Step-by-step manuals written by food tech specialists. Instant PDF download. Use them as-is, or ask us to customise them for your specific systems and processes.</p>
-    <div class="hero-trust-row">
-      <span class="trust-pill">Instant PDF download</span>
-      <span class="trust-pill">Written for food businesses</span>
-      <span class="trust-pill">Printable &amp; shareable</span>
-      <span class="trust-pill">Customisable versions available</span>
-    </div>
-  </div>
-  <div class="manual-preview-stack">
-    <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Available now</div>
-    <div class="preview-doc">
-      <div class="preview-doc-icon">🗄️</div>
-      <div>
-        <div class="preview-doc-name">Airtable PIM Setup Manual</div>
-        <div class="preview-doc-pages">42 pages · PDF</div>
-      </div>
-      <div class="preview-doc-price">£29</div>
-    </div>
-    <div class="preview-doc">
-      <div class="preview-doc-icon">📧</div>
-      <div>
-        <div class="preview-doc-name">AI Email Order Automation Manual</div>
-        <div class="preview-doc-pages">38 pages · PDF</div>
-      </div>
-      <div class="preview-doc-price">£29</div>
-    </div>
-    <div class="preview-doc">
-      <div class="preview-doc-icon">🧾</div>
-      <div>
-        <div class="preview-doc-name">Invoice Approval Automation Manual</div>
-        <div class="preview-doc-pages">34 pages · PDF</div>
-      </div>
-      <div class="preview-doc-price">£29</div>
-    </div>
-    <div class="preview-doc" style="border-color:rgba(232,164,34,0.3);">
-      <div class="preview-doc-icon">📦</div>
-      <div>
-        <div class="preview-doc-name">Complete Food Tech Manuals Bundle</div>
-        <div class="preview-doc-pages">All 4 manuals · Save £36</div>
-      </div>
-      <div class="preview-doc-price" style="color:var(--green-bright);">£79</div>
+  <div class="wrap">
+    <div class="breadcrumb"><a href="/">Home</a><span>/</span>Manuals</div>
+    <div class="eyebrow" style="color:var(--gold);"><span class="eyebrow-dot" style="background:var(--gold)"></span>Professional documentation</div>
+    <h1>Winman ERP Manuals</h1>
+    <p style="max-width:560px;font-size:1rem;margin-top:6px;">Written from real Winman source documents by food industry specialists. Professional, printable, and team-shareable. Instant PDF download.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:20px;">
+      <span class="badge badge-teal">✓ Instant PDF download</span>
+      <span class="badge badge-blue">✓ Printable &amp; team-shareable</span>
+      <span class="badge badge-gray">✓ 30-day email support included</span>
     </div>
   </div>
 </div>
 
-<div class="ticker"><div class="ticker-inner">◆ PROFESSIONAL MANUALS &nbsp;&nbsp;&nbsp; ◆ INSTANT PDF DOWNLOAD &nbsp;&nbsp;&nbsp; ◆ AIRTABLE PIM &nbsp;&nbsp;&nbsp; ◆ AI WORKFLOW DOCS &nbsp;&nbsp;&nbsp; ◆ ERP GUIDES &nbsp;&nbsp;&nbsp; ◆ FOOD BUSINESS DOCUMENTATION &nbsp;&nbsp;&nbsp; ◆ PROFESSIONAL MANUALS &nbsp;&nbsp;&nbsp; ◆ INSTANT PDF DOWNLOAD &nbsp;&nbsp;&nbsp; ◆ AIRTABLE PIM &nbsp;&nbsp;&nbsp; ◆ AI WORKFLOW DOCS &nbsp;&nbsp;&nbsp; ◆ ERP GUIDES &nbsp;&nbsp;&nbsp; ◆ FOOD BUSINESS DOCUMENTATION &nbsp;&nbsp;&nbsp;</div></div>
+<div class="ticker-wrap"><div class="ticker-track">
+  <span class="ticker-item accent">Winman ERP Manuals</span><span class="ticker-item">·</span><span class="ticker-item">Warehouse &amp; Go</span><span class="ticker-item">·</span><span class="ticker-item accent">Buying &amp; Products</span><span class="ticker-item">·</span><span class="ticker-item">Sales &amp; CRM</span><span class="ticker-item">·</span><span class="ticker-item accent">Finance</span><span class="ticker-item">·</span><span class="ticker-item">Instant PDF</span><span class="ticker-item">·</span>
+  <span class="ticker-item accent">Winman ERP Manuals</span><span class="ticker-item">·</span><span class="ticker-item">Warehouse &amp; Go</span><span class="ticker-item">·</span><span class="ticker-item accent">Buying &amp; Products</span><span class="ticker-item">·</span><span class="ticker-item">Sales &amp; CRM</span><span class="ticker-item">·</span><span class="ticker-item accent">Finance</span><span class="ticker-item">·</span><span class="ticker-item">Instant PDF</span><span class="ticker-item">·</span>
+</div></div>
 
-<!-- SHOP -->
-<section style="background:var(--bg);padding:60px 80px;" id="shop">
-  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;" class="reveal">
-    <div>
-      <div class="section-label">Shop</div>
-      <h2 style="margin-bottom:8px;">All Manuals</h2>
-      <p style="color:var(--muted);font-size:13px;">Instant PDF download after purchase. All prices in GBP.</p>
-    </div>
-    <button class="btn-outline" onclick="openModal()">Request a custom manual →</button>
-  </div>
-
-  <div class="filter-bar reveal">
-    <span class="filter-label">Filter:</span>
-    <button class="filter-btn active" onclick="filterManuals('all',this)">All</button>
-    <button class="filter-btn" onclick="filterManuals('ai',this)">AI Workflows</button>
-    <button class="filter-btn" onclick="filterManuals('airtable',this)">Airtable</button>
-    <button class="filter-btn" onclick="filterManuals('integration',this)">Integration</button>
-    <button class="filter-btn" onclick="filterManuals('bundle',this)">Bundle</button>
-  </div>
-
-  <div class="manuals-grid" id="manuals-grid">
-
-    <!-- AIRTABLE PIM MANUAL -->
-    <div class="manual-card reveal" data-category="airtable">
-      <span class="manual-card-badge badge-bestseller">Bestseller</span>
-      <div class="manual-icon">🗄️</div>
-      <div class="manual-cat">Airtable · PIM</div>
-      <div class="manual-title">Airtable PIM Setup Manual for Food Businesses</div>
-      <p class="manual-desc">The complete implementation manual for setting up Airtable as a Product Information Management system. Everything from base structure to Shopify API connection — written for food businesses.</p>
-      <ul class="manual-contents">
-        <li>Base structure &amp; table architecture</li>
-        <li>All 16 product fields with configurations</li>
-        <li>14 allergen fields setup walkthrough</li>
-        <li>Supplier &amp; category linking</li>
-        <li>Image &amp; media attachment best practices</li>
-        <li>Shopify REST API sync — step by step</li>
-        <li>Airtable automations for low stock alerts</li>
-        <li>Team permissions &amp; sharing settings</li>
-      </ul>
-      <div class="manual-meta">
-        <span class="meta-pill">📄 42 pages</span>
-        <span class="meta-pill">🖨 Printable PDF</span>
-        <span class="meta-pill">🔄 Updated 2025</span>
-      </div>
-      <div class="manual-footer">
-        <div class="manual-price">
-          <div class="price-amount">£29</div>
-          <div class="price-label">Instant download</div>
-        </div>
-        <div style="display:flex;gap:10px;align-items:center;">
-          <button class="btn-preview" onclick="showPreview('airtable-pim')">Preview →</button>
-          <a href="https://buy.stripe.com/placeholder-airtable-pim" class="btn-buy" target="_blank">Buy now</a>
-        </div>
-      </div>
+<section class="sec">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;" class="rev">
+      <div><div class="eyebrow teal"><span class="eyebrow-dot"></span>Available now</div><h2 style="margin-top:6px;">All Manuals</h2></div>
+      <button class="btn btn-outline btn-sm" onclick="openModal()">Request custom manual →</button>
     </div>
 
-    <!-- AI EMAIL TO ORDER MANUAL -->
-    <div class="manual-card reveal" data-category="ai">
-      <span class="manual-card-badge badge-new">New</span>
-      <div class="manual-icon">📧</div>
-      <div class="manual-cat">AI · Workflow Automation</div>
-      <div class="manual-title">AI Email to Sales Order: Implementation Manual</div>
-      <p class="manual-desc">The complete technical and operational manual for implementing AI-powered email to sales order conversion in a food distribution or wholesale business.</p>
-      <ul class="manual-contents">
-        <li>How the AI workflow works — full diagram</li>
-        <li>Tool selection guide: Make.com + LLM setup</li>
-        <li>Writing effective AI extraction prompts</li>
-        <li>Product catalogue preparation for AI matching</li>
-        <li>Connecting to your ERP or order system</li>
-        <li>Testing &amp; confidence threshold settings</li>
-        <li>Staff training &amp; change management notes</li>
-        <li>Troubleshooting common issues</li>
-      </ul>
-      <div class="manual-meta">
-        <span class="meta-pill">📄 38 pages</span>
-        <span class="meta-pill">🖨 Printable PDF</span>
-        <span class="meta-pill">📊 Includes diagrams</span>
-      </div>
-      <div class="manual-footer">
-        <div class="manual-price">
-          <div class="price-amount">£29</div>
-          <div class="price-label">Instant download</div>
+    <div class="manuals-grid">
+      <div class="manual-card rev">
+        <div class="mc-stripe ms-blue"></div>
+        <div class="mc-top"><div class="mc-icon-wrap">📘</div><span class="badge badge-teal">Bestseller</span></div>
+        <div class="mc-tag">Winman Go · Warehouse</div>
+        <div class="mc-title">Winman Go &amp; Warehouse Operations Manual</div>
+        <p class="mc-desc">App setup, user roles, picking, packing, ASN pallet shipping, replenishment, pallet moves, and over-shipping controls for food distribution environments.</p>
+        <div class="mc-includes">
+          <div class="mc-item">App setup &amp; mobile user role configuration</div>
+          <div class="mc-item">Step-by-step picking, packing &amp; finalisation</div>
+          <div class="mc-item">ASN advanced shipping notices &amp; SSCC labels</div>
+          <div class="mc-item">Replenishment, pallet moves &amp; put-away setup</div>
+          <div class="mc-item">Over-shipping controls — EACH and catchweight</div>
         </div>
-        <div style="display:flex;gap:10px;align-items:center;">
-          <button class="btn-preview" onclick="showPreview('ai-email')">Preview →</button>
-          <a href="https://buy.stripe.com/placeholder-ai-email" class="btn-buy" target="_blank">Buy now</a>
+        <div class="mc-meta-row"><span class="mc-meta-tag">📄 12 pages</span><span class="mc-meta-tag">🖨 Printable PDF</span><span class="mc-meta-tag">✓ 2025</span></div>
+        <div class="mc-footer">
+          <div><div class="mc-price">£29</div><div class="mc-price-note">Instant download</div></div>
+          <div class="mc-btns"><button class="btn-prev" onclick="openModal()">Preview →</button><a href="https://buy.stripe.com/placeholder" class="btn btn-blue btn-sm" target="_blank">Buy now</a></div>
         </div>
       </div>
-    </div>
-
-    <!-- INVOICE AUTOMATION MANUAL -->
-    <div class="manual-card reveal" data-category="ai">
-      <div class="manual-icon">🧾</div>
-      <div class="manual-cat">AI · Finance Automation</div>
-      <div class="manual-title">Invoice Approval Automation Manual</div>
-      <p class="manual-desc">A practical implementation manual for setting up AI-powered invoice approval workflows. Covers three-way matching, approval rules, exception routing, and accounting system integration.</p>
-      <ul class="manual-contents">
-        <li>Three-way match explained with examples</li>
-        <li>Setting approval thresholds &amp; rules</li>
-        <li>AI OCR setup for PDF invoices</li>
-        <li>Make.com workflow build — step by step</li>
-        <li>Connecting to Xero, Sage, or QuickBooks</li>
-        <li>Exception handling &amp; escalation paths</li>
-        <li>Audit trail &amp; compliance notes</li>
-        <li>Month 1 rollout plan</li>
-      </ul>
-      <div class="manual-meta">
-        <span class="meta-pill">📄 34 pages</span>
-        <span class="meta-pill">🖨 Printable PDF</span>
-        <span class="meta-pill">🔄 Updated 2025</span>
-      </div>
-      <div class="manual-footer">
-        <div class="manual-price">
-          <div class="price-amount">£29</div>
-          <div class="price-label">Instant download</div>
+      <div class="manual-card rev">
+        <div class="mc-stripe ms-teal"></div>
+        <div class="mc-top"><div class="mc-icon-wrap" style="background:var(--teal-light)">📗</div><span class="badge badge-new">New</span></div>
+        <div class="mc-tag">Winman · Buying &amp; Products</div>
+        <div class="mc-title">Buying &amp; Product Setup Manual</div>
+        <p class="mc-desc">Creating and managing products, suppliers, and pricing. Covers all product tabs, catchweight, supplier financial configuration, and activity centres for cheese cuts and hampers.</p>
+        <div class="mc-includes">
+          <div class="mc-item">Complete product tab field reference</div>
+          <div class="mc-item">Catchweight &amp; e-commerce product configuration</div>
+          <div class="mc-item">Supplier setup with full financial config</div>
+          <div class="mc-item">Activity centres for hampers &amp; cheese cuts</div>
+          <div class="mc-item">EDI customer setup (Sainsbury's etc)</div>
         </div>
-        <div style="display:flex;gap:10px;align-items:center;">
-          <button class="btn-preview" onclick="showPreview('invoice')">Preview →</button>
-          <a href="https://buy.stripe.com/placeholder-invoice" class="btn-buy" target="_blank">Buy now</a>
+        <div class="mc-meta-row"><span class="mc-meta-tag">📄 13 pages</span><span class="mc-meta-tag">🖨 Printable PDF</span><span class="mc-meta-tag">✓ 2025</span></div>
+        <div class="mc-footer">
+          <div><div class="mc-price">£29</div><div class="mc-price-note">Instant download</div></div>
+          <div class="mc-btns"><button class="btn-prev" onclick="openModal()">Preview →</button><a href="https://buy.stripe.com/placeholder" class="btn btn-teal btn-sm" target="_blank">Buy now</a></div>
+        </div>
+      </div>
+      <div class="manual-card rev">
+        <div class="mc-stripe ms-gold"></div>
+        <div class="mc-top"><div class="mc-icon-wrap" style="background:var(--gold-light)">📙</div></div>
+        <div class="mc-tag">Winman · Sales &amp; CRM</div>
+        <div class="mc-title">Sales &amp; CRM Manual</div>
+        <p class="mc-desc">Complete guide for the sales team — all order types, CRM prospect management, customer setup, order amendment rules, shipment tracking, RMAs, and demand forecasting.</p>
+        <div class="mc-includes">
+          <div class="mc-item">CRM prospects through to customer activation</div>
+          <div class="mc-item">Standard, forward, direct, taxi &amp; veg orders</div>
+          <div class="mc-item">Order amendment rules — with/without Shipment ID</div>
+          <div class="mc-item">Shipment tracking &amp; RMA returns process</div>
+          <div class="mc-item">Demand forecasting &amp; stock shorts enquiries</div>
+        </div>
+        <div class="mc-meta-row"><span class="mc-meta-tag">📄 15 pages</span><span class="mc-meta-tag">🖨 Printable PDF</span><span class="mc-meta-tag">✓ 2025</span></div>
+        <div class="mc-footer">
+          <div><div class="mc-price">£29</div><div class="mc-price-note">Instant download</div></div>
+          <div class="mc-btns"><button class="btn-prev" onclick="openModal()">Preview →</button><a href="https://buy.stripe.com/placeholder" class="btn btn-blue btn-sm" target="_blank">Buy now</a></div>
+        </div>
+      </div>
+      <div class="manual-card rev">
+        <div class="mc-stripe ms-indigo"></div>
+        <div class="mc-top"><div class="mc-icon-wrap" style="background:#EDE9FE">📕</div></div>
+        <div class="mc-tag">Winman · Finance</div>
+        <div class="mc-title">Finance Manual — Purchase &amp; Sales Ledger</div>
+        <p class="mc-desc">The complete finance reference — purchase invoices, credit notes, payment runs, bank reconciliation, retro discounts, customer payments, refunds, statements, and write-offs.</p>
+        <div class="mc-includes">
+          <div class="mc-item">Stock &amp; non-stock purchase invoices (GBP &amp; EUR)</div>
+          <div class="mc-item">Payment runs, bank transactions &amp; reconciliation</div>
+          <div class="mc-item">Retro discount credits with correct VAT treatment</div>
+          <div class="mc-item">Amazon &amp; marketplace payment allocation</div>
+          <div class="mc-item">Write-offs, refunds, reversals &amp; account management</div>
+        </div>
+        <div class="mc-meta-row"><span class="mc-meta-tag">📄 19 pages</span><span class="mc-meta-tag">🖨 Printable PDF</span><span class="mc-meta-tag">✓ 2025</span></div>
+        <div class="mc-footer">
+          <div><div class="mc-price">£35</div><div class="mc-price-note">Instant download</div></div>
+          <div class="mc-btns"><button class="btn-prev" onclick="openModal()">Preview →</button><a href="https://buy.stripe.com/placeholder" class="btn btn-blue btn-sm" target="_blank">Buy now</a></div>
         </div>
       </div>
     </div>
 
-    <!-- INTEGRATION MANUAL -->
-    <div class="manual-card reveal" data-category="integration">
-      <div class="manual-icon">🔗</div>
-      <div class="manual-cat">Integration · Systems</div>
-      <div class="manual-title">Food Business Systems Integration Manual</div>
-      <p class="manual-desc">The practical manual for connecting food business platforms — covering REST API, SFTP, and Microsoft Graph. Includes worked examples for Shopify ↔ ERP, Airtable ↔ Shopify, and Outlook ↔ workflows.</p>
-      <ul class="manual-contents">
-        <li>REST API fundamentals with food examples</li>
-        <li>SFTP setup &amp; scheduled file transfers</li>
-        <li>Microsoft Graph authentication setup</li>
-        <li>Shopify to ERP integration walkthrough</li>
-        <li>Airtable REST API — full reference</li>
-        <li>Make.com as integration middleware</li>
-        <li>Error handling &amp; monitoring</li>
-        <li>Security &amp; credential management</li>
-      </ul>
-      <div class="manual-meta">
-        <span class="meta-pill">📄 52 pages</span>
-        <span class="meta-pill">🖨 Printable PDF</span>
-        <span class="meta-pill">💻 Code examples</span>
-      </div>
-      <div class="manual-footer">
-        <div class="manual-price">
-          <div class="price-amount">£35</div>
-          <div class="price-label">Instant download</div>
-        </div>
-        <div style="display:flex;gap:10px;align-items:center;">
-          <button class="btn-preview" onclick="showPreview('integration')">Preview →</button>
-          <a href="https://buy.stripe.com/placeholder-integration" class="btn-buy" target="_blank">Buy now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- COMING SOON -->
-    <div class="manual-card reveal" data-category="airtable" style="opacity:0.55;cursor:default;">
-      <div class="manual-icon">📦</div>
-      <div class="manual-cat">Coming soon · Inventory</div>
-      <div class="manual-title">Food Business Inventory Management Manual</div>
-      <p class="manual-desc">End-to-end inventory management for food distributors. Stock tracking, expiry date management, supplier ordering, and waste reduction — practical and ready to implement.</p>
-      <div class="manual-meta">
-        <span class="meta-pill">📄 ~45 pages</span>
-        <span class="meta-pill">🔔 Notify me</span>
-      </div>
-      <div class="manual-footer">
-        <div class="manual-price">
-          <div class="price-amount" style="font-size:18px;color:var(--muted);">Coming soon</div>
-          <div class="price-label">Expected Nov 2025</div>
-        </div>
-        <button class="btn-preview" onclick="openModal()">Notify me →</button>
-      </div>
-    </div>
-
-    <!-- COMING SOON 2 -->
-    <div class="manual-card reveal" data-category="ai" style="opacity:0.55;cursor:default;">
-      <div class="manual-icon">⚙️</div>
-      <div class="manual-cat">Coming soon · Automation</div>
-      <div class="manual-title">Make.com for Food Businesses Manual</div>
-      <p class="manual-desc">A complete Make.com implementation manual for food businesses — covering the 12 most useful automation scenarios, from order confirmations to supplier alerts.</p>
-      <div class="manual-meta">
-        <span class="meta-pill">📄 ~50 pages</span>
-        <span class="meta-pill">🔔 Notify me</span>
-      </div>
-      <div class="manual-footer">
-        <div class="manual-price">
-          <div class="price-amount" style="font-size:18px;color:var(--muted);">Coming soon</div>
-          <div class="price-label">Expected Dec 2025</div>
-        </div>
-        <button class="btn-preview" onclick="openModal()">Notify me →</button>
-      </div>
-    </div>
-
-    <!-- BUNDLE -->
-    <div class="manual-card bundle reveal" data-category="bundle">
+    <div class="bundle-wrap rev">
       <div>
-        <span class="manual-card-badge badge-bundle" style="position:relative;top:auto;right:auto;display:inline-block;margin-bottom:16px;">Best value</span>
-        <div class="manual-icon">📚</div>
-        <div class="manual-cat">Bundle · All 4 manuals</div>
-        <div class="manual-title" style="font-size:24px;">Complete Food Tech Manuals Bundle</div>
-        <p class="manual-desc">All four available manuals in one download. Airtable PIM, AI Email Orders, Invoice Automation, and Systems Integration — everything you need to modernise a food distribution or wholesale business.</p>
-        <div class="bundle-saving">✓ Save £36 vs buying individually</div>
-        <div class="manual-footer" style="margin-top:24px;padding-top:20px;">
-          <div class="manual-price">
-            <div class="price-amount" style="font-size:36px;">£79</div>
-            <div class="price-label">All 4 manuals · Instant download</div>
-            <div style="font-size:11px;color:var(--muted);text-decoration:line-through;margin-top:4px;">£122 if bought separately</div>
-          </div>
-          <a href="https://buy.stripe.com/placeholder-bundle" class="btn-buy" style="padding:14px 32px;font-size:12px;" target="_blank">Buy bundle →</a>
-        </div>
+        <div class="bundle-tag">★ Best value</div>
+        <h2>Complete Winman Bundle</h2>
+        <p style="color:var(--muted);margin:8px 0 12px;">All four Winman ERP manuals in one download. Everything you need to train and document your whole team.</p>
+        <div style="font-size:.875rem;font-weight:700;color:var(--teal);margin-bottom:16px;">✓ Save £36 vs buying individually</div>
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:4px;"><div class="bundle-price">£79</div><div style="color:var(--light);text-decoration:line-through;font-size:.9rem;">£122 individually</div></div>
+        <a href="https://buy.stripe.com/placeholder-bundle" class="btn btn-blue btn-lg" style="margin-top:16px;" target="_blank">Buy complete bundle →</a>
       </div>
       <div>
-        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">What's included</div>
-        <div class="bundle-list">
-          <div class="bundle-item">Airtable PIM Setup Manual (42pp)</div>
-          <div class="bundle-item">AI Email to Sales Order Manual (38pp)</div>
-          <div class="bundle-item">Invoice Approval Automation Manual (34pp)</div>
-          <div class="bundle-item">Systems Integration Manual (52pp)</div>
+        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--light);margin-bottom:12px;font-family:'Plus Jakarta Sans',sans-serif;">What's included</div>
+        <div class="bundle-grid">
+          <div class="bundle-item">Warehouse Manual (12pp)</div>
+          <div class="bundle-item">Buying Manual (13pp)</div>
+          <div class="bundle-item">Sales &amp; CRM Manual (15pp)</div>
+          <div class="bundle-item">Finance Manual (19pp)</div>
           <div class="bundle-item">Instant PDF download</div>
-          <div class="bundle-item">All future updates included</div>
-          <div class="bundle-item">Printable &amp; team-shareable</div>
-          <div class="bundle-item">Priority email support (30 days)</div>
+          <div class="bundle-item">All future updates</div>
+          <div class="bundle-item">Print &amp; share with team</div>
+          <div class="bundle-item">30-day email support</div>
         </div>
       </div>
     </div>
 
-  </div>
-</section>
+    <div style="margin-top:64px;" class="rev">
+      <div class="eyebrow teal"><span class="eyebrow-dot"></span>How it works</div>
+      <h2 style="margin-top:8px;margin-bottom:4px;">Simple process</h2>
+      <div class="how-grid">
+        <div class="how-step"><div class="how-num">01</div><div class="how-title">Choose your manual</div><p class="how-desc">Browse the options, check the contents, and pick the manual that matches what you're setting up.</p></div>
+        <div class="how-step"><div class="how-num">02</div><div class="how-title">Complete checkout</div><p class="how-desc">Secure payment via Stripe. Takes 30 seconds. All major cards accepted. No account required.</p></div>
+        <div class="how-step"><div class="how-num">03</div><div class="how-title">Instant PDF download</div><p class="how-desc">Download link sent immediately by email. The PDF is yours to keep, print, and share with your team.</p></div>
+        <div class="how-step"><div class="how-num">04</div><div class="how-title">30-day support</div><p class="how-desc">If something in the manual doesn't match your setup, just ask — we'll help you apply it correctly.</p></div>
+      </div>
+    </div>
 
-<!-- HOW IT WORKS -->
-<div class="how-it-works" id="how">
-  <div class="section-label reveal">Simple process</div>
-  <h2 class="reveal">How It Works</h2>
-  <div class="how-grid">
-    <div class="how-step reveal">
-      <div class="how-num">01</div>
-      <div class="how-title">Choose your manual</div>
-      <div class="how-desc">Browse the shop, preview the table of contents, and pick the manual that matches what you're setting up or implementing.</div>
-    </div>
-    <div class="how-step reveal">
-      <div class="how-num">02</div>
-      <div class="how-title">Complete checkout</div>
-      <div class="how-desc">Secure payment via Stripe. Takes 30 seconds. We accept all major cards and PayPal. No account required.</div>
-    </div>
-    <div class="how-step reveal">
-      <div class="how-num">03</div>
-      <div class="how-title">Instant PDF download</div>
-      <div class="how-desc">You're emailed a download link immediately. The PDF is yours to keep, print, share with your team, and use as a reference.</div>
-    </div>
-    <div class="how-step reveal">
-      <div class="how-num">04</div>
-      <div class="how-title">Questions? Ask us</div>
-      <div class="how-desc">Every manual purchase comes with 30 days of email support. If something in the manual isn't clear, just ask — we'll help.</div>
-    </div>
-  </div>
-</div>
-
-<!-- CUSTOM MANUAL REQUEST -->
-<div class="custom-section" id="custom">
-  <div class="reveal">
-    <div class="section-label">Bespoke service</div>
-    <h2>Need a Manual Written<br>for <em style="font-style:italic;color:var(--amber)">Your Business?</em></h2>
-    <p style="color:var(--muted);font-size:13px;line-height:1.9;margin-top:10px;margin-bottom:24px;">We produce custom manuals from your existing documentation, notes, or processes. Upload what you have — a draft, a set of notes, a recorded walkthrough — and we'll turn it into a professional, branded, publication-quality PDF manual your team can actually use.</p>
-    <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
-      <li style="font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--green-bright);">✓</span> Operational procedures &amp; SOPs</li>
-      <li style="font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--green-bright);">✓</span> System setup &amp; IT documentation</li>
-      <li style="font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--green-bright);">✓</span> Staff onboarding &amp; training guides</li>
-      <li style="font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--green-bright);">✓</span> Food safety &amp; compliance documentation</li>
-      <li style="font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--green-bright);">✓</span> Branded with your logo and colours</li>
-    </ul>
-  </div>
-  <div class="custom-form-area reveal">
-    <div class="section-label" style="margin-bottom:16px;">Request a custom manual</div>
-    <div class="custom-form">
-      <input type="text" placeholder="Your name" />
-      <input type="email" placeholder="Your email" />
-      <input type="text" placeholder="Business name" />
-      <select>
-        <option disabled selected>Type of manual needed</option>
-        <option>Operational procedures / SOPs</option>
-        <option>System / IT setup manual</option>
-        <option>Staff onboarding guide</option>
-        <option>Food safety &amp; compliance manual</option>
-        <option>Software user guide</option>
-        <option>Custom — I'll describe below</option>
-      </select>
-      <textarea placeholder="Describe what you need. Include any existing materials you can share — notes, drafts, recordings. We'll respond with a quote and timeline."></textarea>
-      <button class="custom-submit" onclick="submitCustom()">Send request →</button>
-      <div class="custom-note">We respond within 1 business day with a quote</div>
-    </div>
-  </div>
-</div>
-
-<!-- FAQ -->
-<section style="background:var(--surface);padding:80px;" id="faq">
-  <div class="section-label reveal">Questions</div>
-  <h2 class="reveal">Manual FAQs</h2>
-  <div style="display:flex;flex-direction:column;gap:1px;background:var(--border);margin-top:40px;" class="reveal">
-    <div style="background:var(--surface);">
-      <div class="faq-q" onclick="toggleFaq(this)">Can I share the manual with my whole team?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Yes. All manuals are licensed for use within your business. You can share the PDF with your team, print it, and use it as a reference across your organisation. You just can't resell it or distribute it publicly.</div>
-    </div>
-    <div style="background:var(--surface);">
-      <div class="faq-q" onclick="toggleFaq(this)">What format are the manuals in?<span class="faq-icon">+</span></div>
-      <div class="faq-a">All manuals are delivered as professionally typeset PDFs. They're designed to be read on screen or printed — whichever works best for your team. They include a table of contents, page numbers, and are formatted for A4 printing.</div>
-    </div>
-    <div style="background:var(--surface);">
-      <div class="faq-q" onclick="toggleFaq(this)">What if the manual doesn't match my exact setup?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Our manuals are written to be broadly applicable but focused on the most common setups for food businesses. If something doesn't quite match your situation, every purchase includes 30 days of email support — just ask us and we'll clarify or adapt. For a fully custom version built around your specific systems, use the custom manual request form above.</div>
-    </div>
-    <div style="background:var(--surface);">
-      <div class="faq-q" onclick="toggleFaq(this)">Can I get a manual customised with my company branding?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Yes — we offer a branded/customised version of any manual. This adds your logo, colour scheme, and company name throughout, and we can adapt the content to reference your specific tools and processes. Use the custom manual request form for a quote.</div>
-    </div>
-    <div style="background:var(--surface);">
-      <div class="faq-q" onclick="toggleFaq(this)">Do you offer refunds?<span class="faq-icon">+</span></div>
-      <div class="faq-a">If you're not satisfied with a manual, contact us within 7 days of purchase and we'll either resolve the issue or issue a full refund — no awkward questions. We want the manuals to be genuinely useful.</div>
+    <div style="margin-top:48px;" class="rev">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;"><h2>FAQs</h2></div>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-q" onclick="faq(this)">Can I share the manual with my whole team?<span class="faq-ico">+</span></button><div class="faq-a">Yes. All manuals are licensed for use within your business. You can share the PDF with your team, print it, and use it as a reference. You cannot resell or distribute it publicly.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="faq(this)">What if the manual doesn't match our exact configuration?<span class="faq-ico">+</span></button><div class="faq-a">The manuals cover the standard Winman configuration used in food distribution environments. Every purchase includes 30 days of email support — just ask and we'll help you apply the guidance to your specific setup. For a fully bespoke version, contact us for a custom quote.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="faq(this)">What format are the manuals in?<span class="faq-ico">+</span></button><div class="faq-a">All manuals are professionally typeset PDFs, designed for screen reading or A4 printing. They include a table of contents, numbered steps, field reference tables, and warning callouts.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="faq(this)">Do you offer refunds?<span class="faq-ico">+</span></button><div class="faq-a">If you're not satisfied, contact us within 7 days of purchase and we'll either resolve the issue or issue a full refund. No awkward questions.</div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div>
-    <a href="/" class="logo">Tech<span>In</span>Food</a>
-    <p class="footer-desc">Free guides, professional manuals, and honest tech advice for small food businesses.</p>
+<footer><div class="wrap">
+  <div class="footer-grid">
+    <div><div class="f-logo"><div class="f-logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><span class="f-logo-text">Tech<span>In</span>Food</span></div><p class="f-desc">Professional manuals and honest tech advice for small food businesses.</p></div>
+    <div class="f-col"><h4>Manuals</h4><ul><li><a href="#manuals">Warehouse Manual</a></li><li><a href="#manuals">Buying Manual</a></li><li><a href="#manuals">Sales &amp; CRM Manual</a></li><li><a href="#manuals">Finance Manual</a></li><li><a href="#manuals">Full Bundle — £79</a></li></ul></div>
+    <div class="f-col"><h4>Free Guides</h4><ul><li><a href="/guides/">All guides</a></li><li><a href="/guides/airtable-pim.html">Airtable PIM</a></li><li><a href="/guides/ai-email-to-sales-order.html">AI Email Orders</a></li></ul></div>
+    <div class="f-col"><h4>Support</h4><ul><li><a onclick="openModal()">Custom Manual</a></li><li><a href="/#ask">Get Help</a></li><li><a onclick="openModal()">Ask a Question</a></li></ul></div>
   </div>
-  <div class="footer-col">
-    <h4>Manuals</h4>
-    <ul>
-      <li><a href="#shop">Airtable PIM Manual</a></li>
-      <li><a href="#shop">AI Email Orders Manual</a></li>
-      <li><a href="#shop">Invoice Automation Manual</a></li>
-      <li><a href="#shop">Integration Manual</a></li>
-      <li><a href="#shop">Full Bundle — £79</a></li>
-    </ul>
-  </div>
-  <div class="footer-col">
-    <h4>Free Guides</h4>
-    <ul>
-      <li><a href="/guides/">All guides</a></li>
-      <li><a href="/guides/airtable-pim.html">Airtable PIM</a></li>
-      <li><a href="/guides/ai-email-to-sales-order.html">AI Email Orders</a></li>
-      <li><a href="/blog/">Blog</a></li>
-    </ul>
-  </div>
-  <div class="footer-col">
-    <h4>Support</h4>
-    <ul>
-      <li><a onclick="openModal()">Custom Manual Request</a></li>
-      <li><a href="/#ask-us">Get Help</a></li>
-      <li><a onclick="openModal()">Ask a Question</a></li>
-      <li><a href="https://winman.how" target="_blank">Winman.how</a></li>
-    </ul>
-  </div>
-</footer>
-<div class="footer-bottom"><span>© 2025 TechInFood · Professional manuals for food businesses</span><span>hello@techinfood.com</span></div>
-
+  <div class="f-bottom"><span>© 2025 TechInFood</span><span>hello@techinfood.com</span></div>
+</div></footer>
 <script src="../assets/nav.js"></script>
-<script>
-  // Preview modal content
-  const previews = {
-    'airtable-pim': {
-      title: 'Airtable PIM Setup Manual — Table of Contents',
-      chapters: [
-        {num:'Chapter 1', title:'Introduction to PIM for food businesses', pages:'pp. 4–8', locked:false},
-        {num:'Chapter 2', title:'Setting up your Airtable base architecture', pages:'pp. 9–15', locked:false},
-        {num:'Chapter 3', title:'Building the Products table — all 16 fields', pages:'pp. 16–21', locked:true},
-        {num:'Chapter 4', title:'Allergen and nutritional fields', pages:'pp. 22–26', locked:true},
-        {num:'Chapter 5', title:'Linking Suppliers and Categories', pages:'pp. 27–30', locked:true},
-        {num:'Chapter 6', title:'Image and media management', pages:'pp. 31–34', locked:true},
-        {num:'Chapter 7', title:'Shopify REST API connection', pages:'pp. 35–39', locked:true},
-        {num:'Chapter 8', title:'Automations, alerts, and team setup', pages:'pp. 40–42', locked:true},
-      ]
-    },
-    'ai-email': {
-      title: 'AI Email to Sales Order Manual — Table of Contents',
-      chapters: [
-        {num:'Chapter 1', title:'How AI email order processing works', pages:'pp. 4–9', locked:false},
-        {num:'Chapter 2', title:'Tool selection and account setup', pages:'pp. 10–14', locked:false},
-        {num:'Chapter 3', title:'Make.com scenario build — step by step', pages:'pp. 15–22', locked:true},
-        {num:'Chapter 4', title:'Writing your AI extraction prompt', pages:'pp. 23–27', locked:true},
-        {num:'Chapter 5', title:'Product catalogue preparation', pages:'pp. 28–31', locked:true},
-        {num:'Chapter 6', title:'ERP and order system connection', pages:'pp. 32–35', locked:true},
-        {num:'Chapter 7', title:'Testing and confidence thresholds', pages:'pp. 36–37', locked:true},
-        {num:'Chapter 8', title:'Staff training and rollout guide', pages:'pp. 38', locked:true},
-      ]
-    },
-    'invoice': {
-      title: 'Invoice Approval Automation Manual — Table of Contents',
-      chapters: [
-        {num:'Chapter 1', title:'Understanding three-way matching', pages:'pp. 4–8', locked:false},
-        {num:'Chapter 2', title:'Defining your approval rules', pages:'pp. 9–13', locked:false},
-        {num:'Chapter 3', title:'AI OCR setup for PDF invoices', pages:'pp. 14–18', locked:true},
-        {num:'Chapter 4', title:'Make.com workflow — full build', pages:'pp. 19–25', locked:true},
-        {num:'Chapter 5', title:'Accounting system integration', pages:'pp. 26–29', locked:true},
-        {num:'Chapter 6', title:'Exception handling and escalation', pages:'pp. 30–32', locked:true},
-        {num:'Chapter 7', title:'Audit trail and compliance notes', pages:'pp. 33', locked:true},
-        {num:'Chapter 8', title:'Month 1 rollout plan', pages:'pp. 34', locked:true},
-      ]
-    },
-    'integration': {
-      title: 'Food Business Systems Integration Manual — Table of Contents',
-      chapters: [
-        {num:'Chapter 1', title:'REST API fundamentals for food businesses', pages:'pp. 4–10', locked:false},
-        {num:'Chapter 2', title:'SFTP: secure batch file transfer', pages:'pp. 11–16', locked:false},
-        {num:'Chapter 3', title:'Microsoft Graph API setup', pages:'pp. 17–22', locked:true},
-        {num:'Chapter 4', title:'Shopify to ERP integration', pages:'pp. 23–30', locked:true},
-        {num:'Chapter 5', title:'Airtable REST API full reference', pages:'pp. 31–38', locked:true},
-        {num:'Chapter 6', title:'Make.com as integration middleware', pages:'pp. 39–44', locked:true},
-        {num:'Chapter 7', title:'Error handling and monitoring', pages:'pp. 45–49', locked:true},
-        {num:'Chapter 8', title:'Security and credential management', pages:'pp. 50–52', locked:true},
-      ]
-    }
-  };
-
-  function showPreview(key) {
-    const data = previews[key];
-    if (!data) return;
-    const chapters = data.chapters.map(c => `
-      <div class="preview-chapter">
-        <div class="chapter-num">${c.num}</div>
-        <div class="${c.locked ? 'chapter-locked' : 'chapter-title'}">${c.title}</div>
-        <div class="chapter-pages">${c.pages}</div>
-      </div>
-    `).join('');
-    document.getElementById('preview-modal-content').innerHTML = `
-      <button class="preview-modal-close" onclick="closePreview()">✕</button>
-      <div class="section-label" style="margin-bottom:12px;">Table of contents preview</div>
-      <h3 style="font-family:'Playfair Display',serif;font-size:18px;color:var(--cream);margin-bottom:6px;line-height:1.3;">${data.title}</h3>
-      <p style="font-size:11px;color:var(--muted);margin-bottom:24px;">First 2 chapters shown in full. Remaining chapters blurred — purchase to unlock.</p>
-      ${chapters}
-      <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);display:flex;gap:10px;">
-        <a href="https://buy.stripe.com/placeholder-${key}" class="btn-buy" style="flex:1;text-align:center;" target="_blank">Buy now →</a>
-        <button onclick="closePreview()" class="btn-outline">Close</button>
-      </div>
-    `;
-    document.getElementById('preview-modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closePreview() {
-    document.getElementById('preview-modal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.getElementById('preview-modal').addEventListener('click', function(e) { if(e.target===this) closePreview(); });
-
-  // Filter
-  function filterManuals(cat, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.manual-card').forEach(card => {
-      if (cat === 'all' || card.dataset.category === cat) {
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-
-  // Custom form
-  function submitCustom() {
-    document.querySelector('.custom-form-area').innerHTML = `
-      <div style="text-align:center;padding:32px 0;">
-        <div style="font-size:48px;margin-bottom:16px;">✓</div>
-        <p style="font-family:'Playfair Display',serif;font-size:20px;color:var(--cream);margin-bottom:10px;">Request received</p>
-        <p style="font-size:12px;color:var(--muted);line-height:1.8;">We'll come back to you within 1 business day with a quote and timeline.</p>
-      </div>`;
-  }
-
-  // FAQ
-  function toggleFaq(el) {
-    const a = el.nextElementSibling;
-    el.classList.toggle('open');
-    a && a.classList && a.classList.toggle('open');
-  }
-
-  // FAQ styles inline since we're not importing full shared CSS for faq
-  document.querySelectorAll('.faq-q').forEach(q => {
-    q.style.cssText = 'padding:20px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:20px;font-size:13px;color:var(--cream);transition:background 0.2s;user-select:none;';
-    q.addEventListener('mouseenter', () => q.style.background = 'var(--panel)');
-    q.addEventListener('mouseleave', () => { if(!q.classList.contains('open')) q.style.background = ''; });
-  });
-  document.querySelectorAll('.faq-icon').forEach(i => {
-    i.style.cssText = 'font-size:18px;color:var(--amber);flex-shrink:0;transition:transform 0.3s;';
-  });
-  document.querySelectorAll('.faq-a').forEach(a => {
-    a.style.cssText = 'max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s ease;font-size:12px;color:var(--muted);line-height:1.9;padding:0 24px;';
-  });
-  document.querySelectorAll('.faq-q').forEach(q => {
-    q.addEventListener('click', function() {
-      const a = this.nextElementSibling;
-      const icon = this.querySelector('.faq-icon');
-      const isOpen = a.style.maxHeight && a.style.maxHeight !== '0px';
-      if (isOpen) {
-        a.style.maxHeight = '0'; a.style.padding = '0 24px';
-        if(icon) icon.style.transform = '';
-      } else {
-        a.style.maxHeight = '400px'; a.style.padding = '0 24px 22px';
-        if(icon) icon.style.transform = 'rotate(45deg)';
-      }
-    });
-  });
-</script>
-</body>
-</html>
+</body></html>
