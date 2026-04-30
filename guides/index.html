@@ -3,137 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Guides for Small Food Businesses | TechInFood</title>
-<meta name="description" content="Free, plain-English guides on technology for small food distributors, wholesalers, and food businesses. Airtable PIM, AI workflows, ERP, Shopify, API integration — all free to read.">
+<title>Free Guides for Food Businesses | TechInFood</title>
+<meta name="description" content="Free, plain-English guides on technology for small food distributors, wholesalers, and food businesses. Airtable PIM, AI workflows, ERP, Shopify, API integration.">
 <link rel="canonical" href="https://www.techinfood.com/guides/">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 <style>
-  .page-hero { padding: 120px 80px 60px; background: var(--surface); border-bottom: 1px solid var(--border); }
-  .guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
-  .guide-card { background: var(--bg); padding: 36px 30px; position: relative; overflow: hidden; transition: background 0.25s; text-decoration: none; display: block; color: inherit; }
-  .guide-card:hover { background: var(--panel); }
-  .guide-card::after { content: '→'; position: absolute; bottom: 26px; right: 26px; font-size: 16px; color: var(--border); transition: color 0.2s; }
-  .guide-card:hover::after { color: var(--amber); }
-  .guide-cat { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber-dim); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-  .guide-cat::before { content: ''; display: block; width: 18px; height: 1px; background: var(--amber-dim); }
-  .guide-title { font-family: 'Fraunces', serif; font-size: 18px; color: var(--cream); margin-bottom: 10px; line-height: 1.35; }
-  .guide-excerpt { font-size: 11px; color: var(--muted); line-height: 1.8; margin-bottom: 18px; }
-  .guide-meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-  .guide-level { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; }
-  .level-beginner { background: rgba(109,184,114,0.1); color: var(--green-bright); }
-  .level-intermediate { background: rgba(232,164,34,0.1); color: var(--amber); }
-  .guide-time { font-size: 10px; color: var(--muted); }
-  .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
-  .filter-btn { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; padding: 6px 14px; border: 1px solid var(--border); color: var(--muted); background: none; cursor: pointer; transition: all 0.2s; font-family: 'DM Mono', monospace; }
-  .filter-btn:hover, .filter-btn.active { border-color: var(--amber); color: var(--amber); }
-  @media(max-width:900px){ .page-hero{padding:100px 24px 40px;} .guides-grid{grid-template-columns:1fr;} section{padding:48px 24px;} }
+  .guides-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .filter-bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:32px; }
+  .filter-btn { font-size:.8rem; font-weight:700; padding:7px 16px; border:1.5px solid var(--border); border-radius:20px; color:var(--muted); background:none; cursor:pointer; transition:all .15s; font-family:'Plus Jakarta Sans',sans-serif; }
+  .filter-btn:hover, .filter-btn.active { border-color:var(--blue); color:var(--blue); background:var(--blue-faint); }
+  @media(max-width:900px){ .guides-grid{grid-template-columns:1fr;} .sec{padding:56px 0;} }
 </style>
 </head>
 <body>
 
-<div class="modal-overlay" id="modal">
-  <div class="modal" id="modal-inner">
+<div class="modal-ov" id="modal">
+  <div class="modal-box" id="modal-inner">
     <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="section-label" style="margin-bottom:10px;">Ask us anything</div>
-    <h3>Send us your question</h3>
-    <p>Can't find the answer in our guides? We reply to every question personally.</p>
-    <div class="modal-form">
-      <input type="text" placeholder="Your name" />
-      <input type="email" placeholder="Your email" />
-      <select><option value="" disabled selected>Topic area</option><option>Airtable PIM</option><option>AI Workflows</option><option>Shopify Integration</option><option>ERP Advice</option><option>API / SFTP / Graph</option><option>General advice</option></select>
+    <div class="modal-eye">Ask us anything</div>
+    <h3>Send your question</h3>
+    <p>Can't find the answer? We reply to every question personally.</p>
+    <div class="mform">
+      <input type="text" placeholder="Your name" /><input type="email" placeholder="Your email" />
+      <select><option disabled selected>Topic</option><option>Airtable PIM</option><option>AI Workflows</option><option>Shopify Integration</option><option>ERP Advice</option><option>API Integration</option><option>General advice</option></select>
       <textarea placeholder="Your question…"></textarea>
-      <button class="modal-submit" onclick="submitForm()">Send question →</button>
-      <div class="modal-note">We reply within 1 business day · No spam</div>
+      <button class="mform-submit" onclick="submitForm()">Send →</button>
+      <div class="mform-note">We reply within 1 business day</div>
     </div>
   </div>
 </div>
 
 <nav>
-  <a href="/" class="logo">Tech<span>In</span>Food <span class="logo-badge">Knowledge Hub</span></a>
-  <ul>
-    <li><a href="/guides/" class="active">Guides</a></li>
-    <li><a href="/#ai-docs">AI Workflows</a></li>
-    <li><a href="/#tools">Tools</a></li>
-    <li><a href="/blog/">Blog</a></li>
-    <li><a href="/#ask-us">Get Help</a></li>
-    <li><a href="#" onclick="openModal()" class="nav-cta">Ask Us</a></li>
-  </ul>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <span class="nav-logo-text">Tech<span>In</span>Food</span>
+      <span class="nav-pill">Knowledge Hub</span>
+    </a>
+    <div class="nav-links">
+      <a href="/guides/" class="active">Guides</a>
+      <a href="/#ai">AI Workflows</a>
+      <a href="/manuals/">Manuals</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#ask">Get Help</a>
+    </div>
+    <div class="nav-actions">
+      <button class="btn btn-blue btn-sm" onclick="openModal()">Ask Us</button>
+    </div>
+  </div>
 </nav>
 
 <div class="page-hero">
-  <div class="breadcrumb"><a href="/">Home</a> <span>/</span> Guides</div>
-  <div class="section-label">Free resources</div>
-  <h2 style="font-size:clamp(32px,4vw,54px);letter-spacing:-1px;">Guides &amp; Documentation</h2>
-  <p style="color:var(--muted);font-size:13px;max-width:560px;margin-top:10px;line-height:1.9;">Written for small food distributors, wholesalers, and food-related businesses. Practical, step-by-step, and completely free. No sign-up required.</p>
+  <div class="wrap">
+    <div class="breadcrumb"><a href="/">Home</a><span>/</span>Guides</div>
+    <div class="eyebrow teal"><span class="eyebrow-dot"></span>Free resources</div>
+    <h1>Guides &amp; Documentation</h1>
+    <p style="max-width:540px;font-size:1rem;">Written for small food distributors, wholesalers, and food businesses. Practical, step-by-step, and completely free. No sign-up required.</p>
+  </div>
 </div>
 
-<div class="ticker"><div class="ticker-inner">◆ AIRTABLE PIM &nbsp;&nbsp;&nbsp; ◆ AI WORKFLOWS &nbsp;&nbsp;&nbsp; ◆ SHOPIFY INTEGRATION &nbsp;&nbsp;&nbsp; ◆ ERP ADVICE &nbsp;&nbsp;&nbsp; ◆ REST API · SFTP · GRAPH &nbsp;&nbsp;&nbsp; ◆ INVOICE AUTOMATION &nbsp;&nbsp;&nbsp; ◆ FREE GUIDES &nbsp;&nbsp;&nbsp; ◆ AIRTABLE PIM &nbsp;&nbsp;&nbsp; ◆ AI WORKFLOWS &nbsp;&nbsp;&nbsp; ◆ SHOPIFY INTEGRATION &nbsp;&nbsp;&nbsp; ◆ ERP ADVICE &nbsp;&nbsp;&nbsp; ◆ REST API · SFTP · GRAPH &nbsp;&nbsp;&nbsp; ◆ INVOICE AUTOMATION &nbsp;&nbsp;&nbsp; ◆ FREE GUIDES &nbsp;&nbsp;&nbsp;</div></div>
+<div class="ticker-wrap"><div class="ticker-track">
+  <span class="ticker-item accent">Airtable PIM</span><span class="ticker-item">·</span><span class="ticker-item">AI Workflows</span><span class="ticker-item">·</span><span class="ticker-item accent">Shopify Integration</span><span class="ticker-item">·</span><span class="ticker-item">ERP Advice</span><span class="ticker-item">·</span><span class="ticker-item accent">Invoice Automation</span><span class="ticker-item">·</span><span class="ticker-item">REST API · SFTP · Graph</span><span class="ticker-item">·</span>
+  <span class="ticker-item accent">Airtable PIM</span><span class="ticker-item">·</span><span class="ticker-item">AI Workflows</span><span class="ticker-item">·</span><span class="ticker-item accent">Shopify Integration</span><span class="ticker-item">·</span><span class="ticker-item">ERP Advice</span><span class="ticker-item">·</span><span class="ticker-item accent">Invoice Automation</span><span class="ticker-item">·</span><span class="ticker-item">REST API · SFTP · Graph</span><span class="ticker-item">·</span>
+</div></div>
 
-<section style="padding:60px 80px;background:var(--bg);">
-  <div class="filter-bar">
-    <button class="filter-btn active">All guides</button>
-    <button class="filter-btn">AI Workflows</button>
-    <button class="filter-btn">Airtable · PIM</button>
-    <button class="filter-btn">Integration</button>
-    <button class="filter-btn">Shopify</button>
-    <button class="filter-btn">ERP</button>
-    <button class="filter-btn">Inventory</button>
-  </div>
-  <div class="guides-grid">
-    <a href="/guides/airtable-pim.html" class="guide-card reveal">
-      <div class="guide-cat">Airtable · PIM</div>
-      <div class="guide-title">Setting up Airtable as a PIM for food businesses</div>
-      <div class="guide-excerpt">Step-by-step: build a product database with allergens, nutritional data, supplier links, and media — then connect it to Shopify via REST API.</div>
-      <div class="guide-meta"><span class="guide-level level-intermediate">Intermediate</span><span class="guide-time">15 min read</span></div>
-    </a>
-    <a href="/guides/ai-email-to-sales-order.html" class="guide-card reveal">
-      <div class="guide-cat">AI Workflows</div>
-      <div class="guide-title">How to automate email to sales order conversion</div>
-      <div class="guide-excerpt">How AI reads customer order emails, extracts product lines, and creates a draft sales order — with no manual re-keying.</div>
-      <div class="guide-meta"><span class="guide-level level-beginner">Beginner</span><span class="guide-time">8 min read</span></div>
-    </a>
-    <a href="/guides/invoice-approval-automation.html" class="guide-card reveal">
-      <div class="guide-cat">AI Workflows</div>
-      <div class="guide-title">Invoice approval automation for food businesses</div>
-      <div class="guide-excerpt">Three-way matching, auto-approval rules, and exception routing — explained plainly for food distributors and wholesalers.</div>
-      <div class="guide-meta"><span class="guide-level level-beginner">Beginner</span><span class="guide-time">10 min read</span></div>
-    </a>
-    <a href="/guides/rest-api-sftp-graph.html" class="guide-card reveal">
-      <div class="guide-cat">Integration</div>
-      <div class="guide-title">REST API, SFTP, and Microsoft Graph — which does your food business need?</div>
-      <div class="guide-excerpt">A practical comparison with real food business examples. When to use each connection method and how to choose.</div>
-      <div class="guide-meta"><span class="guide-level level-beginner">Beginner</span><span class="guide-time">7 min read</span></div>
-    </a>
-    <a href="/blog/do-i-need-an-erp.html" class="guide-card reveal">
-      <div class="guide-cat">ERP · Systems</div>
-      <div class="guide-title">Do I actually need an ERP? A guide for small food distributors</div>
-      <div class="guide-excerpt">Honest advice on when a full ERP makes sense and when Airtable plus integrations is enough. Includes a decision framework.</div>
-      <div class="guide-meta"><span class="guide-level level-beginner">Beginner</span><span class="guide-time">9 min read</span></div>
-    </a>
-    <a href="/blog/airtable-vs-spreadsheet.html" class="guide-card reveal">
-      <div class="guide-cat">Inventory · Getting started</div>
-      <div class="guide-title">Airtable vs spreadsheets for food business inventory — an honest comparison</div>
-      <div class="guide-excerpt">When a spreadsheet is fine and when it's costing you. A practical look at the real differences for food businesses under 20 staff.</div>
-      <div class="guide-meta"><span class="guide-level level-beginner">Beginner</span><span class="guide-time">6 min read</span></div>
-    </a>
-  </div>
-  <div style="text-align:center;margin-top:48px;padding-top:40px;border-top:1px solid var(--border);" class="reveal">
-    <p style="color:var(--muted);font-size:13px;margin-bottom:20px;">Can't find what you're looking for? We'll point you in the right direction.</p>
-    <button class="btn-primary" onclick="openModal()">Request a guide or ask a question →</button>
+<section class="sec">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;" class="rev">
+      <div class="filter-bar" style="margin-bottom:0;">
+        <button class="filter-btn active">All guides</button>
+        <button class="filter-btn">AI Workflows</button>
+        <button class="filter-btn">Airtable · PIM</button>
+        <button class="filter-btn">Integration</button>
+        <button class="filter-btn">ERP</button>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="openModal()">Request a guide →</button>
+    </div>
+    <div class="guides-grid">
+      <a href="/guides/airtable-pim.html" class="guide-card rev"><div class="gc-icon">🗄️</div><div class="gc-tag">Airtable · PIM</div><div class="gc-title">Setting up Airtable as a PIM for food businesses</div><p class="gc-desc">Step-by-step: build your product database with allergens, nutritional data, supplier links, and media — then connect to Shopify via REST API.</p><div class="gc-footer"><span class="gc-level gl-i">Intermediate</span><span class="gc-time">15 min</span><span class="gc-link">Read →</span></div></a>
+      <a href="/guides/ai-email-to-sales-order.html" class="guide-card rev"><div class="gc-icon">📧</div><div class="gc-tag">AI Workflows</div><div class="gc-title">How to automate email to sales order conversion</div><p class="gc-desc">How AI reads customer order emails, extracts product lines, and creates a draft sales order — with no manual re-keying.</p><div class="gc-footer"><span class="gc-level gl-b">Beginner</span><span class="gc-time">8 min</span><span class="gc-link">Read →</span></div></a>
+      <a href="/guides/invoice-approval-automation.html" class="guide-card rev"><div class="gc-icon">🧾</div><div class="gc-tag">AI Workflows</div><div class="gc-title">Invoice approval automation for food businesses</div><p class="gc-desc">Three-way matching, auto-approval rules, and exception routing — explained plainly for food distributors and wholesalers.</p><div class="gc-footer"><span class="gc-level gl-b">Beginner</span><span class="gc-time">10 min</span><span class="gc-link">Read →</span></div></a>
+      <a href="/guides/rest-api-sftp-graph.html" class="guide-card rev"><div class="gc-icon">🔗</div><div class="gc-tag">Integration</div><div class="gc-title">REST API, SFTP &amp; Microsoft Graph — which do you need?</div><p class="gc-desc">A practical comparison with real food business examples. When to use each connection method and how to choose.</p><div class="gc-footer"><span class="gc-level gl-b">Beginner</span><span class="gc-time">7 min</span><span class="gc-link">Read →</span></div></a>
+      <a href="/blog/posts/do-i-need-an-erp.html" class="guide-card rev"><div class="gc-icon">🏭</div><div class="gc-tag">ERP · Systems</div><div class="gc-title">Do I actually need an ERP? A guide for small food distributors</div><p class="gc-desc">Honest advice on when a full ERP makes sense and when Airtable plus integrations is enough. Includes a simple decision framework.</p><div class="gc-footer"><span class="gc-level gl-b">Beginner</span><span class="gc-time">9 min</span><span class="gc-link">Read →</span></div></a>
+      <a href="/blog/posts/airtable-vs-spreadsheet.html" class="guide-card rev"><div class="gc-icon">📊</div><div class="gc-tag">Inventory</div><div class="gc-title">Airtable vs spreadsheets for food inventory</div><p class="gc-desc">When spreadsheets are fine and when they're costing you. A practical look for food businesses — and how to switch in an afternoon.</p><div class="gc-footer"><span class="gc-level gl-b">Beginner</span><span class="gc-time">6 min</span><span class="gc-link">Read →</span></div></a>
+    </div>
+    <div style="text-align:center;margin-top:40px;padding-top:36px;border-top:1px solid var(--border);" class="rev">
+      <p style="margin-bottom:16px;">Can't find what you're looking for?</p>
+      <button class="btn btn-blue" onclick="openModal()">Request a guide or ask a question →</button>
+    </div>
   </div>
 </section>
 
-<footer>
-  <div>
-    <a href="/" class="logo">Tech<span>In</span>Food</a>
-    <p class="footer-desc">Free guides, documentation, and honest tech advice for small and medium food businesses. No jargon, no sales pressure.</p>
+<footer><div class="wrap">
+  <div class="footer-grid">
+    <div><div class="f-logo"><div class="f-logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><span class="f-logo-text">Tech<span>In</span>Food</span></div><p class="f-desc">Free guides and honest tech advice for small food businesses.</p></div>
+    <div class="f-col"><h4>Guides</h4><ul><li><a href="/guides/airtable-pim.html">Airtable PIM</a></li><li><a href="/guides/ai-email-to-sales-order.html">AI Email Orders</a></li><li><a href="/guides/invoice-approval-automation.html">Invoice Automation</a></li><li><a href="/guides/rest-api-sftp-graph.html">API Integration</a></li></ul></div>
+    <div class="f-col"><h4>Manuals</h4><ul><li><a href="/manuals/">All Winman Manuals</a></li><li><a href="/manuals/">Full Bundle — £79</a></li></ul></div>
+    <div class="f-col"><h4>Support</h4><ul><li><a onclick="openModal()">Ask a Question</a></li><li><a href="/#ask">Get Help</a></li><li><a href="/blog/">Blog</a></li></ul></div>
   </div>
-  <div class="footer-col"><h4>Guides</h4><ul><li><a href="/guides/airtable-pim.html">Airtable PIM</a></li><li><a href="/guides/ai-email-to-sales-order.html">AI Email Orders</a></li><li><a href="/guides/invoice-approval-automation.html">Invoice Automation</a></li><li><a href="/guides/rest-api-sftp-graph.html">API Integration</a></li></ul></div>
-  <div class="footer-col"><h4>Blog</h4><ul><li><a href="/blog/">All posts</a></li><li><a href="/blog/do-i-need-an-erp.html">Do I need an ERP?</a></li><li><a href="/blog/airtable-vs-spreadsheet.html">Airtable vs Spreadsheet</a></li></ul></div>
-  <div class="footer-col"><h4>Support</h4><ul><li><a onclick="openModal()">Ask a Question</a></li><li><a href="/#ask-us">Get Help</a></li><li><a href="https://winman.how" target="_blank">Winman.how</a></li></ul></div>
-</footer>
-<div class="footer-bottom"><span>© 2025 TechInFood · Free knowledge for food businesses</span><span>hello@techinfood.com</span></div>
+  <div class="f-bottom"><span>© 2025 TechInFood</span><span>hello@techinfood.com</span></div>
+</div></footer>
 <script src="../assets/nav.js"></script>
-</body>
-</html>
+</body></html>
